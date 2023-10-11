@@ -10,6 +10,8 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
+    "sync": "astro sync",
+    "check": "astro check",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
