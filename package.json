@@ -1,0 +1,23 @@
+{
+  "name": "itsrainingmani.dev-upgrade",
+  "author": "Mani Sundararajan <mani@hey.com> (https://itsrainingmani.dev)",
+  "description": "The Overthunk Site Overhaul",
+  "homepage": "https://itsrainingmani.dev",
+  "repository": "https://github.com/itsrainingmani/itsrainingmani.dev-upgrade#readme",
+  "license": "MIT",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^1.1.1",
+    "@astrojs/rss": "^3.0.0",
+    "@astrojs/sitemap": "^3.0.1",
+    "astro": "^3.2.4"
+  }
+}
