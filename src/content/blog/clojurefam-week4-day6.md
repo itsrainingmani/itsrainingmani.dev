@@ -1,0 +1,190 @@
+---
+title: "ClojureFam - Week 4 - Day 6"
+publishDate: "18 July 2020"
+tags: ["clojurefam", "clojure"]
+publish: true
+---
+
+# ClojureFam - Week 4 - Day 6
+
+Today I made some progress with Ch 10 but not that much. But I worked on the Athens issue and polished up the code to the point where I thought it was ready to be a PR.
+
+## Chapter 10 - Zombie Metaphysics
+
+In object oriented programming, an object as something that is singular and constant but with properties that changes over time.
+
+For ex. a cuddle zombie is an object with mutable state but no matter the change in state, the object is still idenfitied as the same one.
+
+In OOP, an object is a fancy ref cell that is subject to non-deterministic results in mulit-threaded envs since there is no guarantee of thread-safety. It needs to be explicitly performed using a mutex.
+
+There is also no way to retain the state of an object at a specific moment in time.
+
+### Clojure Metaphysics
+
+Cuddle Zombie -> succession of *values*. A value is atomic -> forms a single, irreducible unit or component.
+
+They are indivisible, unchanging, stable entities.
+
+The value itself doesn't change but we can apply a process on a value to produce a new value.
+
+For ex.
+
+```clojure
+(def x {:a 1 :b 2})
+(println x)
+(assoc x :c 3) ;; -> produces a new map with :c
+(println x) ;; {:a 1 :b 2}
+```
+
+In that example, `assoc` produces a new map. `x` is unchanged.
+
+Clojure uses identity to mean a process imposed on a succession of unchanged values over time. `state` is the value of an identity at a point in time.
+
+A name simply refers to a series of individual states.
+
+A reference type in Clojure is used to name an identity and retrieve it's state.
+
+### Atom
+
+An atom ref type lets you associate a succession of related values with an identity.
+
+```clojure
+(def fred (atom {:cuddle-hunger-level 0
+                 :percent-deteriorated 0}))
+```
+
+Here an atom is created and bound to the name `fred`. `fred` refers to the value `{:cuddle-hunger-level 0 :percent-deteriorated 0}`.
+
+Dereferencing an atom doesn't block since it's asking Clojure to return the value that the atom is referring to.
+
+`swap!` takes an atom and function and applies the function to the atom's current state to produce a new value. The atom is then updated to refer to this new state.
+
+## Athens Issue
+
+This is where we left off yesterday -
+
+```clojure
+(= key KeyCodes.UP)
+(when (> index 0)
+    (swap! state update :index dec)
+    (let [select-el (first (array-seq (. js/document getElementsByClassName "selected")))
+            next-el (.. select-el -previousElementSibling)
+            athena-el (first (array-seq (. js/document getElementsByClassName "athena")))
+            result-el (nth (array-seq (.. athena-el -children)) 2)
+            result-box (.. result-el getBoundingClientRect)
+            next-box (.. next-el getBoundingClientRect)]
+        (when (< (.. next-box -top) (.. result-box -top))
+        (.. next-el (scrollIntoView true {:behavior "auto"})))))
+
+(= key KeyCodes.DOWN)
+(when (< index (dec (count results)))
+    (swap! state update :index inc)
+    (let [select-el (first (array-seq (. js/document getElementsByClassName "selected")))
+            next-el (.. select-el -nextElementSibling)
+            athena-el (first (array-seq (. js/document getElementsByClassName "athena")))
+            result-el (nth (array-seq (.. athena-el -children)) 2)
+            result-box (.. result-el getBoundingClientRect)
+            next-box (.. next-el getBoundingClientRect)]
+        (when (> (.. next-box -bottom) (.. result-box -bottom))
+        (.. next-el (scrollIntoView false {:behavior "auto"})))))
+```
+
+The code works but it could be better. Oh also it doesn't allow for cycling through the list when the end is reached.
+
+Let's see how we can fix this -
+
+```clojure
+
+;; Key UP
+(swap! state update :index #(dec (if (zero? index) (count results) index)))
+
+;;Key DOWN
+(swap! state update :index #(if (= index (dec (count results))) 0 (inc %)))
+```
+
+This code is pretty self-explanatory. If we reach the top of the list, we set the index to 1 minus the size of the result list. If we reach the bottom, we set the index back to 0. This ensures that we can seamlessly cycle through the list.
+
+There's also some nice refactoring we can perform on the body of the event handler.
+
+```clojure
+(= key KeyCodes.UP)
+(do
+  (swap! state update :index #(dec (if (zero? index) (count results) index)))
+  (let [cur-index (get @state :index)
+        input-el (.. e -target)
+        result-el (.. (. input-el closest "div.athena") -lastElementChild)
+        result-box (.. result-el getBoundingClientRect)
+        next-el (nth (array-seq (.. result-el -children)) cur-index)
+        next-box (.. next-el getBoundingClientRect)]
+    (if (= cur-index (dec (count results)))
+      (.. next-el (scrollIntoView false {:behavior "auto"}))
+      (when (< (.. next-box -top) (.. result-box -top))
+        (.. next-el (scrollIntoView true {:behavior "auto"}))))))
+
+(= key KeyCodes.DOWN)
+(do
+  (swap! state update :index #(if (= index (dec (count results))) 0 (inc %)))
+  (let [cur-index (get @state :index)
+        input-el (.. e -target)
+        result-el (.. (. input-el closest "div.athena") -lastElementChild)
+        result-box (.. result-el getBoundingClientRect)
+        next-el (nth (array-seq (.. result-el -children)) cur-index)
+        next-box (.. next-el getBoundingClientRect)]
+    (if (zero? cur-index)
+      (.. next-el (scrollIntoView true {:behavior "auto"}))
+      (when (> (.. next-box -bottom) (.. result-box -bottom))
+        (.. next-el (scrollIntoView false {:behavior "auto"}))))))
+```
+
+Instead of finding elements by className, we use `e.target` and the hierarchical structure of the DOM to get the elements we want.
+
+There is still some changes we can make. The bounds checking code seems to be repetitive. We can condense both sides of the bounds check into one function -
+
+```clojure
+
+(defn is-beyond-rect?
+  "Checks if any part of the element is above or below the container's bounding rect"
+  [element container]
+  (let [el-box (.. element getBoundingClientRect)
+        cont-box (.. container getBoundingClientRect)]
+    (or
+     (> (.. el-box -bottom) (.. cont-box -bottom))
+     (< (.. el-box -top) (.. cont-box -top)))))
+```
+
+This function returns true if the top of the element is above the given container or if the bottom of the element is below the container. We handle both cases of the bounds check in one simple function that we can re-use.
+
+The final event handler code ends up being -
+
+```clojure
+(= key KeyCodes.UP)
+(do
+  (swap! state update :index #(dec (if (zero? index) (count results) index)))
+  (let [cur-index (:index @state)
+        input-el (.. e -target)
+        result-el (.. (. input-el closest "div.athena") -lastElementChild)
+        next-el (nth (array-seq (.. result-el -children)) cur-index)]
+    (when (is-beyond-rect? next-el result-el)
+      (.. next-el (scrollIntoView (not= cur-index (dec (count results))) {:behavior "auto"})))))
+
+(= key KeyCodes.DOWN)
+(do
+  (swap! state update :index #(if (= index (dec (count results))) 0 (inc %)))
+  (let [cur-index (:index @state)
+        input-el (.. e -target)
+        result-el (.. (. input-el closest "div.athena") -lastElementChild)
+        next-el (nth (array-seq (.. result-el -children)) cur-index)]
+    (when (is-beyond-rect? next-el result-el)
+      (.. next-el (scrollIntoView (zero? cur-index) {:behavior "auto"})))))
+```
+
+## Takeaways
+
+Clojure has some very strong ideas about immutability which translates quite well onto multi-threaded paradigms. This allows us to reason about the state of our code in a much better fashion since we don't have to be worried about whether or not we're going to run into the 3 Goblins of Concurrency.
+
+Today's tally -
+
+* 1/3rd of Ch 10
+* Fix athena issue
+* Refactor code
+* Submit PR
