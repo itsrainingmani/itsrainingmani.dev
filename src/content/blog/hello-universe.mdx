@@ -6,8 +6,8 @@ tags: ["hello world", "blog"]
 publish: true
 ---
 
-import { Image } from "@astrojs/image/components";
-import blackhole from "../../images/blackhole.jpg";
+import { Image } from "astro:assets";
+import blackhole from "@/assets/blackhole.jpg";
 
 <Image src={blackhole} alt="interstellar blackhole" />
 

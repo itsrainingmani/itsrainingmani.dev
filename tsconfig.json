@@ -6,7 +6,8 @@
     "paths": {
       "@/components/*": ["src/components/*.astro"],
       "@/layouts/*": ["src/layouts/*.astro"],
-      "@/data/*": ["src/data/*"]
+      "@/data/*": ["src/data/*"],
+      "@/assets/*": ["src/assets/*"]
     }
   },
   "exclude": ["node_modules", "dist", ".vercel", "public"]

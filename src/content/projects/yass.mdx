@@ -6,15 +6,13 @@ repo: "https://github.com/itsrainingmani/yass"
 tags: ["ts", "sudoku"]
 ---
 
-import { Image } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 
 YASS is a pure TypeScript implementation of Peter Norvig's <a href='https://norvig.com/sudoku.html'>Sudoku Solver</a> with no additional dependencies. The purpose of writing this program was to learn how to create an efficient sudoku solver that can handle a variety of puzzles using Depth-First Search and Constraint Propagation while learning the TypeScript language.
 
 <div class="center">
 	<Image
 		src="https://raw.githubusercontent.com/itsrainingmani/yass/master/usage-example.png"
-		width={100}
-		aspectRatio={10}
 		alt="Using YASS"
 	/>
 </div>

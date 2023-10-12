@@ -6,8 +6,10 @@ tags: ["js", "ts", "prototype", "article"]
 publish: true
 ---
 
-import federico from "../../images/federico.jpg";
-// <img src={federico} alt="Art by Federico Beccari" />;
+import { Image } from 'astro:assets';
+import federico from "@/assets/federico.jpg";
+
+<Image src={federico} alt="cool light art" />
 
 ## What is an Object Prototype
 
