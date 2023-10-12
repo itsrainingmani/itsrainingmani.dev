@@ -11,7 +11,7 @@ const { pageTitle } = Astro.props;
   <head>
     <BaseHead title={pageTitle} description={SITE_DESCRIPTION} />
   </head>
-  <body>
+  <body class="max-w-5xl">
     <Header />
     <slot />
     <Footer />
