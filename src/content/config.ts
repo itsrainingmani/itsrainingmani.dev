@@ -28,4 +28,13 @@ const projects = defineCollection({
   }),
 });
 
-export const collections = { blog, projects };
+const clojurefam = defineCollection({
+  schema: z.object({
+    title: z.string().max(60),
+    publishDate: z.coerce.date(),
+    tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
+    publish: z.boolean().default(false),
+  }),
+});
+
+export const collections = { blog, projects, clojurefam };

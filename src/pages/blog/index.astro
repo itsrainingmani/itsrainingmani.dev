@@ -5,9 +5,11 @@ import BaseLayout from "@/layouts/BaseLayout";
 
 const pageTitle = "Written Archive";
 
-const posts = (await getCollection("blog")).sort(
-	(a, b) => a.data.publishDate.valueOf() - b.data.publishDate.valueOf(),
-);
+const posts = (
+	await getCollection("blog", ({ data }) => {
+		return data.publish === true;
+	})
+).sort((a, b) => a.data.publishDate.valueOf() - b.data.publishDate.valueOf());
 ---
 
 <BaseLayout>
@@ -28,6 +30,10 @@ const posts = (await getCollection("blog")).sort(
 					))
 				}
 			</ul>
+		</section>
+		<section>
+			<span>For my writing about learning Clojure in Public, check here:</span>
+			<a href="/blog/clojurefam">morewriting.clj</a>
 		</section>
 	</main>
 </BaseLayout>
