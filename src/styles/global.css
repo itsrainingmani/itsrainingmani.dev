@@ -19,6 +19,7 @@
 	--shironezu: #dcdddd;
 	--nezumiiro: #949495;
 	--yanagi: #c8d5bb;
+	--nezuogusa: #4d80e6;
 }
 @font-face {
 	font-family: "Atkinson";
@@ -46,6 +47,41 @@ body {
 	/* background: linear-gradient(var(--gray-gradient)) no-repeat; */
 	background-size: 100% 600px;
 	color: rgb(var(--gray-dark));
+	line-height: 1.5;
+}
+
+.table-links {
+	width: 100%;
+	border-spacing: 0;
+	border-collapse: 0;
+	text-align: left;
+	border: 0.1rem solid var(--usuzumiiro);
+}
+
+.table-links > thead {
+	background-color: var(--shironezu);
+	color: #000;
+	border: 1px solid #000;
+	vertical-align: middle;
+}
+
+.table-links th {
+	padding: 0.3rem 0.6rem 0;
+	font-weight: 600;
+	border-bottom: 0.1rem solid #000;
+}
+
+.table-links td {
+	padding: 0.3rem 0.6rem 0;
+	border-bottom: 0.1rem solid var(--usuzumiiro);
+}
+
+.table-links a {
+	color: var(--nezuogusa);
+}
+
+h1 {
+	padding-bottom: 1rem;
 }
 
 /* body { */
@@ -142,8 +178,8 @@ body {
 /*   font-size: 1.333em; */
 /* } */
 hr {
-	border: none;
 	border-top: 1px solid rgb(var(--gray-light));
+	margin: 0.25rem 0;
 }
 
 .hamburger {
