@@ -1,0 +1,19 @@
+---
+const { location } = Astro.props;
+---
+
+<a
+	class="custom-action -top-0.5 inline-block h-8 cursor-pointer select-none appearance-none whitespace-nowrap border border-solid border-black bg-white px-2 pt-0.5 text-center align-middle text-black transition duration-300 ease-in-out"
+	href={location}
+>
+	<slot />
+</a>
+<style>
+	.custom-action {
+		box-shadow: 2px 2px var(--usuzumiiro);
+	}
+	.custom-action:hover {
+		background-color: var(--yanagi);
+		box-shadow: 0px 0px;
+	}
+</style>

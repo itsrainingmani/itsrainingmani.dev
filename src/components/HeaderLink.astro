@@ -9,9 +9,9 @@ const { pathname } = Astro.url;
 const isActive = href === pathname || href === pathname.replace(/\/$/, "");
 ---
 
-<div class="mb-2 hover:bg-black hover:text-white">
+<div class="mb-2">
 	<a
-		class="appearance-none cursor-pointer select-none whitespace-nowrap pt-0.5 pr-2 h-8 -top-0.5 w-full border border-solid border-black align-middle text-center"
+		class="custom-boxshadow -top-0.5 inline-block h-8 w-full cursor-pointer select-none appearance-none whitespace-nowrap border border-solid border-black pr-2 pt-0.5 text-center align-middle no-underline"
 		href={href}
 		class:list={[className, { active: isActive }]}
 		{...props}
@@ -21,13 +21,35 @@ const isActive = href === pathname || href === pathname.replace(/\/$/, "");
 </div>
 <style>
 	a {
-		display: inline-block;
 		text-decoration: none;
-		box-shadow: 2px 2px var(--usuzumiiro);
 	}
 	a.active {
 		font-weight: bolder;
 		box-shadow: 3px -3px var(--roiro);
-		/* text-decoration: underline; */
+	}
+	.custom-boxshadow {
+		position: relative;
+		transition:
+			box-shadow ease 0.3s,
+			transform ease 0.3s;
+		box-shadow: 2px 2px var(--usuzumiiro);
+	}
+	.custom-boxshadow::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+		box-shadow: 3px -3px var(--roiro);
+		transition: opacity ease 0.3s;
+	}
+
+	.custom-boxshadow:hover {
+		box-shadow: 3px -3px var(--roiro);
+	}
+	.custom-boxshadow:hover::after {
+		opacity: 0.8;
 	}
 </style>
