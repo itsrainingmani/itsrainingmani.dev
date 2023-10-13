@@ -2,12 +2,19 @@
 import HeaderLink from "@/components/HeaderLink";
 ---
 
-<header class="flex justify-around">
+<header class="mb-6">
 	<span class="hamburger">Menu</span>
-	<nav class="nav-links">
-		<HeaderLink href="/">Home</HeaderLink>
-		<HeaderLink href="/blog">Writing</HeaderLink>
-		<HeaderLink href="/projects">Projects</HeaderLink>
-		<HeaderLink href="/info">Info</HeaderLink>
+	<nav>
+		<div class="nav-section grid gap-2 grid-flow-col columns-4 text-center">
+			<HeaderLink href="/">Home</HeaderLink>
+			<HeaderLink href="/blog">Writing</HeaderLink>
+			<HeaderLink href="/projects">Projects</HeaderLink>
+			<HeaderLink href="/info">Info</HeaderLink>
+		</div>
 	</nav>
 </header>
+<style>
+	.nav-section {
+		grid-auto-columns: minmax(0, 1fr);
+	}
+</style>
