@@ -14,6 +14,10 @@
   --gray-gradient: rgba(var(--gray-light), 50%), #fff;
   --box-shadow: 0 2px 6px rgba(var(--gray), 25%),
     0 8px 24px rgba(var(--gray), 33%), 0 16px 32px rgba(var(--gray), 33%);
+  --usuzumiiro: #a3a3a2;
+  --roiro: #2b2b2b;
+  --shironezu: #dcdddd;
+  --nezumiiro: #949495;
 }
 @font-face {
   font-family: "Atkinson";
