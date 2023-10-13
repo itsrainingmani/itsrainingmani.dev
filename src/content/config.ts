@@ -30,7 +30,7 @@ const projects = defineCollection({
 
 const clojurefam = defineCollection({
   schema: z.object({
-    title: z.string().max(60),
+    title: z.string().max(100),
     publishDate: z.coerce.date(),
     tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
     publish: z.boolean().default(false),
