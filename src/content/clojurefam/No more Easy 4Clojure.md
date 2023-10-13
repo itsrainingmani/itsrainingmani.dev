@@ -95,7 +95,7 @@ This post is going to be quite sparse since I was pretty occupied with normal li
 
 Some of the Easy problems weren't all that "easy" to solve. I definitely benefited from working on them after a while. When I got started on them today, I was able to figure out solutions to them without much consternation.
 
-Today's tally - 
+Today's tally -
 
-* 3 Easy problems
-* 2 Medium problems
+- 3 Easy problems
+- 2 Medium problems

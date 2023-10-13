@@ -13,7 +13,7 @@ publish: true
 
 ## Expectations
 
-My primary expectation for today was to really try to get into a functional frame of mind. After yesterday's *revelations* with the 4Clojure problems, I wanted to try to solidify those *revelations* and make sure that I was comfortable with them. On a more quotidian note, I also wanted to see how many of the 4Clojure Problems I could complete.
+My primary expectation for today was to really try to get into a functional frame of mind. After yesterday's _revelations_ with the 4Clojure problems, I wanted to try to solidify those _revelations_ and make sure that I was comfortable with them. On a more quotidian note, I also wanted to see how many of the 4Clojure Problems I could complete.
 
 ## What I learned
 
@@ -59,7 +59,7 @@ On a personal introspection note, I'm slowly getting more accustomed to spending
 
 'Twas a good day in 4Clojure land. I spent quite some time throughout the day working on problems and I was able to complete an additional 20 problems.
 
-There were quite a few interesting functions and concepts that I ran across like  `recur`, `for`,`partition` and `iterate` . I definitely have to spend some time understanding the nature of `recur` in particular since I think it's non-stack-consuming nature would make it useful for intensive recursion.
+There were quite a few interesting functions and concepts that I ran across like `recur`, `for`,`partition` and `iterate` . I definitely have to spend some time understanding the nature of `recur` in particular since I think it's non-stack-consuming nature would make it useful for intensive recursion.
 
 [**23**](http://www.4clojure.com/problem/23) was a particularly vexing one. My initial solution for it used `map` and `nth` but that didn't work since one of the test cases supplied a set as input. (`nth` doesn't really make sense for an unordered collection).
 
@@ -80,7 +80,7 @@ This is very contrived way of solving the problem. Let's break it down.
 
 The base condition is that if the collection has 2 elements, we flip them and return. I made the assumption that the output had to be list. This impacted how I approached the problem, since `conj` behaves differently on lists and vectors.
 
-*[@adrien](https://twitter.com/adrien)* made the other assumption leading to a more elegant use of `conj`
+_[@adrien](https://twitter.com/adrien)_ made the other assumption leading to a more elegant use of `conj`
 
 ```clojure
 (fn rev [coll]
@@ -89,7 +89,7 @@ The base condition is that if the collection has 2 elements, we flip them and re
     (conj (rev (rest coll)) (first coll))))
 ```
 
-However, in my opinion, *[@banditelol](https://twitter.com/banditelol)* had the most elegant solution with `reduce` and `conj`.
+However, in my opinion, _[@banditelol](https://twitter.com/banditelol)_ had the most elegant solution with `reduce` and `conj`.
 
 ```clojure
 (fn rev [coll]
@@ -103,8 +103,8 @@ In the end, I learned quite a bit about how `reduce` and `conj` and recursion wo
 Let's end this day with a nice little tally:
 
 - 20 4Clojure Problems
-- Chapter 3 of *CFGU*
-- Finished Part 1 of *My Love Letter to Clojure*
+- Chapter 3 of _CFGU_
+- Finished Part 1 of _My Love Letter to Clojure_
 - Answered someone's question on the Athen's discord
 - Added some new functions to the `cheatsheets\clojure.md` file.
 

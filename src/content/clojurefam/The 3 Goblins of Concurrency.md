@@ -11,10 +11,10 @@ Here we go with Week 4! My hope for this week is to get some practice greating l
 
 ## What I learned Today
 
-Chapter 9 is about the *The Sacred Art of Concurrent and Parallel Programming*.
+Chapter 9 is about the _The Sacred Art of Concurrent and Parallel Programming_.
 
-* Concurrency - managing more than one task at the same time
-* Parallelism - executing more than one task at the same time
+- Concurrency - managing more than one task at the same time
+- Parallelism - executing more than one task at the same time
 
 ```clojure
 (let [result (future (println "this prints once")
@@ -23,13 +23,13 @@ Chapter 9 is about the *The Sacred Art of Concurrent and Parallel Programming*.
   (println "@: " @result))
 ```
 
-* Once a future's body has been executed once, the result is cached
-* On next deref, the println won't execute
-* Derefing a future blocks if the future hasn't finished running
-* place a time limit on how long to wait for a future
+- Once a future's body has been executed once, the result is cached
+- On next deref, the println won't execute
+- Derefing a future blocks if the future hasn't finished running
+- place a time limit on how long to wait for a future
 
 ```clojure
-(deref (future (Thread/sleep 1000) 0) 10 5) 
+(deref (future (Thread/sleep 1000) 0) 10 5)
 ;; returns 10 if future doesn't return a value within 10 milliseconds
 ```
 
@@ -40,13 +40,13 @@ Futures - chuck tasks onto other threads. Clojure allows you to treat task defn 
 ### The Three Goblins of Concurrency
 
 1. First Concurrency Goblin
-Reference cell problem - occurs when two threads can read and write to the same location and the value of the location depends on the order of the reads and writes
+   Reference cell problem - occurs when two threads can read and write to the same location and the value of the location depends on the order of the reads and writes
 
 2. Second Concurrency Goblin
-Mutual Exclusion - each thread is trying to write something to file but doesn't have exclusive write access. the output ends up being garbled because the writes are interleaved
+   Mutual Exclusion - each thread is trying to write something to file but doesn't have exclusive write access. the output ends up being garbled because the writes are interleaved
 
 3. Third Concurrency Goblin
-Deadlock - each thread blocks indefinitely for a resource to become available
+   Deadlock - each thread blocks indefinitely for a resource to become available
 
 Delays - define a task without having to execute it or require the result indefinitely.
 
@@ -80,9 +80,9 @@ Promises allow you to express that you expect a result without having to define 
 @my-promise
 ```
 
-* Create a promise and deliver a value to it
-* Can only deliver a value to a promise once
-* Decouples the requirement for a result from how the result from how the result is actually computed. Can perform multiple computations in parallel.
+- Create a promise and deliver a value to it
+- Can only deliver a value to a promise once
+- Decouples the requirement for a result from how the result from how the result is actually computed. Can perform multiple computations in parallel.
 
 1. Future - Define a task and run it immediately on a different thread
 2. Delay - Define a task that doesn't get executed until later

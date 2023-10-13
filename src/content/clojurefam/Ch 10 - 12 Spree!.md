@@ -88,31 +88,31 @@ Solution to make `pmap` take less time is to increase the grain size. (applying 
 
 core.async describes a useful model for concurrency and processes.
 
-* process -> concurrently running unit of logic that responds to events
-* `go` - creates a new process. `go` blocks execute concurrently on a separate thread.
-* `<!` - take function. Listens to the channel and the process waits until a message arrives in the channel.
-* use chan buffers to put multiple values into a channel without waiting
-* parking - frees up the thread so it can keep doing work. allows instructions from multiple processes to interleave on a single thread. only possible within `go` blocks.
+- process -> concurrently running unit of logic that responds to events
+- `go` - creates a new process. `go` blocks execute concurrently on a separate thread.
+- `<!` - take function. Listens to the channel and the process waits until a message arrives in the channel.
+- use chan buffers to put multiple values into a channel without waiting
+- parking - frees up the thread so it can keep doing work. allows instructions from multiple processes to interleave on a single thread. only possible within `go` blocks.
 
 ### Chapter 12 - JVM
 
 Working with the JVM!
 
-* Clojure is hosted on the JVM.
-* Need to use Java objects for core functionality like reading files and dates
-* Java has a lot of libraries
+- Clojure is hosted on the JVM.
+- Need to use Java objects for core functionality like reading files and dates
+- Java has a lot of libraries
 
-The JVM translates code into low-level instructions called *Java Bytecode*. 
+The JVM translates code into low-level instructions called _Java Bytecode_.
 JIT compilation - A running JVM executes bytecode by translating it on the fly into into machine code that its host will understand.
 
-* Compile a program into a .class file -> packaged into a JAR file -> JVM executes the bytecode -> JVM sends machine instructions to the CPU.
+- Compile a program into a .class file -> packaged into a JAR file -> JVM executes the bytecode -> JVM sends machine instructions to the CPU.
 
-* `(:gen-class)` - Clojure compiler generates a class for the namespace
-* Define a `-main` function in a namespace, include `(:gen-class)` and set the `:main` directive in *project.clj* ot let the program be compiled by Java as a JAR.
+- `(:gen-class)` - Clojure compiler generates a class for the namespace
+- Define a `-main` function in a namespace, include `(:gen-class)` and set the `:main` directive in _project.clj_ ot let the program be compiled by Java as a JAR.
 
 ### Interop
 
-Call methods on an object using `(.methodName object)`. This uses macros to expand the *dot special form*.
+Call methods on an object using `(.methodName object)`. This uses macros to expand the _dot special form_.
 
 ```clojure
 (macroexpand-1 '(.toUpperCase "By Bluebeard's bananas!"))
@@ -131,7 +131,7 @@ Importing has the same effect as it does in Java -> You can use classes without 
 
 `(import java.util.Stack.)`
 
-Within a `ns` macro - 
+Within a `ns` macro -
 
 ```clojure
 (ns pirate.talk
@@ -157,7 +157,7 @@ You can use seq functions to read data from a stack. But can't use conj or into
 ;; => "14.0.1"
 ```
 
-IO with Clojure - 
+IO with Clojure -
 
 ```clojure
 (spit "/tmp/hercules-todo-list"
@@ -176,7 +176,8 @@ IO with Clojure -
 
 I went through quite a few different pieces of information about Clojure today. But the downside is that I didn't gain a deep understanding of it. So I'll have to go back and understand it.
 
-Today's tally - 
-* Complete ch 10
-* Complete ch 11
-* Complete ch 12
+Today's tally -
+
+- Complete ch 10
+- Complete ch 11
+- Complete ch 12

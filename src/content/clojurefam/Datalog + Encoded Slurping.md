@@ -262,7 +262,7 @@ g [?a :db/cardinality ?c]
  [(= ?bm1 ?bm2)]]
 ```
 
-The given solution is - 
+The given solution is -
 
 ```datalog
 [:find ?name-1 ?name-2
@@ -358,8 +358,8 @@ Rules:
 
 3. Write a rule [sequels ?m1 ?m2] where ?m1 and ?m2 are movie entities. You'll need to use the attribute :movie/sequel. To implement this rule correctly you can think of the problem like this: A movie ?m2 is a sequel of ?m1 if either
 
-    ?m2 is the "direct" sequel of m1 or
-    ?m2 is the sequel of some movie ?m and that movie ?m is the sequel to ?m1.
+   ?m2 is the "direct" sequel of m1 or
+   ?m2 is the sequel of some movie ?m and that movie ?m is the sequel to ?m1.
 
 There are (at least) three different ways to write the above query. Try to find all three solutions.
 
@@ -446,11 +446,11 @@ Rules:
 
 ## Takeaways
 
-So turns out the reason why I wasn't able to `slurp` google.com yesterday was because I wasn't URL encoding my search terms. (Thanks to *@adrien* for that tip). Once I got the URL encode to work by using the `java.io.URLEncode` library's `encode` function, the chapter exercises became pretty easy to solve.
+So turns out the reason why I wasn't able to `slurp` google.com yesterday was because I wasn't URL encoding my search terms. (Thanks to _@adrien_ for that tip). Once I got the URL encode to work by using the `java.io.URLEncode` library's `encode` function, the chapter exercises became pretty easy to solve.
 
 Also I'm pretty glad I finished the DataLog course. I kinda stumbled at the end with the Rules section. I think I need to spend more time with Logic Programming to understand how rules work in general. But apart from that, this also turned out to be pretty easy.
 
-Today's tally - 
+Today's tally -
 
-* 8 DataLog chapters
-* 3 Chapter exercises
+- 8 DataLog chapters
+- 3 Chapter exercises

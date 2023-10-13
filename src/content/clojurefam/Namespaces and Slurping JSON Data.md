@@ -25,19 +25,19 @@ Anyime we create a project with Lein, we are given a stub namespace with a singl
 
 We can access a function in a different namespace by first requiring the namespace in the current `ns` defn and then using it's fully qualified name:`<namespace name>/<function name>`. However, using the Fully Qualified name is annoying if we need to use it often. We can solve this a few ways:
 
-* Alias a Namespace - `(ns user (:require [scratch.utils :as ut]))`
-* Refer to a specific function or var from another namespace by it's short name - `(ns user (:require [scratch.utils :refer [foo]]))`
-* Suck in every function from another namespace with :refer :all - `(ns user (:require [scratch.utils :refer :all]))`. Doing this will allow us to use all functions from `scratch.utils` by invoking it's short name. This can however cause confusion and potential namespace pollution.
+- Alias a Namespace - `(ns user (:require [scratch.utils :as ut]))`
+- Refer to a specific function or var from another namespace by it's short name - `(ns user (:require [scratch.utils :refer [foo]]))`
+- Suck in every function from another namespace with :refer :all - `(ns user (:require [scratch.utils :refer :all]))`. Doing this will allow us to use all functions from `scratch.utils` by invoking it's short name. This can however cause confusion and potential namespace pollution.
 
 Using Namespaces allows us to control the complexity of our projects by isolating code into related and understandable pieces.
 
 ### External Deps
 
-We can find open source libraries on Clojars. Once we've found a library and the version number we need, all we have to do is include it under `:dependencies` in `project.clj`. 
+We can find open source libraries on Clojars. Once we've found a library and the version number we need, all we have to do is include it under `:dependencies` in `project.clj`.
 
 ### Parsing JSON Data
 
-We use the Cheshire library for parsing JSON strings and creating Clojure data structures from it. We can combine this with the `slurp` function to read a JSON file from disk and parse it. This would look like - 
+We use the Cheshire library for parsing JSON strings and creating Clojure data structures from it. We can combine this with the `slurp` function to read a JSON file from disk and parse it. This would look like -
 
 ```clojure
 (defn load-json
@@ -99,67 +99,67 @@ Chapter 7 Exercises:
  {:county "VA, Norton", :dui 118, :pop 3691, :prevalence "3.20%"}
  {:county "MS, Tunica", :dui 432, :pop 10650, :prevalence "4.06%"}
  {:county "WI, Menominee", :dui 189, :pop 4617, :prevalence "4.09%"})
- ```
- 
- This data is interesting as we can clearly see that counties with the highest prevalence rates also tend to have very low populations.
- 
- > 3. We can generalize the most-duis function to handle any type of crime. Write a function most-prevalent which takes a file and a field name, like :arson, and finds the counties where that field is most often reported, per capita.
- 
- ```clojure
- (defn most-prevalent
-  "Given a JSON filename of UCR Crime data for a particular year, finds the counties with most crimes weighted by Population"
-  [file crime top]
-  (->> file
-       load-json
-       (remove (fn [county] (= (:county_population county) 0)))
-       (map (fn [county]
-              (let [crime_cnt (crime county)
-                    popl      (:county_population county)
-                    prev      (* (float (/ crime_cnt popl)) 100)]
-                {:county     (fips (fips-code county))
-                 :rawcrime   crime_cnt
-                 :pop        popl
-                 :prevalence (str (format "%.2f" prev) "%")})))
-       (sort-by :prevalence)
-       (take-last top)
-       (reverse)))
- ```
- 
- We simply pass the whatever crime keyword we want into the function to get the prevalence rates for that crime type. For example, `(most-prevalent "2008.json" :property_crimes 10)` yields:
- 
- ```shell
- "VA, Franklin",
-  :rawcrime 155,
-  :pop 8955,
-  :prevalence "1.73%"}
- {:county "NC, Halifax",
-  :rawcrime 940,
-  :pop 54932,
-  :prevalence "1.71%"}
- {:county "VA, Roanoke",
-  :rawcrime 1533,
-  :pop 91983,
-  :prevalence "1.67%"}
- {:county "VA, Fredericksburg",
-  :rawcrime 364,
-  :pop 22740,
-  :prevalence "1.60%"}
- {:county "GA, Crisp", :rawcrime 352, :pop 22035, :prevalence "1.60%"}
- {:county "AK, Prince of Wales-Outer Ketchikan",
-  :rawcrime 30,
-  :pop 1883,
-  :prevalence "1.59%"}
- {:county "NC, Robeson",
-  :rawcrime 1942,
-  :pop 129322,
-  :prevalence "1.50%"})
+```
+
+This data is interesting as we can clearly see that counties with the highest prevalence rates also tend to have very low populations.
+
+> 3.  We can generalize the most-duis function to handle any type of crime. Write a function most-prevalent which takes a file and a field name, like :arson, and finds the counties where that field is most often reported, per capita.
+
+```clojure
+(defn most-prevalent
+ "Given a JSON filename of UCR Crime data for a particular year, finds the counties with most crimes weighted by Population"
+ [file crime top]
+ (->> file
+      load-json
+      (remove (fn [county] (= (:county_population county) 0)))
+      (map (fn [county]
+             (let [crime_cnt (crime county)
+                   popl      (:county_population county)
+                   prev      (* (float (/ crime_cnt popl)) 100)]
+               {:county     (fips (fips-code county))
+                :rawcrime   crime_cnt
+                :pop        popl
+                :prevalence (str (format "%.2f" prev) "%")})))
+      (sort-by :prevalence)
+      (take-last top)
+      (reverse)))
+```
+
+We simply pass the whatever crime keyword we want into the function to get the prevalence rates for that crime type. For example, `(most-prevalent "2008.json" :property_crimes 10)` yields:
+
+```shell
+"VA, Franklin",
+ :rawcrime 155,
+ :pop 8955,
+ :prevalence "1.73%"}
+{:county "NC, Halifax",
+ :rawcrime 940,
+ :pop 54932,
+ :prevalence "1.71%"}
+{:county "VA, Roanoke",
+ :rawcrime 1533,
+ :pop 91983,
+ :prevalence "1.67%"}
+{:county "VA, Fredericksburg",
+ :rawcrime 364,
+ :pop 22740,
+ :prevalence "1.60%"}
+{:county "GA, Crisp", :rawcrime 352, :pop 22035, :prevalence "1.60%"}
+{:county "AK, Prince of Wales-Outer Ketchikan",
+ :rawcrime 30,
+ :pop 1883,
+ :prevalence "1.59%"}
+{:county "NC, Robeson",
+ :rawcrime 1942,
+ :pop 129322,
+ :prevalence "1.50%"})
 ```
 
 ## 4Clojure Spree
 
-I went on a 4Clojure Problem solving spree today. I was able to solve roughly 20 *Easy* problems today, bringing my total tally to 66. Most of these problems felt pretty easy to do. Compared to last week when I struggled with problems of similar difficulty, today felt like I'd really leveled up my intuition on how to approach the problems. 
+I went on a 4Clojure Problem solving spree today. I was able to solve roughly 20 _Easy_ problems today, bringing my total tally to 66. Most of these problems felt pretty easy to do. Compared to last week when I struggled with problems of similar difficulty, today felt like I'd really leveled up my intuition on how to approach the problems.
 
-The `partition-by` function was particularly useful in solving many of these problems. Any time a problem is related to working with consecutive duplicates, I reached for `(partition-by identity)`. Shoutout to *[@nthd3gr33](https://twitter.com/nthd3gr33)* for showing me this function during last week's pair programming session.
+The `partition-by` function was particularly useful in solving many of these problems. Any time a problem is related to working with consecutive duplicates, I reached for `(partition-by identity)`. Shoutout to _[@nthd3gr33](https://twitter.com/nthd3gr33)_ for showing me this function during last week's pair programming session.
 
 A quick example - Problem 30. Compress a Sequence. The problem asks you to write a function which removes consecutive duplicates from a sequence.
 
@@ -177,7 +177,7 @@ This can be solved with
 
 Another interesting problem was No. 122 - Read a Binary Number. This problem asks you to convert a binary number, provided as a string, to it's numerical value.
 
-This was my solution - 
+This was my solution -
 
 ```clojure
 (defn bin-to-dec [s]
@@ -194,15 +194,15 @@ To be perfectly honest, the solution I have feels a little complicated for what 
 
 ## Takeaways
 
-* Use namespaces for code organization and isolation of code by concern
-* Tests allow you to verify that our code is correct
-* We can use open source libraries in our code for additional features and functions
-* Clojure is very powerful when it comes to data processing!
-* `partition-by` is useful for solving problems related to consecutive sequences
+- Use namespaces for code organization and isolation of code by concern
+- Tests allow you to verify that our code is correct
+- We can use open source libraries in our code for additional features and functions
+- Clojure is very powerful when it comes to data processing!
+- `partition-by` is useful for solving problems related to consecutive sequences
 
 Today's Tally:
 
-* 20 4Clojure Problems
-* Chapter 7 (including Exercises)
+- 20 4Clojure Problems
+- Chapter 7 (including Exercises)
 
 See you tomorrow!

@@ -15,7 +15,7 @@ Let's get on to it!
 
 ## What I learned
 
-Chapter 8 is unlike the previous chapters in **CFGU** in that it's primarily about using the knowledge we've already gained and using them all to build a functioning program. The *"Function Program"* in this case is modeling a Rocket (The Atlas V) and it's flights.
+Chapter 8 is unlike the previous chapters in **CFGU** in that it's primarily about using the knowledge we've already gained and using them all to build a functioning program. The _"Function Program"_ in this case is modeling a Rocket (The Atlas V) and it's flights.
 
 I'm about halfway through this chapter and so far its a lot of thinking about how to represent a rocket's state (mass, fuel, rate of fuel consumption etc) and creating functions that compute various parts of a rocket's physics like thrust, it's position in different coordinate systems etc.
 
@@ -42,7 +42,7 @@ Like I mentioned earlier, after doing some work with chapter 8, I started thinki
 
 After doing this, I was curious about using Athens myself, so I decided to get a local copy running on my laptop. This turned out to quite easy by following the steps outlined in [CONTRIBUTING.md](https://github.com/athensresearch/athens/blob/master/CONTRIBUTING.md). The build process did take some time, since lein has to pull in quite a few dependencies and build them. But beyond the built time, the process itself was quite seamless.
 
-Once I got the build setup, I tried navigating the UI and seeing the current state of Athens. One thing that I immediately noticed was that the *Athena* search bar froze when I tried to enter any text. I was able to replicate this behavior on non-chromium based browsers like Firefox and Safari. Chromium-based browsers like Chrome and Edge seem to be unaffected.
+Once I got the build setup, I tried navigating the UI and seeing the current state of Athens. One thing that I immediately noticed was that the _Athena_ search bar froze when I tried to enter any text. I was able to replicate this behavior on non-chromium based browsers like Firefox and Safari. Chromium-based browsers like Chrome and Edge seem to be unaffected.
 
 ## 4Clojure
 
@@ -52,7 +52,7 @@ However, after trying multiple slightly varying iterations of the same recursive
 
 The problem was to write a function that would flatten a sequence of arbitrary depth into a sequence of depth 1 (without using the built-in `flatten` function).
 
-My solution depends on a mix of iteration and recursion - 
+My solution depends on a mix of iteration and recursion -
 
 ```clojure
 (defn new-flatten [xs]

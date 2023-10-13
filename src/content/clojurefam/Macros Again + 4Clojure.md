@@ -15,9 +15,9 @@ I finished up Chapter 8 today. Well, more like sped through it. Having gone thro
 
 ### Writing Macros
 
-* Need to quote expressions to get unevaluated data structures back in the final list
-* Need to careful about the difference between a symbol and a value
-* quoting produces an unevaluated data structure
+- Need to quote expressions to get unevaluated data structures back in the final list
+- Need to careful about the difference between a symbol and a value
+- quoting produces an unevaluated data structure
 
 ```clojure
 (+ 1 2)
@@ -27,8 +27,8 @@ I finished up Chapter 8 today. Well, more like sped through it. Having gone thro
 ;; => (+ 1 2)
 ```
 
-* the `'` character is a reader macro for the quote function
-* Syntax Quoting -> `\`` includes the symbol's fully namespace
+- the `'` character is a reader macro for the quote function
+- Syntax Quoting -> `\`` includes the symbol's fully namespace
 
 ```clojure
 '+
@@ -53,7 +53,7 @@ I finished up Chapter 8 today. Well, more like sped through it. Having gone thro
 ;; => (clojure.core/+ 1 2)
 ```
 
-Clearly the syntax-quoted version is more concise. 
+Clearly the syntax-quoted version is more concise.
 
 Macros receive unevaluated, arbitrary data structures as arguments and return data structures that Clojure evaluates.
 
@@ -71,13 +71,12 @@ Unquote splicing unwraps a seqable data structure, placing its contents directly
 
 1. Variable Capture - Macro introduces a binding that overwrites an existing binding.
    Soln: gensym -> produces a unique symbol that can be bound to variables inside macros used to prevent variable capture within macros.
-   
 2. Double Evaluation - When a form passed to a macro as an argument gets evaluated more than once.
-    Soln: Bind the repeating form to a `gensym` within a let and use that instead of the form
+   Soln: Bind the repeating form to a `gensym` within a let and use that instead of the form
 
 ## 4Clojure
 
-I'm getting a hang of solving these **Medium** problems. Today I managed to get through a couple more - 
+I'm getting a hang of solving these **Medium** problems. Today I managed to get through a couple more -
 
 > No. 50 Split by Type
 > Write a function which takes a sequence consisting of items with different types and splits them up into a set of homogeneous sub-sequences. The internal order of each sub-sequence should be maintained, but the sub-sequences themselves can be returned in any order (this is why 'set' is used in the test cases).
@@ -111,8 +110,8 @@ I'm getting a hang of solving these **Medium** problems. Today I managed to get 
 
 Macros are fun. They can be used for a lot of things. But maybe don't use them for everything.
 
-Today's tally - 
+Today's tally -
 
-* Chapter 8
-* Watched Video on Datomic
-* 2 more 4Clojure
+- Chapter 8
+- Watched Video on Datomic
+- 2 more 4Clojure

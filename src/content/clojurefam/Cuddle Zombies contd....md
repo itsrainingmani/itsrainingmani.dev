@@ -11,7 +11,7 @@ Today we continue on with Chapter 10 - Cuddle Zombie Metaphysics!
 
 ## Chapter 10
 
-How does Clojure handle two threads calling `swap!` on an atom? By using *compare-and-set* semantics.
+How does Clojure handle two threads calling `swap!` on an atom? By using _compare-and-set_ semantics.
 
 1. It reads the current state of the atom.
 2. It then applies the update function to that state.
@@ -28,9 +28,9 @@ Atoms are good for managing the state of independent entities. Use Refs for mana
 
 Refs allow you to update the state of multiple identities using transaction semantics.
 
-* Atomic - All refs are updated or none are
-* Consistent - Refs always appear to have valid states
-* Isolated - Transactions behave as if exectured serially.
+- Atomic - All refs are updated or none are
+- Consistent - Refs always appear to have valid states
+- Isolated - Transactions behave as if exectured serially.
 
 Modify a ref using `alter` inside a transaction. Altering a ref doesn't make the change immediately visible outside the transaction.
 
@@ -49,22 +49,20 @@ It's like the transaction has its own private area for trying out changes to the
 (println @counter)
 ```
 
-The value of the ref within the `future` will be different compared to the value outside of it. refs also use a similar *compare-and-set* method to determine if a change should be made.
+The value of the ref within the `future` will be different compared to the value outside of it. refs also use a similar _compare-and-set_ method to determine if a change should be made.
 
-`alter` - 
-    Reach outside the transaction and read the ref’s current state.
-    Compare the current state to the state the ref started with within the transaction.
-    If the two differ, make the transaction retry.
-    Otherwise, commit the altered ref state.
+`alter` -
+Reach outside the transaction and read the ref’s current state.
+Compare the current state to the state the ref started with within the transaction.
+If the two differ, make the transaction retry.
+Otherwise, commit the altered ref state.
 
-
-`commute` - 
-    Reach outside the transaction and read the ref’s current state.
-    Run the commute function again using the current state.
-    Commit the result.
+`commute` -
+Reach outside the transaction and read the ref’s current state.
+Run the commute function again using the current state.
+Commit the result.
 
 `commute` doesn't force a transaction retry. Improved performance but it's possible for a ref to end up in an inconsistent state.
-
 
 ### Dynamic Vars
 
@@ -80,11 +78,11 @@ The value of the ref within the `future` will be different compared to the value
 ;; => "dobby@elf.org"
 ```
 
-Dynamic vars have some interesting use cases - 
+Dynamic vars have some interesting use cases -
 
-* name a resource that or more functions target. For eg, `*out*` represents the stdout for print. Re-binding this to a file would make println print to the given file.
-* specify a common resource while retaining the flexibility to change it on an ad hoc basis
-* configuration
+- name a resource that or more functions target. For eg, `*out*` represents the stdout for print. Re-binding this to a file would make println print to the given file.
+- specify a common resource while retaining the flexibility to change it on an ad hoc basis
+- configuration
 
 ```clojure
 (def ^:dynamic *troll-thought* nil)
@@ -102,7 +100,7 @@ Dynamic vars have some interesting use cases -
   (println "Succulent Human: OOOH! The answer was " *troll-thought*))
 ```
 
-Temporarily alter a var's root with `with-redefs` - 
+Temporarily alter a var's root with `with-redefs` -
 
 ```clojure
 (with-redefs [*out* *out*]
@@ -119,8 +117,8 @@ Whew! We've just gone through quite a lot! Brave Clojure goes way deeper into th
 
 I'm almost done with Chapter 10. There is still a little bit left (pmap and the exercises) that I will tackle tomorrow.
 
-I also need to read more in-depth about some of the topics mentioned in the chapter - 
+I also need to read more in-depth about some of the topics mentioned in the chapter -
 
-* Software Transactional Memory
-* Write Skew
-* Compare-and-set semantics
+- Software Transactional Memory
+- Write Skew
+- Compare-and-set semantics

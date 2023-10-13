@@ -25,11 +25,11 @@ Chapter 5 deals with a few different things - macros, recursion and control flow
 - `case` is an expression matching construct. It doesn't seem to allow any complex pattern matching but there's probably different macros to achieve that.
 - `if-let` and `when-let` allow you to bind the value of the predicate to a variable that can be re-used in the body. I have a feeling I'm going to end up using these ones a lot due to how convenient they are.
 - `recur` can be used without a `loop` construct inside any plain old function. It just implicitly rebinds the function arguments while recursing.
-- `lazy-seq`  is a wonderful convenience macro for generating infinitely recursive sequences. The macro interrupts the recursion and rejiggers it into a sequences that are available on demand.
+- `lazy-seq` is a wonderful convenience macro for generating infinitely recursive sequences. The macro interrupts the recursion and rejiggers it into a sequences that are available on demand.
 
 One cool thing that was very briefly mentioned were the `delay` and `defer` macros that allow you to construct more on-demand computation functions.
 
-The chapter finally ends with something that's intimately familiar to every Python programmer - List Comprehensions. This was arguably the easiest concept to learn in Clojure since I'm already well-versed in using list comprehensions. However, unlike Python, Clojure's list comprehensions yield lazy sequences making them quite efficient and allowing them to be chained with other lazy sequence functions like `take` , `filter`  etc.
+The chapter finally ends with something that's intimately familiar to every Python programmer - List Comprehensions. This was arguably the easiest concept to learn in Clojure since I'm already well-versed in using list comprehensions. However, unlike Python, Clojure's list comprehensions yield lazy sequences making them quite efficient and allowing them to be chained with other lazy sequence functions like `take` , `filter` etc.
 
 ## 4Clojure and Pair Programming
 

@@ -178,8 +178,8 @@ It feels immensely satisfying to bring an issue to conclusion especially by work
 
 I think I'll spend tomorrow reading Chapter 5 of Brave Clojure and finishing up the rest of LearnDataLog.
 
-Today's tally - 
+Today's tally -
 
-* Chapter 4 - Vampires have been vanquished!
-* PR submitted!
-* Ran into a merge conflict headlong and rebased my way out of it!
+- Chapter 4 - Vampires have been vanquished!
+- PR submitted!
+- Ran into a merge conflict headlong and rebased my way out of it!

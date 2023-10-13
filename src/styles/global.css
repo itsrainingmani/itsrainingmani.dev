@@ -5,46 +5,46 @@
  */
 
 :root {
-  --accent: #2337ff;
-  --accent-dark: #000d8a;
-  --black: 15, 18, 25;
-  --gray: 96, 115, 159;
-  --gray-light: 229, 233, 240;
-  --gray-dark: 34, 41, 57;
-  --gray-gradient: rgba(var(--gray-light), 50%), #fff;
-  --box-shadow: 0 2px 6px rgba(var(--gray), 25%),
-    0 8px 24px rgba(var(--gray), 33%), 0 16px 32px rgba(var(--gray), 33%);
-  --usuzumiiro: #a3a3a2;
-  --roiro: #2b2b2b;
-  --shironezu: #dcdddd;
-  --nezumiiro: #949495;
+	--accent: #2337ff;
+	--accent-dark: #000d8a;
+	--black: 15, 18, 25;
+	--gray: 96, 115, 159;
+	--gray-light: 229, 233, 240;
+	--gray-dark: 34, 41, 57;
+	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
+	--box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
+		0 16px 32px rgba(var(--gray), 33%);
+	--usuzumiiro: #a3a3a2;
+	--roiro: #2b2b2b;
+	--shironezu: #dcdddd;
+	--nezumiiro: #949495;
 }
 @font-face {
-  font-family: "Atkinson";
-  src: url("/fonts/atkinson-regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+	font-family: "Atkinson";
+	src: url("/fonts/atkinson-regular.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
 }
 @font-face {
-  font-family: "Atkinson";
-  src: url("/fonts/atkinson-bold.woff") format("woff");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
+	font-family: "Atkinson";
+	src: url("/fonts/atkinson-bold.woff") format("woff");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
 }
 
 body {
-  display: block;
-  float: none;
-  margin: 1rem;
-  padding: 1rem;
-  background: #fff;
-  margin-right: auto;
-  margin-left: auto;
-  /* background: linear-gradient(var(--gray-gradient)) no-repeat; */
-  background-size: 100% 600px;
-  color: rgb(var(--gray-dark));
+	display: block;
+	float: none;
+	margin: 1rem;
+	padding: 1rem;
+	background: #fff;
+	margin-right: auto;
+	margin-left: auto;
+	/* background: linear-gradient(var(--gray-gradient)) no-repeat; */
+	background-size: 100% 600px;
+	color: rgb(var(--gray-dark));
 }
 
 /* body { */
@@ -141,48 +141,48 @@ body {
 /*   font-size: 1.333em; */
 /* } */
 hr {
-  border: none;
-  border-top: 1px solid rgb(var(--gray-light));
+	border: none;
+	border-top: 1px solid rgb(var(--gray-light));
 }
 
 .hamburger {
-  padding-right: 20px;
-  cursor: pointer;
+	padding-right: 20px;
+	cursor: pointer;
 }
 
 .expanded {
-  display: unset;
+	display: unset;
 }
 
 @media screen and (min-width: 636px) {
-  .hamburger {
-    display: none;
-  }
+	.hamburger {
+		display: none;
+	}
 }
 
 @media (max-width: 720px) {
-  body {
-    font-size: 18px;
-  }
-  main {
-    padding: 1em;
-  }
+	body {
+		font-size: 18px;
+	}
+	main {
+		padding: 1em;
+	}
 }
 
 .sr-only {
-  border: 0;
-  padding: 0;
-  margin: 0;
-  position: absolute !important;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-  /* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
-  clip: rect(1px 1px 1px 1px);
-  /* maybe deprecated but we need to support legacy browsers */
-  clip: rect(1px, 1px, 1px, 1px);
-  /* modern browsers, clip-path works inwards from each corner */
-  clip-path: inset(50%);
-  /* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
-  white-space: nowrap;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	/* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
+	clip: rect(1px 1px 1px 1px);
+	/* maybe deprecated but we need to support legacy browsers */
+	clip: rect(1px, 1px, 1px, 1px);
+	/* modern browsers, clip-path works inwards from each corner */
+	clip-path: inset(50%);
+	/* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
+	white-space: nowrap;
 }

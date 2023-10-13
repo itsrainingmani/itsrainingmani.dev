@@ -5,9 +5,9 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://itsrainingmani.dev",
-  image: {
-    service: squooshImageService(),
-  },
-  integrations: [mdx(), sitemap(), tailwind()],
+	site: "https://itsrainingmani.dev",
+	image: {
+		service: squooshImageService(),
+	},
+	integrations: [mdx(), sitemap(), tailwind()],
 });

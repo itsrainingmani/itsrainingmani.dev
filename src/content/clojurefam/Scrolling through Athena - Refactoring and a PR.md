@@ -21,7 +21,7 @@ There is also no way to retain the state of an object at a specific moment in ti
 
 ### Clojure Metaphysics
 
-Cuddle Zombie -> succession of *values*. A value is atomic -> forms a single, irreducible unit or component.
+Cuddle Zombie -> succession of _values_. A value is atomic -> forms a single, irreducible unit or component.
 
 They are indivisible, unchanging, stable entities.
 
@@ -61,7 +61,7 @@ Dereferencing an atom doesn't block since it's asking Clojure to return the valu
 
 ## Athens Issue
 
-This is where we left off yesterday - 
+This is where we left off yesterday -
 
 ```clojure
 (= key KeyCodes.UP)
@@ -91,7 +91,7 @@ This is where we left off yesterday -
 
 The code works but it could be better. Oh also it doesn't allow for cycling through the list when the end is reached.
 
-Let's see how we can fix this - 
+Let's see how we can fix this -
 
 ```clojure
 
@@ -138,7 +138,7 @@ There's also some nice refactoring we can perform on the body of the event handl
 
 Instead of finding elements by className, we use `e.target` and the hierarchical structure of the DOM to get the elements we want.
 
-There is still some changes we can make. The bounds checking code seems to be repetitive. We can condense both sides of the bounds check into one function - 
+There is still some changes we can make. The bounds checking code seems to be repetitive. We can condense both sides of the bounds check into one function -
 
 ```clojure
 
@@ -154,7 +154,7 @@ There is still some changes we can make. The bounds checking code seems to be re
 
 This function returns true if the top of the element is above the given container or if the bottom of the element is below the container. We handle both cases of the bounds check in one simple function that we can re-use.
 
-The final event handler code ends up being - 
+The final event handler code ends up being -
 
 ```clojure
 (= key KeyCodes.UP)
@@ -182,9 +182,9 @@ The final event handler code ends up being -
 
 Clojure has some very strong ideas about immutability which translates quite well onto multi-threaded paradigms. This allows us to reason about the state of our code in a much better fashion since we don't have to be worried about whether or not we're going to run into the 3 Goblins of Concurrency.
 
-Today's tally - 
+Today's tally -
 
-* 1/3rd of Ch 10
-* Fix athena issue
-* Refactor code
-* Submit PR
+- 1/3rd of Ch 10
+- Fix athena issue
+- Refactor code
+- Submit PR

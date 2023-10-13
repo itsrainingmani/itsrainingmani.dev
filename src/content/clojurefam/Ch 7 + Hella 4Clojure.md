@@ -11,31 +11,31 @@ So. I didn't do any DataLog today. I mostly just solved some 4Clojure problems a
 
 ## Chapter 7
 
-* Reader form -> textual representation of data structures
-* Text goes to reader -> clojure reads the stream -> produces the data structures -> evaluate the data structure -> prints the textual repr
-* Reader uses a reader macro to transform the anon function into a different representation
-* Reader macro is a set of rules for transforming text into data structures allow for compact representation of data structures
+- Reader form -> textual representation of data structures
+- Text goes to reader -> clojure reads the stream -> produces the data structures -> evaluate the data structure -> prints the textual repr
+- Reader uses a reader macro to transform the anon function into a different representation
+- Reader macro is a set of rules for transforming text into data structures allow for compact representation of data structures
 
-* Evaluator -> takes DS, process the DS using rules and returns a result
-* Symbols -> use symbols to name functions, macros and other data and evalutates them by resolving them.
-* resolving -> check the local bindings -> look up symbol in the namespace map -> evaluate
-* nested bindings -> most recent one takes precedence
+- Evaluator -> takes DS, process the DS using rules and returns a result
+- Symbols -> use symbols to name functions, macros and other data and evalutates them by resolving them.
+- resolving -> check the local bindings -> look up symbol in the namespace map -> evaluate
+- nested bindings -> most recent one takes precedence
 
-* map and inc both refer to functions. they're not the functions themselves
-* map is a symbol that refers to a function
+- map and inc both refer to functions. they're not the functions themselves
+- map is a symbol that refers to a function
 
 ```clojure
 (type (read-string "map"))
 => clojure.lang.Symbol
 ```
 
-* On their own symbols and referents don't actually do anything. clojure has to evaluate them to produce a result
-* Macros are executed in between the reader and the evaluator -> takes the data structure the reader returns and transforms them into a different data structure that is passed to the evaluator.
-* when you call a macro, the operands are not evaluated. the symbols are passed along as symbols
-* macroexpansion -> process of determining the return value of a macro
-* * data structure returned by a macro is evaluated
-* * data structure returned by a function is not
-* The evaluator processes data structures based on their type: symbols are resolved to their referents; lists result in function, macro, or special form calls; and everything else evaluates to itself
+- On their own symbols and referents don't actually do anything. clojure has to evaluate them to produce a result
+- Macros are executed in between the reader and the evaluator -> takes the data structure the reader returns and transforms them into a different data structure that is passed to the evaluator.
+- when you call a macro, the operands are not evaluated. the symbols are passed along as symbols
+- macroexpansion -> process of determining the return value of a macro
+- - data structure returned by a macro is evaluated
+- - data structure returned by a function is not
+- The evaluator processes data structures based on their type: symbols are resolved to their referents; lists result in function, macro, or special form calls; and everything else evaluates to itself
 
 ### Chapter exercises
 
@@ -47,7 +47,7 @@ So. I didn't do any DataLog today. I mostly just solved some 4Clojure problems a
 (read-string "(1 + 2 * 3)")
 ```
 
-> 2. Create an infix function that takes a list like (1 + 3 * 4 - 5) and transforms it into the lists that Clojure needs in order to correctly evaluate the expression using operator precedence rules.
+> 2. Create an infix function that takes a list like (1 + 3 \* 4 - 5) and transforms it into the lists that Clojure needs in order to correctly evaluate the expression using operator precedence rules.
 
 ```clojure
 (defn infix
@@ -76,7 +76,7 @@ Write a function that, for any given input vector of numbers, returns an infinit
 ```
 
 > No. 146
-Trees into tables
+> Trees into tables
 
 ```clojure
 (defn t-to-t [m]
@@ -119,7 +119,7 @@ Class
 ```
 
 > No. 173 Intro to Destructuring 2
-> Sequential destructuring allows you to bind symbols to parts of sequential things (vectors, lists, seqs, etc.): (let [bindings* ] exprs*) Complete the bindings so all let-parts evaluate to 3.
+> Sequential destructuring allows you to bind symbols to parts of sequential things (vectors, lists, seqs, etc.): (let [bindings* ] exprs\*) Complete the bindings so all let-parts evaluate to 3.
 
 ```clojure
 (= 3
@@ -158,7 +158,7 @@ a c
 
 I had fun solving the 4Clojure problems this time. Especially the somewhat hard ones. I didn't get to work on DataLog today. It's looking that's gonna be an activity for tomorrow.
 
-Today's tally - 
+Today's tally -
 
-* 8 4Clojure problems
-* Finished Chapter 7
+- 8 4Clojure problems
+- Finished Chapter 7

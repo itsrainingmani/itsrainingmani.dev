@@ -1,40 +1,40 @@
 import { defineCollection, z } from "astro:content";
 
 function removeDupsAndLowerCase(array: string[]) {
-  if (!array.length) return array;
-  const lowercaseItems = array.map((str) => str.toLowerCase());
-  const distinctItems = new Set(lowercaseItems);
-  return Array.from(distinctItems);
+	if (!array.length) return array;
+	const lowercaseItems = array.map((str) => str.toLowerCase());
+	const distinctItems = new Set(lowercaseItems);
+	return Array.from(distinctItems);
 }
 
 const blog = defineCollection({
-  schema: z.object({
-    title: z.string().max(60),
-    description: z.string().min(50).max(160).optional(),
-    publishDate: z.coerce.date(),
-    tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
-    ogImage: z.string().optional(),
-    publish: z.boolean().default(false),
-  }),
+	schema: z.object({
+		title: z.string().max(60),
+		description: z.string().min(50).max(160).optional(),
+		publishDate: z.coerce.date(),
+		tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
+		ogImage: z.string().optional(),
+		publish: z.boolean().default(false),
+	}),
 });
 
 const projects = defineCollection({
-  schema: z.object({
-    title: z.string().max(60),
-    description: z.string().min(20).max(160).optional(),
-    createdYear: z.coerce.number(),
-    tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
-    repo: z.string().url(),
-  }),
+	schema: z.object({
+		title: z.string().max(60),
+		description: z.string().min(20).max(160).optional(),
+		createdYear: z.coerce.number(),
+		tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
+		repo: z.string().url(),
+	}),
 });
 
 const clojurefam = defineCollection({
-  schema: z.object({
-    title: z.string().max(100),
-    publishDate: z.coerce.date(),
-    tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
-    publish: z.boolean().default(false),
-  }),
+	schema: z.object({
+		title: z.string().max(100),
+		publishDate: z.coerce.date(),
+		tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
+		publish: z.boolean().default(false),
+	}),
 });
 
 export const collections = { blog, projects, clojurefam };

@@ -30,11 +30,11 @@ I spent most of today on Chapter 2 of CFGU which covers basic Clojure types and 
 
 Some interesting observations:
 
-* Clojure will fail rather than perform unintuitive type coercions
-* Clojure aims to preserve as much information as possible during math operations. For eg. `(+ 2 3.0)` gives us `5.0` since the Double type hold more info than a Long.
-* Most math functions are multi-arity functions and can be applied from 1 to N inputs
-* `>=` and `<=` allow you to test multiple inputs for increasing or decreasing monotonicity
-* The `str` fn does double work as a cast to string function and a concatenation function
+- Clojure will fail rather than perform unintuitive type coercions
+- Clojure aims to preserve as much information as possible during math operations. For eg. `(+ 2 3.0)` gives us `5.0` since the Double type hold more info than a Long.
+- Most math functions are multi-arity functions and can be applied from 1 to N inputs
+- `>=` and `<=` allow you to test multiple inputs for increasing or decreasing monotonicity
+- The `str` fn does double work as a cast to string function and a concatenation function
 
 Using Regexes is also surprisingly simple in Clojure. I like that CFGU tackles this topic early on, since searching for text in strings is a pretty
 basic operation and everyone who's learning to program know how to do it effectively.
@@ -58,9 +58,9 @@ However, I haven't really come across for loops in Clojure so far. And I wanted 
 So I tried using Recursion. This was my final solution:
 
 ```clojure
-(defn newnth [coll ind] 
-      (if (= 0 ind) 
-          (first coll) 
+(defn newnth [coll ind]
+      (if (= 0 ind)
+          (first coll)
           (newnth (rest coll) (- ind 1))
 ```
 
@@ -76,9 +76,9 @@ the data intensive computation when needed. This is much more efficient than a s
 
 Write a function which returns the total number of elements in a sequence.
 
-* `(= (__ '(1 2 3 3 1)) 5)`
-* `(= (__ [[1 2] [3 4] [5 6]]) 3)`
-* `(= (__ "Hello World") 11)`
+- `(= (__ '(1 2 3 3 1)) 5)`
+- `(= (__ [[1 2] [3 4] [5 6]]) 3)`
+- `(= (__ "Hello World") 11)`
 
 This one has some interesting constraints. For one, the inputs can be lists, vectors or strings.
 
@@ -90,7 +90,7 @@ No FP language can be complete without these two.
 My original solution:
 
 ```clojure
-(fn [coll] 
+(fn [coll]
     (reduce + (map #(if % 1 0) coll)))
 ```
 
@@ -107,9 +107,9 @@ and problems is genuinely an honor. I've learned quite a lot of already!
 
 Let's end this day with a tally of what I completed:
 
-* 20 4Clojure Problems.
-* Chapter 2 of CFGU
-* Reading Part 1 of *My love letter to Clojure*
+- 20 4Clojure Problems.
+- Chapter 2 of CFGU
+- Reading Part 1 of _My love letter to Clojure_
 
 ```clojure
 #(prn "Fin Day 2! See ya tomorrow")

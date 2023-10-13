@@ -13,13 +13,13 @@ The End of Week 1 is already here. It just feels like yesterday when I found out
 
 Here's what I was able to do this week -
 
-* 6 chapters of Clojure from the Ground Up
-* 50 4Clojure problems
-* A blogpost and tweet everyday capturing my thoughts, what I learned etc.
-* 3 chapters of Clojure for the Brave and True
-* Lots of note-taking and organization of knowledge
-* Learning about the Athens tech stack and personal knowledge management systems in general
-* Clojure Pair programming session with @nthd3gr33
+- 6 chapters of Clojure from the Ground Up
+- 50 4Clojure problems
+- A blogpost and tweet everyday capturing my thoughts, what I learned etc.
+- 3 chapters of Clojure for the Brave and True
+- Lots of note-taking and organization of knowledge
+- Learning about the Athens tech stack and personal knowledge management systems in general
+- Clojure Pair programming session with @nthd3gr33
 
 ## Expectations
 
@@ -62,7 +62,7 @@ user> (let [x 2] `(inc ~x))
 (clojure.core/inc 2)
 ```
 
-One last thing we need to know. Since macros are going to rewrite code into more code, we need to make sure that our macro does not overwrite any local variables. So when we need to make use of a new variable in a macro, we use the `gensym` function to generate a new symbol. This can be simplified to `symbol#` in a syntax-quoted expression. If we do want to overwrite a local variable with a macro, we can use the form ``~`foo`` instead of `foo#`. This makes our macro, *unhygienic* since it could potentially interfere with code beyond what was restructured.
+One last thing we need to know. Since macros are going to rewrite code into more code, we need to make sure that our macro does not overwrite any local variables. So when we need to make use of a new variable in a macro, we use the `gensym` function to generate a new symbol. This can be simplified to `symbol#` in a syntax-quoted expression. If we do want to overwrite a local variable with a macro, we can use the form ``~`foo`` instead of `foo#`. This makes our macro, _unhygienic_ since it could potentially interfere with code beyond what was restructured.
 
 ### Atoms & Refs
 
@@ -80,9 +80,9 @@ user> xs
 `xs` is missing 3 and 8. Since we tried to `(conj xs i)` in 10 threads in parallel, it is conceivable that somewhere, a few updates weren't performed.
 
 We need a mechanism for safely updating state in a concurrent-safe way. This is where atoms come in.
-An Atom, unlike a mutable var, is not *transparent*. This means that evaluating an atom does not return it's internal value. We have to use `deref`.
+An Atom, unlike a mutable var, is not _transparent_. This means that evaluating an atom does not return it's internal value. We have to use `deref`.
 
-We can set the value of an atom with - `reset!`. We can safely update an atomw with `swap!`. Any update to an atom is *linearizable* - updates appear to be completed in a single consecutive order, the effect cannot happen before a swap! call, once swap! returns, the effect is visible.
+We can set the value of an atom with - `reset!`. We can safely update an atomw with `swap!`. Any update to an atom is _linearizable_ - updates appear to be completed in a single consecutive order, the effect cannot happen before a swap! call, once swap! returns, the effect is visible.
 
 Now we can use update state safely and easily!
 
@@ -101,8 +101,8 @@ user=> [@x @y]
 [1 2]
 ```
 
-* `ref-set` is the ref equivalent of `reset!`.
-* `alter` is the ref equivalent of `swap!`.
+- `ref-set` is the ref equivalent of `reset!`.
+- `alter` is the ref equivalent of `swap!`.
 
 `ref` is good when we need to update multiple pieces of state independently (there is some overlap between the different pieces). If there is no overlap between the updates, use atoms. `ref` are powerful and help us achieve safety with its ordering guarantees and strong consistency but all this comes at significant overhead compared to `atom`.
 
@@ -153,11 +153,11 @@ We use our macro writing skills to create a macro.
 (defmacro new-future
   [f & args]
   `(let [p# (promise)]
-     (do 
+     (do
        (.start (Thread. (fn [] (deliver p# (~f ~@args)))))
        )
      (fn [] (deref p#))))
-     
+
 user> (clojure.pprint/pprint (macroexpand '(new-future inc 1)))
 (let*
  [p__7877__auto__ (clojure.core/promise)]
