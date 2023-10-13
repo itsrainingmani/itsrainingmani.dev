@@ -10,7 +10,12 @@ const isActive = href === pathname || href === pathname.replace(/\/$/, "");
 ---
 
 <div class="mb-2 hover:bg-black hover:text-white">
-	<a class="appearance-none cursor-pointer select-none whitespace-nowrap pt-0.5 pr-2 h-8 -top-0.5 w-full border border-solid border-black align-middle text-center" href={href} class:list={[className, { active: isActive }]} {...props}>
+	<a
+		class="appearance-none cursor-pointer select-none whitespace-nowrap pt-0.5 pr-2 h-8 -top-0.5 w-full border border-solid border-black align-middle text-center"
+		href={href}
+		class:list={[className, { active: isActive }]}
+		{...props}
+	>
 		<slot />
 	</a>
 </div>
@@ -18,11 +23,11 @@ const isActive = href === pathname || href === pathname.replace(/\/$/, "");
 	a {
 		display: inline-block;
 		text-decoration: none;
-		box-shadow: 2px 2px #bbb;
+		box-shadow: 2px 2px var(--usuzumiiro);
 	}
 	a.active {
 		font-weight: bolder;
-		box-shadow: 3px -3px #696969;
+		box-shadow: 3px -3px var(--roiro);
 		/* text-decoration: underline; */
 	}
 </style>

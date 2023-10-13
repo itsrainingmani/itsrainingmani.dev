@@ -1,16 +1,29 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout";
-import { Image } from 'astro:assets';
-import sadbag from '@/assets/sadbag.png';
+import { Image } from "astro:assets";
+import sadbag from "@/assets/sadbag.png";
 
 const pageTitle = "Oopsie Woopsie";
 ---
+
 <body class="flex min-h-screen">
   <div class="flex flex-col m-auto items-center">
     <h1 class="text-2xl font-bold">uh oh! you made a fuckie-wuckie >:(</h1>
-    <a class="decoration-wavy underline underline-offset-4 hover:decoration-cyan-800 appearance-none cursor-pointer select-none whitespace-nowrap px-4 py-2 align-middle text-center text-lg" href="/">go home</a>
-    <Image src={sadbag} alt="the 404 sad bag"/>
-    <small class="text-xs italic text-gray-400">Illustration by <a class="underline decoration-dotted" href="https://icons8.com/illustrations/author/XTPoH093lluQ">Viktoriya Belinio</a> from <a class="underline decoration-dotted" href="https://icons8.com/illustrations">Ouch!</a></small>
+    <a
+      class="decoration-wavy underline underline-offset-4 hover:decoration-cyan-800 appearance-none cursor-pointer select-none whitespace-nowrap px-4 py-2 align-middle text-center text-lg"
+      href="/">go home</a
+    >
+    <Image src={sadbag} alt="the 404 sad bag" />
+    <small class="text-xs italic text-gray-400"
+      >Illustration by <a
+        class="underline decoration-dotted"
+        href="https://icons8.com/illustrations/author/XTPoH093lluQ"
+        >Viktoriya Belinio</a
+      > from <a
+        class="underline decoration-dotted"
+        href="https://icons8.com/illustrations">Ouch!</a
+      ></small
+    >
   </div>
 </body>
 <style>
