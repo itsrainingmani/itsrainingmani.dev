@@ -6,30 +6,41 @@ import BaseLayout from "@/layouts/BaseLayout";
 const pageTitle = "Learning Clojure in Public";
 
 const posts = (
-  await getCollection("clojurefam", ({ data }) => {
-    return data.publish === true;
-  })
+	await getCollection("clojurefam", ({ data }) => {
+		return data.publish === true;
+	})
 ).sort((a, b) => a.data.publishDate.valueOf() - b.data.publishDate.valueOf());
 ---
 
 <BaseLayout>
-  <main>
-    <h1 class="text-4xl text-right">{pageTitle}</h1>
-    <section>
-      <ul>
-        {
-          posts.map((post) => (
-            <li>
-              <a href={`/blog/clojurefam/${post.slug}/`}>
-                <h4 class="title">{post.data.title}</h4>
-                <p class="date">
-                  <FormattedDate date={post.data.publishDate} />
-                </p>
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </section>
-  </main>
+	<main>
+		<h1 class="text-right text-4xl">{pageTitle}</h1>
+		<section>
+			<table class="w-full text-left">
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>Date</th>
+					</tr>
+				</thead>
+				<tbody>
+					{
+						posts.map((post) => (
+							<tr>
+								<td>
+									<a href={`/blog/clojurefam/${post.slug}/`}>
+										<h4 class="title">{post.data.title}</h4>
+									</a>
+								</td>
+								<td>
+									<FormattedDate date={post.data.publishDate} />
+								</td>
+							</tr>
+						))
+					}
+				</tbody>
+			</table>
+			<ul></ul>
+		</section>
+	</main>
 </BaseLayout>
