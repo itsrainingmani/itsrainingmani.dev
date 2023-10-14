@@ -16,20 +16,24 @@ const projects = (await getCollection("projects")).sort(
 			thought to operate on the input to produce the output.
 		</blockquote>
 	</div>
-	<section>
-		<ul>
-			{
-				projects.map((project) => (
-					<li>
-						<a href={`/projects/${project.slug}/`}>
-							<h4 class="title">{project.data.title}</h4>
-							<p class="date">
-								<span>{project.data.createdYear}</span>
-							</p>
-						</a>
-					</li>
-				))
-			}
-		</ul>
-	</section>
+	<hr />
+	<div class="project-section grid grid-flow-row auto-rows-max grid-cols-2 gap-2 text-center">
+		{
+			projects.map((project) => (
+				<div class="flex aspect-video flex-col justify-center border border-black">
+					<h4 class="title">{project.data.title}</h4>
+					<p class="date">
+						<span>{project.data.createdYear}</span>
+					</p>
+				</div>
+			))
+		}
+	</div>
 </BaseLayout>
+<style>
+	.project-section {
+		/* display: grid; */
+		/* grid-template-columns: repeat(2, 1fr); */
+		/* grid-auto-rows: minmax(1fr, 0); */
+	}
+</style>
