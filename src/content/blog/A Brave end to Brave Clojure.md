@@ -1,7 +1,7 @@
 ---
 title: "A Brave end to Brave Clojure"
 publishDate: "21 July 2020"
-tags: ["clojurefam"]
+tags: ["Learning in Public", "Clojure", "Open Source"]
 publish: true
 ---
 
@@ -223,7 +223,7 @@ Maps vs Records - use records when you find yourself creating maps with the same
 
 ## Page Deletion Issue
 
-We in Team Seneca are working on this issue currently - https://github.com/athensresearch/athens/issues/292.
+We in Team Seneca are working on this issue currently - <https://github.com/athensresearch/athens/issues/292>.
 
 @alaq and @nthd3gr33 made some progress on implementing the "delete page" functionality. Today we got together virtually to discuss how to delete a page and by extension all the child blocks that are within it.
 

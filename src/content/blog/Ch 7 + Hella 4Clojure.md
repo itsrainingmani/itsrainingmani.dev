@@ -1,7 +1,7 @@
 ---
 title: "Ch 7 + Hella 4Clojure"
 publishDate: "11 July 2020"
-tags: ["clojurefam"]
+tags: ["Learning in Public", "Clojure", "Open Source"]
 publish: true
 ---
 

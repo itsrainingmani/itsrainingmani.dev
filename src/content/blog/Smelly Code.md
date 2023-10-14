@@ -1,7 +1,7 @@
 ---
 title: "Smelly Code"
 publishDate: "04 July 2020"
-tags: ["clojurefam"]
+tags: ["Learning in Public", "Clojure", "Open Source"]
 publish: true
 ---
 

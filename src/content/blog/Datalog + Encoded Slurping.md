@@ -1,7 +1,7 @@
 ---
 title: "Datalog + Encoded Slurping"
 publishDate: "14 July 2020"
-tags: ["clojurefam"]
+tags: ["Learning in Public", "Clojure", "Open Source"]
 publish: true
 ---
 

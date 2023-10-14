@@ -1,7 +1,7 @@
 ---
 title: "FP Abstractions + PR Merged"
 publishDate: "08 July 2020"
-tags: ["clojurefam"]
+tags: ["Learning in Public", "Clojure", "Open Source"]
 publish: true
 ---
 

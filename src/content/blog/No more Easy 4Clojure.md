@@ -1,7 +1,7 @@
 ---
 title: "No more Easy 4Clojure"
 publishDate: "15 July 2020"
-tags: ["clojurefam"]
+tags: ["Learning in Public", "Clojure", "Open Source"]
 publish: true
 ---
 

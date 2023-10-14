@@ -1,7 +1,7 @@
 ---
 title: "Scrolling through Athena - A fix emerges"
 publishDate: "17 July 2020"
-tags: ["clojurefam"]
+tags: ["Learning in Public", "Clojure", "Open Source"]
 publish: true
 ---
 

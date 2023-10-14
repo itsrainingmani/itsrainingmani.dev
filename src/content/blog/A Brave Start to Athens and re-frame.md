@@ -1,7 +1,7 @@
 ---
 title: "A Brave Start to Athens and re-frame"
 publishDate: "02 July 2020"
-tags: ["clojurefam"]
+tags: ["Learning in Public", "Clojure", "Open Source"]
 publish: true
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "The 3 Goblins of Concurrency"
 publishDate: "13 July 2020"
-tags: ["clojurefam"]
+tags: ["Learning in Public", "Clojure", "Open Source"]
 publish: true
 ---
 

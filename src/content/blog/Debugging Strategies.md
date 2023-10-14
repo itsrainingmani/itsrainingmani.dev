@@ -1,7 +1,7 @@
 ---
 title: "Debugging Strategies"
 publishDate: "01 July 2020"
-tags: ["clojurefam"]
+tags: ["Learning in Public", "Clojure", "Open Source"]
 publish: true
 ---
 

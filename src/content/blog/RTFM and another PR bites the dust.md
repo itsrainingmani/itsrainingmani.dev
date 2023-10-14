@@ -1,7 +1,7 @@
 ---
 title: "RTFM and another PR bites the dust"
 publishDate: "22 July 2020"
-tags: ["clojurefam"]
+tags: ["Learning in Public", "Clojure", "Open Source"]
 publish: true
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Sequences and Recursion"
 publishDate: "25 June 2020"
-tags: ["clojurefam"]
+tags: ["Learning in Public", "Clojure", "Open Source"]
 publish: true
 ---
 

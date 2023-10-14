@@ -1,7 +1,7 @@
 ---
 title: "Complex Interactions - A Tale of Concurrency"
 publishDate: "27 June 2020"
-tags: ["clojurefam"]
+tags: ["Learning in Public", "Clojure", "Open Source"]
 publish: true
 ---
 

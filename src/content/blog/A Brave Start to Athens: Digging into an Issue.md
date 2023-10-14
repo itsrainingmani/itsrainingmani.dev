@@ -1,7 +1,7 @@
 ---
 title: "A Brave Start to Athens: Digging into an Issue"
 publishDate: "03 July 2020"
-tags: ["clojurefam"]
+tags: ["Learning in Public", "Clojure", "Open Source"]
 publish: true
 ---
 

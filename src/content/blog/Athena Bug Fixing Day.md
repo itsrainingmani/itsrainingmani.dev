@@ -1,7 +1,7 @@
 ---
 title: "Athena Bug Fixing Day"
 publishDate: "23 July 2020"
-tags: ["clojurefam"]
+tags: ["Learning in Public", "Clojure", "Open Source"]
 publish: true
 ---
 
