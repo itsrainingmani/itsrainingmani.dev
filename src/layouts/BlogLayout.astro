@@ -10,17 +10,15 @@ const { title, description, publishDate } = Astro.props;
 ---
 
 <BaseLayout>
-	<article>
-		<div class="prose">
-			<div class="title">
-				<div class="date">
-					<FormattedDate date={publishDate} />
-				</div>
-				<h1>{title}</h1>
-				{description && <p>{description}</p>}
-				<hr />
+	<article class="lg:proxe-xl prose">
+		<div class="not-prose blog-title">
+			<div class="not-prose date">
+				<FormattedDate date={publishDate} />
 			</div>
-			<slot />
+			<h1>{title}</h1>
+			{description && <p>{description}</p>}
 		</div>
+		<hr />
+		<slot />
 	</article>
 </BaseLayout>
