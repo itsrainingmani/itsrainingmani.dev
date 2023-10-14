@@ -85,7 +85,7 @@ This one has some interesting constraints. For one, the inputs can be lists, vec
 After that little functional composition revelation I had, I decided to leverage some pretty powerful functions, namely `map` and `reduce`.
 No FP language can be complete without these two.
 
-![Always you three](assets/always-you-three.png)
+![Always you three](../assets/always-you-three.png)
 
 My original solution:
 
