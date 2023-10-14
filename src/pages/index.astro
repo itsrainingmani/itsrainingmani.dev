@@ -27,26 +27,6 @@ const posts = (
 			from classical physics.
 		</p>
 		<hr />
-		<BlogTable>
-			{
-				posts.map((post) => (
-					<tr>
-						<td>
-							<div class="article-link">
-								<a href={`/blog/${post.slug}/`}>
-									<h4 class="title">{post.data.title}</h4>
-								</a>
-								{post.data.description && (
-									<small class="whitespace-break-spaces italic">{post.data.description}</small>
-								)}
-							</div>
-						</td>
-						<td>
-							<FormattedDate date={post.data.publishDate} />
-						</td>
-					</tr>
-				))
-			}
-		</BlogTable>
+		<BlogTable posts={posts} />
 	</main>
 </BaseLayout>

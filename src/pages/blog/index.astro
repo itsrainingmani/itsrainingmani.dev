@@ -28,49 +28,8 @@ const clojureposts = (
 				thought to operate on the input to produce the output.
 			</blockquote>
 		</div>
-		<section>
-			<BlogTable posts={posts}>
-				{
-					posts.map((post) => (
-						<tr>
-							<td>
-								<div class="article-link">
-									<a href={`/blog/${post.slug}/`}>
-										<h4 class="title">{post.data.title}</h4>
-									</a>
-									{post.data.description && (
-										<small class="whitespace-break-spaces italic">{post.data.description}</small>
-									)}
-								</div>
-							</td>
-							<td>
-								<FormattedDate date={post.data.publishDate} />
-							</td>
-						</tr>
-					))
-				}
-			</BlogTable>
-		</section>
-		<section class="mb-1 mt-2">
-			<span>For my writing about learning Clojure in Public, look no further:</span>
-		</section>
-		<section>
-			<BlogTable>
-				{
-					clojureposts.map((post) => (
-						<tr>
-							<td>
-								<a href={`/blog/clojurefam/${post.slug}/`}>
-									<h4 class="title">{post.data.title}</h4>
-								</a>
-							</td>
-							<td>
-								<FormattedDate date={post.data.publishDate} />
-							</td>
-						</tr>
-					))
-				}
-			</BlogTable>
-		</section>
+		<BlogTable posts={posts} />
+		<p class="mb-2 mt-1">For my writing about learning Clojure in Public, look no further:</p>
+		<BlogTable posts={clojureposts} />
 	</main>
 </BaseLayout>
