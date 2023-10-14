@@ -136,11 +136,11 @@ It seems like there is no order guarantee for DataScript queries as far as I can
 
 Now why does DataScript preserve order for some number of items? My hypothesis is that this is a function of the B+ Tree structure.
 
-![Order](../assets/datascript-order.png)
+![Order](../../assets/datascript-order.png)
 
 After a certain number of elements, (in this case 8), the tree rebalances it's buckets.
 
-![Unbalanced](../assets/datascript-unbalance.png)
+![Unbalanced](../../assets/datascript-unbalance.png)
 
 Solutions -
 

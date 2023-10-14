@@ -22,7 +22,7 @@ These functions only care that they can perform the appropriate sequence operati
 
 ### Code Smells
 
-![smelly-code](../assets/smelly.png)
+![smelly-code](../../assets/smelly.png)
 
 One of my cohort members linked a very informative [website](https://bsless.github.io/code-smells/) on Clojure Code Smells in the Athens Discord. I spent some time casually browsing the list of code smells and I already feel like I've learned a lot about what is idiomatic code in Clojure and what isn't.
 
