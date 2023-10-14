@@ -24,9 +24,6 @@ const { posts } = Astro.props;
 							<a href={`/blog/${post.slug}/`}>
 								<h4 class="title">{post.data.title}</h4>
 							</a>
-							{post.data.description && (
-								<small class="whitespace-break-spaces italic">{post.data.description}</small>
-							)}
 						</div>
 					</td>
 					<td>
@@ -37,3 +34,50 @@ const { posts } = Astro.props;
 		}
 	</tbody>
 </table>
+<style>
+	.table-links {
+		width: 100%;
+		border-spacing: 0;
+		border-collapse: 0;
+		text-align: left;
+		border: 0.1rem solid var(--roiro);
+		box-shadow: 2px 2px var(--usuzumiiro);
+	}
+
+	.table-links > thead {
+		background-color: var(--shironezu);
+		color: #000;
+		border: 1px solid #000;
+		vertical-align: middle;
+	}
+
+	.table-links th {
+		padding: 0.3rem 0.6rem 0;
+		font-weight: 600;
+		border-bottom: 0.1rem solid #000;
+	}
+
+	.table-links td {
+		padding: 0.3rem 0.6rem 0;
+		border-bottom: 0.1rem solid var(--usuzumiiro);
+	}
+
+	.article-link {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding: 0.5rem 0;
+	}
+
+	.table-links a {
+		max-width: max-content;
+		color: var(--nezuogusa);
+	}
+
+	.table-links a:hover {
+		cursor: alias;
+		text-decoration: underline;
+		text-underline-offset: 2px;
+		text-decoration-skip-ink: auto;
+	}
+</style>

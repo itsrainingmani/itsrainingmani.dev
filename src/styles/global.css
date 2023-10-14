@@ -22,6 +22,7 @@
 	--nezuogusa: #4d80e6;
 	--shiraumenezu: #e5e4e6;
 }
+
 @font-face {
 	font-family: "Atkinson";
 	src: url("/fonts/atkinson-regular.woff") format("woff");
@@ -55,50 +56,13 @@ body {
 	line-height: 1.5;
 }
 
-.table-links {
-	width: 100%;
-	border-spacing: 0;
-	border-collapse: 0;
-	text-align: left;
-	border: 0.1rem solid var(--usuzumiiro);
-}
-
-.table-links > thead {
-	background-color: var(--shironezu);
-	color: #000;
-	border: 1px solid #000;
-	vertical-align: middle;
-}
-
-.table-links th {
-	padding: 0.3rem 0.6rem 0;
-	font-weight: 600;
-	border-bottom: 0.1rem solid #000;
-}
-
-.table-links td {
-	padding: 0.3rem 0.6rem 0;
-	border-bottom: 0.1rem solid var(--usuzumiiro);
-}
-
-.article-link {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	padding: 0.5rem 0;
-}
-
-.table-links a {
-	max-width: max-content;
-	color: var(--nezuogusa);
-}
-
-.table-links a:hover {
-	cursor: cell;
-}
-
 h1 {
 	padding-bottom: 1rem;
+}
+
+hr {
+	border-top: 1px solid rgb(var(--gray-light));
+	margin: 0.25rem 0;
 }
 
 /* body { */
@@ -194,11 +158,6 @@ h1 {
 /*   margin: 0px; */
 /*   font-size: 1.333em; */
 /* } */
-hr {
-	border-top: 1px solid rgb(var(--gray-light));
-	margin: 0.25rem 0;
-}
-
 .expanded {
 	display: unset;
 }
