@@ -20,6 +20,7 @@
 	--nezumiiro: #949495;
 	--yanagi: #c8d5bb;
 	--nezuogusa: #4d80e6;
+	--shiraumenezu: #e5e4e6;
 }
 @font-face {
 	font-family: "Atkinson";
@@ -36,17 +37,21 @@
 	font-display: swap;
 }
 
+html {
+	background-color: var(--shironezu);
+}
+
 body {
 	display: block;
 	float: none;
-	margin: 1rem;
+	margin: 0 auto;
 	padding: 1rem;
 	background: #fff;
 	margin-right: auto;
 	margin-left: auto;
-	/* background: linear-gradient(var(--gray-gradient)) no-repeat; */
+	/* background: linear-gradient(var(--shiraumenezu)) no-repeat; */
 	background-size: 100% 600px;
-	color: rgb(var(--gray-dark));
+	color: rgb(var(--roiro));
 	line-height: 1.5;
 }
 
@@ -77,7 +82,12 @@ body {
 }
 
 .table-links a {
+	max-width: max-content;
 	color: var(--nezuogusa);
+}
+
+.table-links a:hover {
+	cursor: cell;
 }
 
 h1 {
@@ -182,19 +192,8 @@ hr {
 	margin: 0.25rem 0;
 }
 
-.hamburger {
-	padding-right: 20px;
-	cursor: pointer;
-}
-
 .expanded {
 	display: unset;
-}
-
-@media screen and (min-width: 636px) {
-	.hamburger {
-		display: none;
-	}
 }
 
 @media (max-width: 720px) {

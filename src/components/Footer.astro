@@ -1,16 +1,28 @@
 ---
 const today = new Date();
+import Icon from "@/components/Icon";
+import { ICON_LINKS } from "@/data/constants";
 ---
 
 <footer>
 	<div>
 		<small
 			>&copy; {today.getFullYear()}&nbsp;<a
+				class="underline decoration-dotted underline-offset-2 hover:text-sky-800"
 				href="https://github.com/itsrainingmani">Mani Sundararajan</a
 			>. All rights reserved.</small
 		>
 	</div>
-	<div><abbr></abbr></div>
+	<p class="socials">
+		{
+			ICON_LINKS.map(({ href, icon, label }) => (
+				<a href={href} class="social">
+					<span class="sr-only">{label}</span>
+					<Icon icon={icon} />
+				</a>
+			))
+		}
+	</p>
 </footer>
 <style>
 	footer {
@@ -21,5 +33,28 @@ const today = new Date();
 		clear: both;
 		color: var(--usuzumiiro);
 		fill: var(--usuzumiiro);
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.socials {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.625rem;
+		font-size: 1.125em;
+		/* font-size: var(--icon-size); */
+	}
+
+	.social {
+		display: flex;
+		text-decoration: none;
+		color: var(--usuzumiiro);
+		transition: color var(--nezuogusa);
+	}
+
+	.social:hover,
+	.social:focus {
+		color: var(--roiro);
 	}
 </style>
