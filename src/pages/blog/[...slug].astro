@@ -1,12 +1,11 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
 import BlogLayout from "@/layouts/BlogLayout";
-import { removeMultipleDashes } from "@/utils";
 
 export async function getStaticPaths() {
 	const posts = await getCollection("blog");
 	return posts.map((post) => ({
-		params: { slug: removeMultipleDashes(post.slug) },
+		params: { slug: post.slug },
 		props: post,
 	}));
 }
