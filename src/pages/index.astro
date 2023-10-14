@@ -1,6 +1,5 @@
 ---
 import BlogTable from "@/components/BlogTable";
-import FormattedDate from "@/components/FormattedDate";
 import BaseLayout from "@/layouts/BaseLayout";
 import { getCollection } from "astro:content";
 const pageTitle = "Home";
@@ -15,7 +14,6 @@ const posts = (
 <BaseLayout pageTitle={pageTitle}>
 	<main>
 		<h1 class="text-right text-5xl font-bold">Overthunk</h1>
-		<hr />
 		<p>
 			The formalism of the unitary operators implicitly uses the concept of time, since a unitary
 			operator describes a change of state, but it says nothing a priori about space and mass. It
