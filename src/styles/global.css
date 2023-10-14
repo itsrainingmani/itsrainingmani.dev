@@ -81,6 +81,13 @@ body {
 	border-bottom: 0.1rem solid var(--usuzumiiro);
 }
 
+.article-link {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 0.5rem 0;
+}
+
 .table-links a {
 	max-width: max-content;
 	color: var(--nezuogusa);

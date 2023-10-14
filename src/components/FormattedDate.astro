@@ -7,6 +7,6 @@ interface Props {
 const { date } = Astro.props;
 ---
 
-<time datetime={date.toISOString()}>
+<time class="text-base text-gray-600" datetime={date.toISOString()}>
 	{formatDate(date)}
 </time>
