@@ -9,5 +9,11 @@ export default defineConfig({
 	image: {
 		service: squooshImageService(),
 	},
+	markdown: {
+		shikiConfig: {
+			theme: "dracula-soft",
+			wrap: true,
+		},
+	},
 	integrations: [mdx(), sitemap(), tailwind()],
 });
