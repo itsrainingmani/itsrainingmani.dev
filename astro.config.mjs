@@ -1,19 +1,24 @@
 import { defineConfig, squooshImageService } from "astro/config";
-import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 
+import mdx from "@astrojs/mdx";
+import remarkToc from "remark-toc";
+
 // https://astro.build/config
 export default defineConfig({
-	site: "https://itsrainingmani.dev",
-	image: {
-		service: squooshImageService(),
-	},
-	markdown: {
-		shikiConfig: {
-			theme: "dracula-soft",
-			wrap: true,
-		},
-	},
-	integrations: [mdx(), sitemap(), tailwind()],
+  site: "https://itsrainingmani.dev",
+  image: {
+    service: squooshImageService(),
+  },
+  integrations: [
+    mdx({
+      syntaxHighlight: "shiki",
+      shikiConfig: { theme: "dracula-soft", wrap: true },
+      remarkPlugins: [remarkToc],
+      gfm: false,
+    }),
+    sitemap(),
+    tailwind(),
+  ],
 });
