@@ -12,13 +12,21 @@ const { title, description, publishDate } = Astro.props;
 <BaseLayout>
 	<article class="lg:proxe-xl prose">
 		<div class="not-prose blog-title">
-			<div class="not-prose date">
-				<FormattedDate date={publishDate} />
+			<h1 class="pb-0 text-4xl">{title}</h1>
+			{description && <h3 class="italic">{description}</h3>}
+			<div class="date">
+				<h4>
+					{
+						publishDate.toLocaleDateString("en-US", {
+							year: "numeric",
+							month: "short",
+							day: "numeric",
+						})
+					}
+				</h4>
 			</div>
-			<h1>{title}</h1>
-			{description && <p>{description}</p>}
 		</div>
-		<hr />
+		<hr class="not-prose my-2" />
 		<slot />
 	</article>
 </BaseLayout>

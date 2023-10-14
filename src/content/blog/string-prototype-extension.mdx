@@ -1,7 +1,7 @@
 ---
 title: "Extending the String Prototype in JS & TS"
 publishDate: "24 September 2019"
-description: "Article on modifying built-in prototypes in the JS language"
+description: "Modifying built-in object prototypes in JavaScript for fun and profit"
 tags: ["JavaScript", "String Prototype"]
 publish: true
 ---
@@ -11,13 +11,13 @@ import federico from "@/assets/federico.jpg";
 
 <Image src={federico} alt="cool light art" />
 
-## Contents
+### Contents
 
 ## What is an Object Prototype
 
 From <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes">MDN</a>
 
-_JavaScript is often described as a prototype-based language — to provide inheritance, objects can have a prototype object, which acts as a template object that it inherits methods and properties from. An object's prototype object may also have a prototype object, which it inherits methods and properties from, and so on. This is often referred to as a prototype chain, and explains why different objects have properties and methods defined on other objects available to them._
+> JavaScript is often described as a prototype-based language — to provide inheritance, objects can have a prototype object, which acts as a template object that it inherits methods and properties from. An object's prototype object may also have a prototype object, which it inherits methods and properties from, and so on. This is often referred to as a prototype chain, and explains why different objects have properties and methods defined on other objects available to them.
 
 Simply put, every object inherits features from the object above it in the prototype chain. This also allows us to extend the functionality of an object by adding to their prototypes.
 

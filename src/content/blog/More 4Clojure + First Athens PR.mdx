@@ -5,7 +5,9 @@ tags: ["Learning in Public", "Clojure", "Open Source", "ClojureFam"]
 publish: true
 ---
 
-# ClojureFam - Week 3 - Day 1
+### Contents
+
+> ClojureFam - Week 3 - Day 1
 
 I ended up feeling pretty sick today so I wasn't able to spend time doing my usual amount of work on Clojure today.
 
@@ -13,7 +15,7 @@ But regardless, I did want to make some progress. So I worked on a few 4Clojure 
 
 ## 4Clojure Problems
 
-#### 95. To Tree, or not to Tree
+### 95. To Tree, or not to Tree
 
 Write a predicate which checks whether or not a given sequence represents a binary tree. Each node in the tree must have a value, a left child, and a right child.
 
@@ -29,7 +31,7 @@ Write a predicate which checks whether or not a given sequence represents a bina
 (istree? [1 nil [2 [3 nil nil] [4 nil nil]]])
 ```
 
-#### No. 118 Re-implement Map
+### No. 118 Re-implement Map
 
 Map is one of the core elements of a functional programming language. Given a function f and an input sequence s, return a lazy sequence of (f x) for each element x in s.
 
@@ -48,7 +50,7 @@ Map is one of the core elements of a functional programming language. Given a fu
 
 This one was interesting since my first intuition was to implement map in terms of reduce. But reduce doesn't play well with lazy-seq so I had to switch to using cons.
 
-#### No. 128 Recognize Playing Cards
+### No. 128 Recognize Playing Cards
 
 Write a function which converts (for example) the string "SJ" into a map of `{:suit :spade, :rank 9}`. A ten will always be represented with the single character "T", rather than the two characters "10".
 
