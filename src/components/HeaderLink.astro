@@ -6,7 +6,8 @@ type Props = HTMLAttributes<"a">;
 const { href, class: className, ...props } = Astro.props;
 
 const { pathname } = Astro.url;
-const isActive = href === pathname || href === pathname.replace(/\/$/, "");
+const hrefString = typeof href === "string" ? href : href instanceof URL ? href?.toString() : "";
+const isActive = href === pathname || (href !== "/" && pathname.startsWith(hrefString));
 ---
 
 <div class="mb-2">
