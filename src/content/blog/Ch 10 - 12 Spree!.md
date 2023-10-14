@@ -1,7 +1,7 @@
 ---
 title: "Ch 10 - 12 Spree!"
 publishDate: "20 July 2020"
-tags: ["Learning in Public", "Clojure", "Open Source"]
+tags: ["Learning in Public", "Clojure", "Open Source", "ClojureFam"]
 publish: true
 ---
 

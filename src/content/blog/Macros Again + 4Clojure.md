@@ -1,7 +1,7 @@
 ---
 title: "Macros Again + 4Clojure"
 publishDate: "12 July 2020"
-tags: ["Learning in Public", "Clojure", "Open Source"]
+tags: ["Learning in Public", "Clojure", "Open Source", "ClojureFam"]
 publish: true
 ---
 

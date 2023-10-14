@@ -1,7 +1,7 @@
 ---
 title: "Cuddle Zombies contd..."
 publishDate: "19 July 2020"
-tags: ["Learning in Public", "Clojure", "Open Source"]
+tags: ["Learning in Public", "Clojure", "Open Source", "ClojureFam"]
 publish: true
 ---
 

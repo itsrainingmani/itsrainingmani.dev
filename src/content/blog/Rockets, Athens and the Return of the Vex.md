@@ -1,7 +1,7 @@
 ---
 title: "Rockets, Athens and the Return of the Vex"
 publishDate: "30 June 2020"
-tags: ["Learning in Public", "Clojure", "Open Source"]
+tags: ["Learning in Public", "Clojure", "Open Source", "ClojureFam"]
 publish: true
 ---
 

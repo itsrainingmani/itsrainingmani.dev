@@ -1,7 +1,7 @@
 ---
 title: "Styling + The Final Day"
 publishDate: "26 July 2020"
-tags: ["Learning in Public", "Clojure", "Open Source"]
+tags: ["Learning in Public", "Clojure", "Open Source", "ClojureFam"]
 publish: true
 ---
 

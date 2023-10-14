@@ -1,7 +1,7 @@
 ---
 title: "Starting off my Clojure journey - Introductions and Emacs"
 publishDate: "22 June 2020"
-tags: ["Learning in Public", "Clojure", "Open Source"]
+tags: ["Learning in Public", "Clojure", "Open Source", "ClojureFam"]
 publish: true
 ---
 
@@ -28,7 +28,7 @@ to learn more about unique languages and technologies. As I mentioned in my firs
 
 I believe the first time I heard of a Lisp was from this xkcd comic
 
-![Lisp Cycles](https://github.com/itsrainingmani/learn-clojure-in-public/blob/master/week1/assets/xkcd-lisp-297.png)
+![Lisp Cycles](../assets/xkcd-lisp-297.png)
 
 Prior to the start of this program, I'd already done some basic tutorials for Clojure from the official website and also from Clojure for the Brave and True.
 This involved setting up an IDE and Repl. I chose Emacs, the reasons for which I've laid out in this [post](https://itsrainingmani.dev/blog/emacs-2020).

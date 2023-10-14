@@ -6,7 +6,7 @@ const pageTitle = "Home";
 
 const posts = (
 	await getCollection("blog", ({ data }) => {
-		return data.publish === true && !data.tags.includes("clojurefam");
+		return data.publish === true && !data.tags.includes("ClojureFam");
 	})
 ).sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
 ---

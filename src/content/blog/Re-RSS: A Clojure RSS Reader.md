@@ -1,7 +1,7 @@
 ---
 title: "Re-RSS: A Clojure RSS Reader"
 publishDate: "24 July 2020"
-tags: ["Learning in Public", "Clojure", "Open Source"]
+tags: ["Learning in Public", "Clojure", "Open Source", "ClojureFam"]
 publish: true
 ---
 

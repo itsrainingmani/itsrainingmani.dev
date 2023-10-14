@@ -1,7 +1,7 @@
 ---
 title: "Macros, Recursion and a Pythonic Surprise"
 publishDate: "26 June 2020"
-tags: ["Learning in Public", "Clojure", "Open Source"]
+tags: ["Learning in Public", "Clojure", "Open Source", "ClojureFam"]
 publish: true
 ---
 

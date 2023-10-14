@@ -1,7 +1,7 @@
 ---
 title: "More 4Clojure + First Athens PR"
 publishDate: "06 July 2020"
-tags: ["Learning in Public", "Clojure", "Open Source"]
+tags: ["Learning in Public", "Clojure", "Open Source", "ClojureFam"]
 publish: true
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Debugging Strategies"
 publishDate: "01 July 2020"
-tags: ["Learning in Public", "Clojure", "Open Source"]
+tags: ["Learning in Public", "Clojure", "Open Source", "ClojureFam"]
 publish: true
 ---
 

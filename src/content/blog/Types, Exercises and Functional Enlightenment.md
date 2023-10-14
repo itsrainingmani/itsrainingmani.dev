@@ -1,7 +1,7 @@
 ---
 title: "Types, Exercises and Functional Enlightenment"
 publishDate: "23 June 2020"
-tags: ["Learning in Public", "Clojure", "Open Source"]
+tags: ["Learning in Public", "Clojure", "Open Source", "ClojureFam"]
 publish: true
 ---
 

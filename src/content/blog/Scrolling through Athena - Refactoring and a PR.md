@@ -1,7 +1,7 @@
 ---
 title: "Scrolling through Athena - Refactoring and a PR"
 publishDate: "18 July 2020"
-tags: ["Learning in Public", "Clojure", "Open Source"]
+tags: ["Learning in Public", "Clojure", "Open Source", "ClojureFam"]
 publish: true
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Ch 4 of Brave Clojure + 2nd Athens PR"
 publishDate: "07 July 2020"
-tags: ["Learning in Public", "Clojure", "Open Source"]
+tags: ["Learning in Public", "Clojure", "Open Source", "ClojureFam"]
 publish: true
 ---
 

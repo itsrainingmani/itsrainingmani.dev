@@ -1,7 +1,7 @@
 ---
 title: "No more RSS. Time for Pomos"
 publishDate: "25 July 2020"
-tags: ["Learning in Public", "Clojure", "Open Source"]
+tags: ["Learning in Public", "Clojure", "Open Source", "ClojureFam"]
 publish: true
 ---
 

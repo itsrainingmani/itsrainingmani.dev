@@ -1,7 +1,7 @@
 ---
 title: "Functions, Introspection and Conj"
 publishDate: "24 June 2020"
-tags: ["Learning in Public", "Clojure", "Open Source"]
+tags: ["Learning in Public", "Clojure", "Open Source", "ClojureFam"]
 publish: true
 ---
 
