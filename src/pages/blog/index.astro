@@ -8,13 +8,13 @@ const pageTitle = "Written Archive";
 
 const posts = (
 	await getCollection("blog", ({ data }) => {
-		return data.publish === true;
+		return data.publish === true && !data.tags.includes("clojurefam");
 	})
 ).sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
 
 const clojureposts = (
-	await getCollection("clojurefam", ({ data }) => {
-		return data.publish === true;
+	await getCollection("blog", ({ data }) => {
+		return data.publish === true && data.tags.includes("clojurefam");
 	})
 ).sort((a, b) => a.data.publishDate.valueOf() - b.data.publishDate.valueOf());
 ---

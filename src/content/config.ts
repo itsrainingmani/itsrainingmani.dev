@@ -9,7 +9,7 @@ function removeDupsAndLowerCase(array: string[]) {
 
 const blog = defineCollection({
 	schema: z.object({
-		title: z.string().max(60),
+		title: z.string().max(100),
 		description: z.string().min(50).max(160).optional(),
 		publishDate: z.coerce.date(),
 		tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
@@ -28,13 +28,4 @@ const projects = defineCollection({
 	}),
 });
 
-const clojurefam = defineCollection({
-	schema: z.object({
-		title: z.string().max(100),
-		publishDate: z.coerce.date(),
-		tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
-		publish: z.boolean().default(false),
-	}),
-});
-
-export const collections = { blog, projects, clojurefam };
+export const collections = { blog, projects };
