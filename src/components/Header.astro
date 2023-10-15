@@ -5,8 +5,10 @@ import HeaderLink from "@/components/HeaderLink";
 <header class="mb-2 border-b border-b-gray-300 pb-2">
 	<!-- <span class="hamburger">Menu</span> -->
 	<nav>
-		<div class="nav-section grid columns-4 grid-flow-col gap-2 text-center">
-			<HeaderLink href="/">Home</HeaderLink>
+		<div
+			class="nav-section grid auto-cols-fr grid-flow-row-dense grid-cols-2 gap-2 text-center sm:grid-cols-4"
+		>
+			<!-- <HeaderLink href="/">Home</HeaderLink> -->
 			<HeaderLink href="/blog">Writing</HeaderLink>
 			<HeaderLink href="/projects">Projects</HeaderLink>
 			<HeaderLink href="/info">Info</HeaderLink>
@@ -14,9 +16,3 @@ import HeaderLink from "@/components/HeaderLink";
 		</div>
 	</nav>
 </header>
-<!-- <hr /> -->
-<style>
-	.nav-section {
-		grid-auto-columns: minmax(0, 1fr);
-	}
-</style>

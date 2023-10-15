@@ -10,6 +10,12 @@ const projects = (
 		return data.variant === "project";
 	})
 ).sort((a, b) => b.data.createdYear - a.data.createdYear);
+
+// grid-cols-2  -> 2 columns that occupy free space (fr)
+
+// Control the size of the implicitly-created grid rows
+// auto-rows-fr -> grid-auto-rows: minmax(0, 1fr);
+
 ---
 
 <BaseLayout>
@@ -21,15 +27,15 @@ const projects = (
 		</blockquote>
 	</div>
 	<hr />
-	<div class="project-section grid grid-flow-row auto-rows-max grid-cols-2 gap-1 text-center">
+	<div class="project-section grid grid-flow-row auto-rows-fr grid-cols-1 sm:grid-cols-2 gap-1 text-center">
 		{
 			projects.map((project) => (
-				<div class="project-card flex aspect-video flex-col justify-around border border-dashed border-black p-4">
+				<div class="project-card flex flex-col justify-around border border-dashed border-black p-6">
 				  <div class="basis-2/3 grow-0">
             <h3 class="title">{project.data.title}</h4>
 					  <p>{project.data.description}</p>
 				  </div>
-					<Action class="basis-1/3" location={project.data.repo}>
+					<Action class="basis-1/3 py-2" location={project.data.repo}>
 						<div class="flex flex-row justify-between items-center px-2">
 							<Icon icon="github-logo" />
 							<span class="pl-1">Repo<span>

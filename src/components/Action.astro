@@ -3,17 +3,22 @@ const { location } = Astro.props;
 ---
 
 <a
-	class="custom-action -top-0.5 inline-block h-8 cursor-pointer select-none appearance-none whitespace-nowrap border border-solid border-black bg-white px-2 pt-0.5 text-center align-middle text-black transition duration-300 ease-in-out"
+	class="custom-action -top-0.5 inline-block h-8 w-fit cursor-pointer select-none appearance-none whitespace-nowrap border border-solid border-black bg-white px-2 pt-0.5 text-center align-middle text-black transition duration-300 ease-in-out"
 	href={location}
 >
 	<slot />
 </a>
 <style>
 	.custom-action {
-		box-shadow: 2px 2px var(--usuzumiiro);
+		/* box-shadow: 2px 2px var(--usuzumiiro); */
+		background-color: var(--shironezu);
 	}
 	.custom-action:hover {
-		background-color: var(--yanagi);
-		box-shadow: 0px 0px;
+		background-color: rgba(108, 198, 68);
+		/* box-shadow: 0px 0px; */
+		border-width: 2px;
+	}
+	.custom-action:active {
+		color: blue;
 	}
 </style>
