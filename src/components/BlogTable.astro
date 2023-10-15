@@ -8,8 +8,8 @@ interface Props {
 const { posts } = Astro.props;
 ---
 
-<table class="table-links w-full table-fixed">
-	<thead>
+<table class="table-links w-full table-fixed border-spacing-0 text-left">
+	<thead class="border border-solid border-black align-middle text-black">
 		<tr>
 			<th>Title</th>
 			<th class="text-center">Published</th>
@@ -20,8 +20,11 @@ const { posts } = Astro.props;
 			posts.map((post) => (
 				<tr>
 					<td>
-						<div class="article-link">
-							<a href={`/blog/${post.slug}/`}>
+						<div class="flex flex-col justify-center py-2">
+							<a
+								class="max-w-max text-blue-500 hover:cursor-alias hover:underline hover:underline-offset-2"
+								href={`/blog/${post.slug}/`}
+							>
 								<h4 class="title">{post.data.title}</h4>
 							</a>
 						</div>
@@ -36,19 +39,13 @@ const { posts } = Astro.props;
 </table>
 <style>
 	.table-links {
-		/* width: 100%; */
-		border-spacing: 0;
 		border-collapse: 0;
-		text-align: left;
 		border: 0.1rem solid var(--roiro);
 		box-shadow: 2px 2px var(--usuzumiiro);
 	}
 
 	.table-links > thead {
 		background-color: var(--shironezu);
-		color: #000;
-		border: 1px solid #000;
-		vertical-align: middle;
 	}
 
 	.table-links th {
@@ -62,22 +59,11 @@ const { posts } = Astro.props;
 		border-bottom: 0.1rem solid var(--usuzumiiro);
 	}
 
-	.article-link {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		padding: 0.5rem 0;
-	}
-
 	.table-links a {
-		max-width: max-content;
 		color: var(--nezuogusa);
 	}
 
 	.table-links a:hover {
-		cursor: alias;
-		text-decoration: underline;
-		text-underline-offset: 2px;
 		text-decoration-skip-ink: auto;
 	}
 </style>
