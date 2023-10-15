@@ -16,7 +16,7 @@ export default defineConfig({
       syntaxHighlight: "shiki",
       shikiConfig: { theme: "dracula-soft", wrap: true },
       remarkPlugins: [remarkToc],
-      gfm: false,
+      gfm: true,
     }),
     sitemap(),
     tailwind(),

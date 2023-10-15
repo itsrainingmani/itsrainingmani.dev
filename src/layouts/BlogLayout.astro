@@ -10,7 +10,7 @@ const { title, description, publishDate } = Astro.props;
 ---
 
 <BaseLayout>
-	<article class="lg:proxe-xl prose">
+	<article class="lg:proxe-xl prose max-w-none">
 		<div class="not-prose blog-title">
 			<h1 class="pb-0 text-4xl">{title}</h1>
 			{description && <h3 class="italic">{description}</h3>}

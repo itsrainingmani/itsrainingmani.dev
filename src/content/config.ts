@@ -25,6 +25,7 @@ const projects = defineCollection({
 		createdYear: z.coerce.number(),
 		tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
 		repo: z.string().url(),
+		variant: z.string(),
 	}),
 });
 
