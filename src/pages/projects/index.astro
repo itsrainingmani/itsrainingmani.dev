@@ -27,10 +27,10 @@ const projects = (
 		</blockquote>
 	</div>
 	<hr />
-	<div class="project-section grid grid-flow-row auto-rows-fr grid-cols-1 sm:grid-cols-2 gap-1 text-center">
+	<div class="grid grid-flow-row auto-rows-fr grid-cols-1 sm:grid-cols-2 gap-1 text-center">
 		{
 			projects.map((project) => (
-				<div class="project-card flex flex-col justify-around border border-dashed border-black p-6">
+				<div class="flex flex-col justify-around border border-dashed border-black p-6">
 				  <div class="basis-2/3 grow-0">
             <h3 class="title">{project.data.title}</h4>
 					  <p>{project.data.description}</p>
@@ -46,8 +46,4 @@ const projects = (
 		}
 	</div>
 </BaseLayout>
-<style>
-	.project-card {
-		/* box-shadow: 4px 4px var(--usuzumiiro); */
-	}
-</style>
+
