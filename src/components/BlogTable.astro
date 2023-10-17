@@ -8,11 +8,14 @@ interface Props {
 const { posts } = Astro.props;
 ---
 
-<table class="table-links w-full table-auto border-spacing-0 text-left [border-collapse:0]">
-	<thead class="border border-solid border-black bg-gray-300 align-middle text-black">
+<table class="table-links w-full table-auto text-left">
+	<thead class="border-solid border-black bg-black align-middle text-white [border-width:0.1rem]">
 		<tr>
-			<th>Title</th>
-			<th class="text-center">Published</th>
+			<th class="pb-0 font-semibold [padding-left:0.6rem] [padding-right:0.6rem]">Title</th>
+			<th
+				class="pb-0 text-center font-semibold [padding-left:0.6rem] [padding-right:0.6rem] [padding-top:0.3rem]"
+				>Published</th
+			>
 		</tr>
 	</thead>
 	<tbody>
@@ -39,14 +42,10 @@ const { posts } = Astro.props;
 </table>
 <style>
 	.table-links {
-		border: 0.1rem solid var(--roiro);
+		border-collapse: 0;
+		border-spacing: collapse;
+		border: 0.1rem solid var(--usuzumiiro);
 		box-shadow: 2px 2px var(--usuzumiiro);
-	}
-
-	.table-links th {
-		padding: 0.3rem 0.6rem 0;
-		font-weight: 600;
-		border-bottom: 0.1rem solid #000;
 	}
 
 	.table-links td {

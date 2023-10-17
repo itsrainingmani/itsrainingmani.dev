@@ -1,5 +1,6 @@
 ---
 import BlogTable from "@/components/BlogTable";
+import WritingList from "@/components/WritingList";
 import BaseLayout from "@/layouts/BaseLayout";
 import { getCollection } from "astro:content";
 const pageTitle = "Home";
@@ -24,5 +25,7 @@ const posts = (
 		classical physics.
 	</p>
 	<hr />
-	<BlogTable posts={posts} />
+	<!-- <BlogTable posts={posts} /> -->
+	<p>Check out some of my recent writing:&nbsp;</p>
+	<WritingList posts={posts} />
 </BaseLayout>

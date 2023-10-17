@@ -1,0 +1,27 @@
+---
+import FormattedDate from "@/components/FormattedDate";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+	posts: CollectionEntry<"blog">[];
+}
+const { posts } = Astro.props;
+---
+
+<div>
+	<ul class="m-0 list-none p-0">
+		{
+			posts.map((post) => (
+				<li class="flex flex-row flex-wrap items-center gap-x-2">
+					<span class="text-xl">&#8599;</span>
+					<a
+						class="max-w-max text-left text-blue-500 hover:cursor-alias hover:underline hover:underline-offset-2 hover:[text-decoration-skip-ink:auto]"
+						href={`/blog/${post.slug}/`}
+					>
+						{post.data.title}
+					</a>
+				</li>
+			))
+		}
+	</ul>
+</div>

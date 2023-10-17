@@ -8,6 +8,6 @@ const { date } = Astro.props;
 const isoDate = date.toISOString();
 ---
 
-<time class="text-base text-gray-600" datetime={isoDate}>
+<time class="font-mono text-base text-gray-600" datetime={isoDate}>
 	{formatDate(isoDate)}
 </time>
