@@ -20,7 +20,7 @@ const posts = (
 		<span class="-mb-2 inline-block w-fit pb-2 text-left text-4xl font-medium">
 			<div class="marquee my-[-0.25em] inline-block h-[1.25em] overflow-hidden bg-inherit">
 				<div
-					class="children:gradient-text flex flex-col gap-4 whitespace-nowrap bg-inherit py-2 text-end"
+					class="children:gradient-text flex flex-col gap-4 whitespace-nowrap bg-inherit py-2 text-end [&>*]:bg-gradient-to-br [&>*]:bg-clip-text [&>*]:text-transparent"
 				>
 					<span class="from-blue-500 to-blue-600">Software Developer</span>
 					<span class="from-rose-500 to-rose-600">Keyboard Enthusiast</span>
@@ -30,6 +30,7 @@ const posts = (
 			</div>
 		</span>
 	</h1>
+
 	<div class="datasheet">
 		<h3 class="text-2xl">Personal Datasheet</h3>
 		<ol>
