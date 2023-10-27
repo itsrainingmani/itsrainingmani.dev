@@ -3,6 +3,7 @@ import WritingList from "@/components/WritingList";
 import BaseLayout from "@/layouts/BaseLayout";
 import { getCollection } from "astro:content";
 import { SOCIAL_LINKS } from "@/data/constants";
+import Link from "@/components/Link";
 const pageTitle = "Home";
 
 const posts = (
@@ -13,44 +14,48 @@ const posts = (
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<h1
-		class="children:block relative mb-0 flex flex-col items-center text-center md:items-end md:text-end"
-	>
-		<span class="mb-4 font-black">Mani Sundararajan</span>
-		<span class="-mb-2 inline-block w-fit pb-2 text-left text-4xl font-medium">
-			<div class="marquee my-[-0.25em] inline-block h-[1.25em] overflow-hidden bg-inherit">
-				<div
-					class="children:gradient-text flex flex-col gap-4 whitespace-nowrap bg-inherit py-2 text-end [&>*]:bg-gradient-to-br [&>*]:bg-clip-text [&>*]:text-transparent"
-				>
-					<span class="from-blue-500 to-blue-600">Software Developer</span>
-					<span class="from-rose-500 to-rose-600">Keyboard Enthusiast</span>
-					<span class="from-teal-500 to-teal-500">Goofball</span>
-					<span class="from-blue-500 to-blue-600" aria-hidden="true">Software Developer</span>
+	<div class="flex flex-col justify-between md:flex-row-reverse">
+		<h1
+			class="children:block relative mb-0 flex flex-col items-center text-center md:items-end md:text-end"
+		>
+			<span class="mb-4 font-black">Mani Sundararajan</span>
+			<span class="-mb-2 inline-block w-fit pb-2 text-left text-4xl font-medium">
+				<div class="marquee my-[-0.25em] inline-block h-[1.25em] overflow-hidden bg-inherit">
+					<div
+						class="children:gradient-text flex flex-col gap-4 whitespace-nowrap bg-inherit py-2 text-center md:text-end [&>*]:bg-gradient-to-br [&>*]:bg-clip-text [&>*]:text-transparent"
+					>
+						<span class="from-blue-500 to-blue-600">Software Developer</span>
+						<span class="from-rose-500 to-rose-600">Keyboard Enthusiast</span>
+						<span class="from-teal-500 to-teal-500">Goofball</span>
+						<span class="from-blue-500 to-blue-600" aria-hidden="true">Software Developer</span>
+					</div>
 				</div>
-			</div>
-		</span>
-	</h1>
-
-	<div class="datasheet">
-		<h3 class="text-2xl">Personal Datasheet</h3>
-		<ol>
-			<li><p>Occupation: Software Developer</p></li>
-			<li><p>Location: NYC (🍎)</p></li>
-			<li>
-				<p>GitHub: <a href={SOCIAL_LINKS["github"]}>itsrainingmani</a></p>
-				<li><p>LinkedIn: <a href={SOCIAL_LINKS["linkedin"]}>mtiruman</a></p></li>
-			</li>
-		</ol>
-		<hr />
-		<!-- <BlogTable posts={posts} /> -->
-		<p>Check out some of my recent writing:&nbsp;</p>
-		<WritingList posts={posts} />
+			</span>
+		</h1>
+		<div class="datasheet basis-1/2 border-solid border-black p-6 [border-width:0.1rem]">
+			<h3 class="text-2xl font-semibold">Personal Datasheet</h3>
+			<ol>
+				<li><p>Occupation: Software Developer</p></li>
+				<li><p>Location: NYC (🍎)</p></li>
+				<li>
+					<p>GitHub: <Link href={SOCIAL_LINKS["github"]}>itsrainingmani</Link></p>
+					<li><p>LinkedIn: <Link href={SOCIAL_LINKS["linkedin"]}>mtiruman</Link></p></li>
+				</li>
+			</ol>
+		</div>
 	</div>
+
+	<hr />
+	<p>Check out some of my recent writing:&nbsp;</p>
+	<WritingList posts={posts} />
 </BaseLayout>
 <style>
 	.marquee > div {
 		animation: vertical-marquee 8s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
 		--offset: -6px;
+	}
+	.datasheet {
+		box-shadow: 2px 2px var(--usuzumiiro);
 	}
 
 	@keyframes vertical-marquee {
