@@ -10,6 +10,7 @@ export const SOCIAL_LINKS = {
 	twitter: "https://twitter.com/itsrainingmani",
 	email: "mailto:jm75312@gmail.com",
 	replit: "https://replit.com/@itsrainingmani",
+	linkedin: "https://linkedin.com/in/mtiruman",
 };
 
 /** Icon links to social media — edit these with links to your profiles! */

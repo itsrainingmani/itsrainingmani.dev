@@ -1,8 +1,8 @@
 ---
-import BlogTable from "@/components/BlogTable";
 import WritingList from "@/components/WritingList";
 import BaseLayout from "@/layouts/BaseLayout";
 import { getCollection } from "astro:content";
+import { SOCIAL_LINKS } from "@/data/constants";
 const pageTitle = "Home";
 
 const posts = (
@@ -13,19 +13,61 @@ const posts = (
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<h1 class="text-right text-5xl font-bold">Overthunk</h1>
-	<p>
-		The formalism of the unitary operators implicitly uses the concept of time, since a unitary
-		operator describes a change of state, but it says nothing a priori about space and mass. It
-		seems falsely that space and mass are essentially classical concepts, that quantum physics does
-		not explain their existence, and that therefore it can not explain by itself the classical
-		appearances of the world. Most quantum equations have classical equivalents and we need the
-		second ones to understand the first. Thus presented quantum physics is not autonomous in
-		relation to classical physics, it is only a very particular way of using concepts borrowed from
-		classical physics.
-	</p>
-	<hr />
-	<!-- <BlogTable posts={posts} /> -->
-	<p>Check out some of my recent writing:&nbsp;</p>
-	<WritingList posts={posts} />
+	<h1
+		class="children:block relative mb-0 flex flex-col items-center text-center md:items-end md:text-end"
+	>
+		<span class="mb-4 font-black">Mani Sundararajan</span>
+		<span class="-mb-2 inline-block w-fit pb-2 text-left text-4xl font-medium">
+			<div class="marquee my-[-0.25em] inline-block h-[1.25em] overflow-hidden bg-inherit">
+				<div
+					class="children:gradient-text flex flex-col gap-4 whitespace-nowrap bg-inherit py-2 text-end"
+				>
+					<span class="from-blue-500 to-blue-600">Software Developer</span>
+					<span class="from-rose-500 to-rose-600">Keyboard Enthusiast</span>
+					<span class="from-teal-500 to-teal-500">Goofball</span>
+					<span class="from-blue-500 to-blue-600" aria-hidden="true">Software Developer</span>
+				</div>
+			</div>
+		</span>
+	</h1>
+	<div class="datasheet">
+		<h3 class="text-2xl">Personal Datasheet</h3>
+		<ol>
+			<li><p>Occupation: Software Developer</p></li>
+			<li><p>Location: NYC (🍎)</p></li>
+			<li>
+				<p>GitHub: <a href={SOCIAL_LINKS["github"]}>itsrainingmani</a></p>
+				<li><p>LinkedIn: <a href={SOCIAL_LINKS["linkedin"]}>mtiruman</a></p></li>
+			</li>
+		</ol>
+		<hr />
+		<!-- <BlogTable posts={posts} /> -->
+		<p>Check out some of my recent writing:&nbsp;</p>
+		<WritingList posts={posts} />
+	</div>
 </BaseLayout>
+<style>
+	.marquee > div {
+		animation: vertical-marquee 8s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+		--offset: -6px;
+	}
+
+	@keyframes vertical-marquee {
+		0%,
+		11.11% {
+			transform: translateY(calc((0% / 4) + var(--offset)));
+		}
+		22.22%,
+		44.44% {
+			transform: translateY(calc((-100% / 4) + var(--offset)));
+		}
+		55.55%,
+		77.77% {
+			transform: translateY(calc((-200% / 4) + var(--offset)));
+		}
+		89.89%,
+		100% {
+			transform: translateY(calc((-300% / 4) + var(--offset)));
+		}
+	}
+</style>
