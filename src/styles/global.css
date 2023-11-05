@@ -75,6 +75,17 @@
 	font-style: normal;
 	font-display: swap;
 }
+@font-face {
+	font-family: "InterVariable";
+	src: url("/fonts/Inter.var.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "BerkeleyMonoVariable";
+	src:
+		url("/fonts/BerkeleyMonoVariable-Regular.woff") format("woff"),
+		url("/fonts/BerkeleyMonoVariable-Regular.woff2") format("woff2");
+}
 
 html {
 	/* background-color: var(--shironezu); */

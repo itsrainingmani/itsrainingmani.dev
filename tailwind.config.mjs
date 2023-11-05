@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 export default {
 	content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
 	corePlugins: {
@@ -11,7 +13,12 @@ export default {
 		textOpacity: false,
 	},
 	theme: {
-		extend: {},
+		extend: {
+			fontFamily: {
+				mono: ["BerkeleyMonoVariable", ...defaultTheme.fontFamily.mono],
+				sans: ["InterVariable", ...defaultTheme.fontFamily.sans],
+			},
+		},
 	},
 	plugins: [
 		// typography enables styling for HTML rendered from Markdown

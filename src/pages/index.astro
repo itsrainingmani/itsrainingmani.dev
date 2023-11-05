@@ -4,6 +4,7 @@ import BaseLayout from "@/layouts/BaseLayout";
 import { getCollection } from "astro:content";
 import { SOCIAL_LINKS } from "@/data/constants";
 import Link from "@/components/Link";
+import Icon from "@/components/Icon";
 const pageTitle = "Home";
 
 const posts = (
@@ -38,8 +39,18 @@ const posts = (
 				<li><p>Occupation: Software Developer</p></li>
 				<li><p>Location: NYC (🍎)</p></li>
 				<li>
-					<p>GitHub: <Link href={SOCIAL_LINKS["github"]}>itsrainingmani</Link></p>
-					<li><p>LinkedIn: <Link href={SOCIAL_LINKS["linkedin"]}>mtiruman</Link></p></li>
+					<p>
+						GitHub: <Icon icon="github-logo" /><Link href={SOCIAL_LINKS["github"]}>
+							itsrainingmani
+						</Link>
+					</p>
+					<li>
+						<p>
+							LinkedIn: <Icon icon="linkedin-logo" /><Link href={SOCIAL_LINKS["linkedin"]}>
+								mtiruman
+							</Link>
+						</p>
+					</li>
 				</li>
 			</ol>
 		</div>
