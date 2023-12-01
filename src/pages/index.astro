@@ -19,7 +19,7 @@ const posts = (
 		<h1
 			class="children:block relative mb-0 flex flex-col items-center text-center md:items-end md:text-end"
 		>
-			<span class="mb-4 font-black">Mani Sundararajan</span>
+			<span class="mb-4 text-3xl font-black">Mani Sundararajan</span>
 			<span class="-mb-2 inline-block w-fit pb-2 text-left text-4xl font-medium">
 				<div class="marquee my-[-0.25em] inline-block h-[1.25em] overflow-hidden bg-inherit">
 					<div
@@ -39,14 +39,14 @@ const posts = (
 				<li><p>Occupation: Software Developer</p></li>
 				<li><p>Location: NYC (🍎)</p></li>
 				<li>
-					<p>
-						GitHub: <Icon icon="github-logo" /><Link href={SOCIAL_LINKS["github"]}>
+					<p class="flex flex-row items-center">
+						GitHub <Icon icon="github-logo" />:&nbsp<Link href={SOCIAL_LINKS["github"]}>
 							itsrainingmani
 						</Link>
 					</p>
 					<li>
-						<p>
-							LinkedIn: <Icon icon="linkedin-logo" /><Link href={SOCIAL_LINKS["linkedin"]}>
+						<p class="flex flex-row items-center">
+							LinkedIn <Icon icon="linkedin-logo" />:&nbsp<Link href={SOCIAL_LINKS["linkedin"]}>
 								mtiruman
 							</Link>
 						</p>
