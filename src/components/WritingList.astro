@@ -20,6 +20,7 @@ const { posts } = Astro.props;
 					>
 						{post.data.title}
 					</a>
+					<FormattedDate date={post.data.publishDate} />
 				</li>
 			))
 		}

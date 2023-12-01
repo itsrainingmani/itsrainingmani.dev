@@ -9,9 +9,12 @@ const pageTitle = "Home";
 
 const posts = (
 	await getCollection("blog", ({ data }) => {
-		return data.publish === true && !data.tags.includes("ClojureFam");
+		return data.publish === true;
 	})
-).sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+)
+	.sort(() => 0.5 - Math.random())
+	.slice(0, 5)
+	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
 ---
 
 <BaseLayout pageTitle={pageTitle}>
@@ -40,7 +43,7 @@ const posts = (
 				<li><p>Location: NYC (🍎)</p></li>
 				<li>
 					<p class="flex flex-row items-center">
-						GitHub <Icon icon="github-logo" />:&nbsp<Link href={SOCIAL_LINKS["github"]}>
+						GitHub <Icon icon="github-logo" />nbsp: <Link href={SOCIAL_LINKS["github"]}>
 							itsrainingmani
 						</Link>
 					</p>
@@ -57,7 +60,7 @@ const posts = (
 	</div>
 
 	<hr />
-	<p>Check out some of my recent writing:&nbsp;</p>
+	<p>Check out some random posts:&nbsp;</p>
 	<WritingList posts={posts} />
 </BaseLayout>
 <style>
