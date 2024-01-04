@@ -12,9 +12,9 @@ const posts = (
 	})
 ).sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
 
-const tags = [...new Set(posts.map((post) => post.data.tags).flat())].filter(
-	(p) => p !== "ClojureFam",
-);
+const tags = [...new Set(posts.map((post) => post.data.tags).flat())]
+	.filter((p) => p !== "ClojureFam" && p !== "2020" && p !== "Projects")
+	.sort();
 
 const clojureposts = (
 	await getCollection("blog", ({ data }) => {
@@ -32,7 +32,11 @@ const clojureposts = (
 		</blockquote>
 	</div>
 	<hr />
-	<p class="my-2">I've written about the following topics:&nbsp;{tags.join(", ")}</p>
+	<p class="my-2">I've written about the following topics:&nbsp;</p><p
+		class="my-2 font-mono lowercase"
+	>
+		{tags.join(", ")}
+	</p>
 	<BlogTable posts={posts} />
 	<p class="mb-2 mt-1">For my writing about learning Clojure in Public, look no further:</p>
 	<BlogTable posts={clojureposts} />
