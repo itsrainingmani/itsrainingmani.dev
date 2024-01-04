@@ -8,7 +8,7 @@ type Props = CollectionEntry<"blog">["data"];
 const { title, description, publishDate } = Astro.props;
 ---
 
-<BaseLayout>
+<BaseLayout pageTitle={title}>
 	<article class="lg:proxe-xl prose max-w-none">
 		<div class="not-prose blog-title">
 			<h1 class="pb-0 text-4xl">{title}</h1>

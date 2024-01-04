@@ -5,7 +5,7 @@ import { getCollection } from "astro:content";
 import { SOCIAL_LINKS } from "@/data/constants";
 import Link from "@/components/Link";
 import Icon from "@/components/Icon";
-const pageTitle = "Home";
+const pageTitle = "Overthunk";
 
 const posts = (
 	await getCollection("blog", ({ data }) => {
@@ -37,7 +37,7 @@ const posts = (
 			</span>
 		</h1>
 		<table
-			class="datasheet w-1/2 table-auto border-collapse border-solid border-black p-6 text-left [border-width:0.1rem]"
+			class="datasheet w-full table-auto border-collapse border-solid border-black p-6 text-left [border-width:0.1rem] md:w-1/2"
 		>
 			<thead class="border-solid border-black align-middle [border-width:0.1rem]">
 				<tr>
