@@ -2,31 +2,32 @@
 const today = new Date();
 import Icon from "@/components/Icon";
 import { ICON_LINKS } from "@/data/constants";
+import Webring from "./Webring.astro";
 ---
 
-<footer>
-	<div>
+<footer class="mt-16 flex flex-col">
+	<Webring />
+	<section id="footer-element">
 		<small
 			>&copy; {today.getFullYear()}&nbsp;<a
 				class="underline decoration-dotted underline-offset-2 hover:cursor-alias hover:text-sky-800"
 				href="https://github.com/itsrainingmani">Mani Sundararajan</a
 			>. All rights reserved.</small
 		>
-	</div>
-	<p class="socials">
-		{
-			ICON_LINKS.map(({ href, icon, label }) => (
-				<a href={href} class="social">
-					<span class="sr-only">{label}</span>
-					<Icon icon={icon} />
-				</a>
-			))
-		}
-	</p>
+		<p class="socials">
+			{
+				ICON_LINKS.map(({ href, icon, label }) => (
+					<a href={href} class="social">
+						<span class="sr-only">{label}</span>
+						<Icon icon={icon} />
+					</a>
+				))
+			}
+		</p>
+	</section>
 </footer>
 <style>
-	footer {
-		margin-top: 4rem;
+	#footer-element {
 		padding-top: 0.5rem;
 		border-color: var(--usuzumiiro);
 		border-top: 1px solid;
