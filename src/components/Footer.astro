@@ -5,20 +5,20 @@ import { ICON_LINKS } from "@/data/constants";
 import Webring from "./Webring.astro";
 ---
 
-<footer class="mt-16 flex flex-col">
+<footer class='mt-auto flex flex-col'>
 	<Webring />
-	<section id="footer-element">
+	<section id='footer-element'>
 		<small
 			>&copy; {today.getFullYear()}&nbsp;<a
-				class="underline decoration-dotted underline-offset-2 hover:cursor-alias hover:text-sky-800"
-				href="https://github.com/itsrainingmani">Mani Sundararajan</a
-			>. All rights reserved.</small
+				class='underline decoration-dotted underline-offset-2 hover:cursor-alias hover:text-sky-800'
+				href='https://github.com/itsrainingmani'>Mani Sundararajan</a
+			>. <em>All rights reserved.</em></small
 		>
-		<p class="socials">
+		<p class='socials'>
 			{
 				ICON_LINKS.map(({ href, icon, label }) => (
-					<a href={href} class="social">
-						<span class="sr-only">{label}</span>
+					<a href={href} class='social'>
+						<span class='sr-only'>{label}</span>
 						<Icon icon={icon} />
 					</a>
 				))

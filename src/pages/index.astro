@@ -5,6 +5,7 @@ import { getCollection } from "astro:content";
 import { SOCIAL_LINKS } from "@/data/constants";
 import Link from "@/components/Link";
 import Icon from "@/components/Icon";
+import CustomButton from "@/components/CustomButton";
 const pageTitle = "Overthunk";
 
 const posts = (
@@ -18,71 +19,78 @@ const posts = (
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<div class="flex flex-col justify-between md:flex-row-reverse">
+	<div class='flex flex-col justify-between md:flex-row-reverse'>
 		<h1
-			class="children:block relative mb-0 flex flex-col items-center text-center md:items-end md:text-end"
+			class='children:block relative mb-0 flex flex-col items-center text-center md:items-end md:text-end'
 		>
-			<span class="mb-4 text-3xl font-black">Mani Sundararajan</span>
-			<span class="-mb-2 inline-block w-fit pb-2 text-left text-4xl font-medium">
-				<div class="marquee my-[-0.25em] inline-block h-[1.25em] overflow-hidden bg-inherit">
+			<span class='mb-4 text-3xl font-black'>Mani Sundararajan</span>
+			<span class='-mb-2 inline-block w-fit pb-2 text-left text-4xl font-medium'>
+				<div class='marquee my-[-0.25em] inline-block h-[1.25em] overflow-hidden bg-inherit'>
 					<div
-						class="children:gradient-text flex flex-col gap-4 whitespace-nowrap bg-inherit py-2 text-center md:text-end [&>*]:bg-gradient-to-br [&>*]:bg-clip-text [&>*]:text-transparent"
+						class='children:gradient-text flex flex-col gap-4 whitespace-nowrap bg-inherit py-2 text-center md:text-end [&>*]:bg-gradient-to-br [&>*]:bg-clip-text [&>*]:text-transparent'
 					>
-						<span class="from-blue-500 to-blue-600">Software Engineer</span>
-						<span class="from-rose-500 to-rose-600">Keyboard Builder</span>
-						<span class="from-teal-500 to-teal-500">Photographer</span>
-						<span class="from-blue-500 to-blue-600" aria-hidden="true">Software Engineer</span>
+						<span class='from-blue-500 to-blue-600'>Software Engineer</span>
+						<span class='from-rose-500 to-rose-600'>Keyboard Builder</span>
+						<span class='from-teal-500 to-teal-500'>Photographer</span>
+						<span class='from-blue-500 to-blue-600' aria-hidden='true'>Software Engineer</span>
 					</div>
 				</div>
 			</span>
 		</h1>
 		<table
-			class="datasheet w-full table-auto border-collapse border-solid border-black p-6 text-left [border-width:0.1rem] md:w-1/2"
+			class='datasheet row-bordered w-full table-auto border-collapse p-6 text-left [border-width:0.1rem] md:w-1/2'
 		>
-			<thead class="border-solid border-black align-middle [border-width:0.1rem]">
+			<thead class='align-middle [border-width:0.1rem]'>
 				<tr>
-					<th class="text-xl font-semibold [padding-left:0.3rem] [padding-right:0.3rem]"
-						>Personal Datasheet</th
+					<th class='text-xl font-semibold [padding-left:0.3rem] [padding-right:0.3rem]'
+						>Datasheet</th
 					>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td class="[padding-left:0.3rem] [padding-right:0.3rem]">
-						<p class="flex flex-row items-center font-semibold">Current</p>
+					<td class='[padding-left:0.3rem] [padding-right:0.3rem]'>
+						<p class='flex flex-row items-center font-semibold'>Current</p>
 					</td>
-					<td class="w-1/2"> Recurse Center</td>
+					<td class='w-1/2'>
+						<ul style='list-style-type: circle;'>
+							<li><Link href='https://recurse.com'>Recurse Center</Link></li>
+						</ul></td
+					>
 				</tr>
 				<tr>
-					<td class="[padding-left:0.3rem] [padding-right:0.3rem]">
-						<p class="flex flex-row items-center font-semibold">Past</p>
+					<td class='[padding-left:0.3rem] [padding-right:0.3rem]'>
+						<p class='flex flex-row items-center font-semibold'>Past</p>
 					</td>
-					<td class="w-1/2">Derive Technologies LLC, Mount Sinai</td>
-				</tr>
-				<tr>
-					<td class="[padding-left:0.3rem] [padding-right:0.3rem]">
-						<p class="flex flex-row items-center font-semibold">
-							GitHub <Icon icon="github-logo" />
-						</p>
-					</td>
-					<td class="w-1/2">
-						<Link href={SOCIAL_LINKS["github"]}>itsrainingmani</Link>
+					<td class='w-1/2'>
+						<ul style='list-style-type: circle;'>
+							<li>Mount Sinai</li>
+							<li>Derive Technologies</li>
+						</ul>
 					</td>
 				</tr>
 				<tr>
-					<td class="[padding-left:0.3rem] [padding-right:0.3rem]">
-						<p class="flex flex-row items-center font-semibold">
-							LinkedIn <Icon icon="linkedin-logo" />
-						</p>
+					<td colspan='2'>
+						<CustomButton location={SOCIAL_LINKS["github"]} col='#4aa6d1'>
+							<p class='flex flex-row items-center justify-center font-semibold'>
+								GitHub <Icon icon='github-logo' />
+							</p>
+						</CustomButton>
 					</td>
-					<td class="w-1/2">
-						<Link href={SOCIAL_LINKS["linkedin"]}>mtiruman</Link>
+				</tr>
+				<tr>
+					<td colspan='2'>
+						<CustomButton location={SOCIAL_LINKS["linkedin"]} col='#4aa6d1'>
+							<p class='flex flex-row items-center justify-center font-semibold'>
+								LinkedIn <Icon icon='linkedin-logo' />
+							</p>
+						</CustomButton>
 					</td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
-	<hr class="my-2" />
+	<hr class='my-2' />
 	<p>Check out some random posts:&nbsp;</p>
 	<WritingList posts={posts} />
 </BaseLayout>
@@ -96,6 +104,15 @@ const posts = (
 		border-spacing: collapse;
 		border: 0.1rem solid var(--usuzumiiro);
 		box-shadow: 2px 2px var(--usuzumiiro);
+	}
+
+	.datasheet tr {
+		border: 0.1rem solid var(--roiro);
+	}
+
+	.datasheet td,
+	th {
+		padding: 1rem;
 	}
 
 	@keyframes vertical-marquee {

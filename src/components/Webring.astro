@@ -1,10 +1,10 @@
-<section class="flex flex-row justify-around">
-	<a id="rc-ring-prev" href="https://ring.recurse.com/prev?id=20">Prev</a>
-	<a data-rc-uuid="638cde16-1db0-4a7a-9e0f-af6a09bd3dba" href="https://ring.recurse.com/">
+<section class='flex flex-row justify-around pt-4'>
+	<a id='rc-ring-prev' class='ring-prev' href='https://ring.recurse.com/prev?id=20'>Prev</a>
+	<a data-rc-uuid='638cde16-1db0-4a7a-9e0f-af6a09bd3dba' href='https://ring.recurse.com/'>
 		The Recurse Webring
 	</a>
-	<a id="rc-ring-rand" href="https://ring.recurse.com/rand">Random</a>
-	<a id="rc-ring-next" href="https://ring.recurse.com/next?id=20">Next</a>
+	<a id='rc-ring-rand' class='ring-rand' href='https://ring.recurse.com/rand'>Rand 🎲</a>
+	<a id='rc-ring-next' class='ring-next' href='https://ring.recurse.com/next?id=20'>Next</a>
 </section>
 <style>
 	a {
@@ -12,6 +12,18 @@
 		text-align: left;
 		color: #4299e1; /* Replace with the desired shade of blue */
 		cursor: alias;
+	}
+
+	.ring-rand:hover {
+		cursor: help;
+	}
+
+	.ring-prev:hover {
+		cursor: w-resize;
+	}
+
+	.ring-next:hover {
+		cursor: e-resize;
 	}
 
 	a:hover {
