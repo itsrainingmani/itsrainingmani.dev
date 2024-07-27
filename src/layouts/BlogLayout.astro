@@ -1,6 +1,5 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import FormattedDate from "@/components/FormattedDate";
 import BaseLayout from "@/layouts/BaseLayout";
 
 type Props = CollectionEntry<"blog">["data"];
@@ -14,7 +13,7 @@ const { title, description, publishDate } = Astro.props;
 			<h1 class="pb-0 text-4xl">{title}</h1>
 			{description && <h3 class="italic">{description}</h3>}
 			<div class="date">
-				<h4 class="font-light italic">
+				<h4 class="font-mono font-light">
 					{
 						publishDate.toLocaleDateString("en-US", {
 							year: "numeric",
