@@ -1,12 +1,27 @@
 ---
 import Link from "@/components/Link";
 import BaseLayout from "@/layouts/BaseLayout";
-import StreakIcon from "@/assets/icon-streak.svg";
 
 const pageTitle = "Information";
-const res = await fetch("https://itsrainingmani-duostreak.web.val.run");
-const { streak } = await res.json();
 ---
+
+<script>
+	async function loadStreak() {
+		const res = await fetch("https://itsrainingmani-duostreak.web.val.run");
+		const { streak } = await res.json();
+
+		return streak;
+	}
+	window.addEventListener("load", async () => {
+		const streak = await loadStreak();
+		console.log(streak);
+		const streakSpan = document.querySelector("span#duo-streak");
+
+		if (streakSpan) {
+			streakSpan.textContent = streak;
+		}
+	});
+</script>
 
 <BaseLayout pageTitle={pageTitle}>
 	<h2 class='text-2xl font-semibold'>Hello.</h2>
@@ -19,7 +34,9 @@ const { streak } = await res.json();
 	<br />
 	<p>
 		In my free time, I enjoy reading books, hacking together <b>non-utilitarian</b> software,
-		building mechanical keyboards and learning Spanish & Japanese ({streak} 🔥 on
+		building mechanical keyboards and learning Spanish & Japanese (<span
+			class='font-mono'
+			id='duo-streak'></span> 🔥 on
 		<Link href='https://www.duolingo.com/profile/itsrainingmani'>Duolingo</Link>)!
 	</p>
 	<br />
