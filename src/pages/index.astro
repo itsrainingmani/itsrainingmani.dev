@@ -37,12 +37,10 @@ const posts = (
 				</div>
 			</span>
 		</h1>
-		<table
-			class='datasheet row-bordered w-full table-auto border-collapse p-6 text-left [border-width:0.1rem] md:w-1/2'
-		>
-			<thead class='align-middle [border-width:0.1rem]'>
+		<table class='datasheet w-full table-auto p-6 text-left [border-width:0.1rem] md:w-1/2'>
+			<thead class='align-middle'>
 				<tr>
-					<th class='text-xl font-semibold [padding-left:0.3rem] [padding-right:0.3rem]'
+					<th colspan='2' class='text-xl font-semibold [padding-left:0.3rem] [padding-right:0.3rem]'
 						>Datasheet</th
 					>
 				</tr>
@@ -101,9 +99,6 @@ const posts = (
 	}
 	.datasheet {
 		background-color: var(--light-paper);
-		border-collapse: 0;
-		border-spacing: collapse;
-		border: 0.1rem solid var(--usuzumiiro);
 		box-shadow: 2px 2px var(--usuzumiiro);
 	}
 
@@ -113,7 +108,7 @@ const posts = (
 
 	.datasheet td,
 	th {
-		padding: 1rem;
+		padding: 0.5rem;
 	}
 
 	@keyframes vertical-marquee {
