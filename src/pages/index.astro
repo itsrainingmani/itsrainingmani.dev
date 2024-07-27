@@ -8,11 +8,15 @@ import Icon from "@/components/Icon";
 import CustomButton from "@/components/CustomButton";
 const pageTitle = "Overthunk";
 
-const posts = (
-	await getCollection("blog", ({ data }) => {
-		return data.publish === true;
-	})
-)
+const posts = await getCollection("blog", ({ data }) => {
+	return data.publish === true;
+});
+
+const clojurePosts = await getCollection("clojurefam", ({ data }) => {
+	return data.publish === true;
+});
+
+const allPosts = [...posts, ...clojurePosts]
 	.sort(() => 0.5 - Math.random())
 	.slice(0, 5)
 	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
@@ -90,7 +94,7 @@ const posts = (
 	</div>
 	<hr class='my-2' />
 	<p class='font-mono'>Assorted 🎲 writing:&nbsp;</p>
-	<WritingList posts={posts} />
+	<WritingList posts={allPosts} />
 </BaseLayout>
 <style>
 	.marquee > div {

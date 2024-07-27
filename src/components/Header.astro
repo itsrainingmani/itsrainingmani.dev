@@ -7,7 +7,7 @@ import BlockyWebp from "@/assets/blocky.webp";
 <header class='mb-2 border-b border-b-gray-300 pb-2'>
 	<div class='flex items-center justify-between'>
 		<h2 class='mb-2 flex flex-col'>
-			<a class='font-mono text-4xl font-bold sm:text-left' href='/'>Overthunk Ltd.</a>
+			<a class='page-title font-mono text-4xl font-bold sm:text-left' href='/'>overthunk ltd.</a>
 			<small class='font-mono text-sm sm:text-left'>A Solitary Software Production</small>
 		</h2>
 		<picture style='display: contents;'>
@@ -31,3 +31,23 @@ import BlockyWebp from "@/assets/blocky.webp";
 		</div>
 	</nav>
 </header>
+
+<style>
+	.page-title {
+		display: inline-block;
+		padding-bottom: 2px;
+		background-image: linear-gradient(var(--sabinezu) 0 0);
+		background-position: 0 100%;
+		background-size: 0% 4px;
+		background-repeat: no-repeat;
+		transition:
+			background-size 0.5s,
+			background-position 0s 0.5s;
+	}
+
+	.page-title:hover {
+		color: var(--sabinezu);
+		background-position: 100% 100%;
+		background-size: 100% 4px;
+	}
+</style>
