@@ -1,12 +1,25 @@
 ---
 import HeaderLink from "@/components/HeaderLink";
+import BlockyPng from "@/assets/blocky.png";
+import BlockyWebp from "@/assets/blocky.webp";
 ---
 
 <header class='mb-2 border-b border-b-gray-300 pb-2'>
-	<h2 class='mb-2 flex flex-col text-center'>
-		<a class='font-mono text-4xl font-bold sm:text-left' href='/'>Overthunk Ltd.</a>
-		<small class='text-center font-mono text-sm sm:text-left'>A Solitary Software Production</small>
-	</h2>
+	<div class='flex items-center justify-between'>
+		<h2 class='mb-2 flex flex-col'>
+			<a class='font-mono text-4xl font-bold sm:text-left' href='/'>Overthunk Ltd.</a>
+			<small class='font-mono text-sm sm:text-left'>A Solitary Software Production</small>
+		</h2>
+		<picture style='display: contents;'>
+			<source srcset={BlockyWebp.src} type='image/webp' />
+			<img
+				src={BlockyPng.src}
+				loading='lazy'
+				alt='3D portrait of a weird little guy'
+				class='h-24 w-auto'
+			/>
+		</picture>
+	</div>
 	<nav>
 		<div
 			class='nav-section grid auto-cols-fr grid-flow-row-dense grid-cols-2 gap-2 text-center sm:grid-cols-4'
