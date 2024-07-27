@@ -1,7 +1,5 @@
 ---
-import Icon from "@/components/Icon";
 import Link from "@/components/Link";
-import { SOCIAL_LINKS } from "@/data/constants";
 import BaseLayout from "@/layouts/BaseLayout";
 
 const pageTitle = "Information";
@@ -22,27 +20,34 @@ const pageTitle = "Information";
 	</p>
 	<br />
 	<p>
-		I'm currently part of the Winter 2 - 2024 batch at the <Link href='https://recurse.com'>
+		I was most recently part of the Winter 2 - 2024 batch at the <Link href='https://recurse.com'>
 			Recurse Center
 		</Link>. Follow along my journey <Link href='/recurse'>here</Link>
 	</p>
 	<hr />
-	<h3 class='my-2 text-xl font-semibold'>Colophon</h3>
-	<p>
-		Made with <Link href='https://astro.build'>Astro.js</Link>, Styled with <Link
-			href='https://tailwindcss.com'
-		>
-			Tailwind
-		</Link> and hosted on <Link href='https://vercel.com'>Vercel</Link>. Check out the
-		<Link href='https://github.com/itsrainingmani/itsrainingmani'>source code.</Link>
-	</p>
-	<br />
-	<p>
-		Huge thanks to <Link href='https://berkeleygraphics.com/'>Berkeley Graphics</Link> and <Link
-			href='https://neil.computer'
-		>
-			Neil Panchal
-		</Link> for their awesome work on Berkeley Mono and being an immense source of design
-		inspiration
-	</p>
+	<div class='rounded-md border-2 border-dashed border-gray-300 p-4'>
+		<h3 class='my-2 text-xl font-semibold'>Colophon</h3>
+		<ul style='list-style-type: circle;'>
+			<li>
+				<p>
+					Made with <Link href='https://astro.build'>Astro.js</Link>, Styled with <Link
+						href='https://tailwindcss.com'
+					>
+						Tailwind
+					</Link> and hosted on <Link href='https://vercel.com'>Vercel</Link>. Check out the
+					<Link href='https://github.com/itsrainingmani/itsrainingmani.dev'>source code.</Link>
+				</p>
+			</li>
+			<li>
+				<p>
+					Shoutout to <Link href='https://berkeleygraphics.com/'>Berkeley Graphics</Link> and <Link
+						href='https://neil.computer'
+					>
+						Neil Panchal
+					</Link> for their awesome work on Berkeley Mono and being an immense source of design
+					inspiration
+				</p>
+			</li>
+		</ul>
+	</div>
 </BaseLayout>

@@ -10,9 +10,9 @@ const hrefString = typeof href === "string" ? href : href instanceof URL ? href?
 const isActive = href === pathname || (href !== "/" && pathname.startsWith(hrefString));
 ---
 
-<div class="mb-2">
+<div class='mb-2'>
 	<a
-		class="custom-boxshadow -top-0.5 inline-block h-8 w-full cursor-pointer select-none appearance-none whitespace-nowrap border border-solid border-black pr-2 pt-0.5 text-center align-middle no-underline"
+		class='custom-boxshadow -top-0.5 inline-block h-8 w-full cursor-pointer select-none appearance-none whitespace-nowrap border border-solid border-black pr-2 pt-0.5 text-center align-middle no-underline'
 		href={href}
 		class:list={[className, { active: isActive }]}
 		{...props}
@@ -23,6 +23,7 @@ const isActive = href === pathname || (href !== "/" && pathname.startsWith(hrefS
 <style>
 	a {
 		text-decoration: none;
+		background-color: var(--light-paper);
 	}
 	a.active {
 		font-weight: bolder;
@@ -44,7 +45,7 @@ const isActive = href === pathname || (href !== "/" && pathname.startsWith(hrefS
 		height: 100%;
 		opacity: 0;
 		box-shadow: 3px -3px var(--roiro);
-		transition: opacity ease 0.3s;
+		transition: opacity ease 0.2s;
 	}
 
 	.custom-boxshadow:hover {
