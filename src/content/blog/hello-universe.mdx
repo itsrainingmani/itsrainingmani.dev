@@ -6,10 +6,10 @@ tags: ["Blogging"]
 publish: true
 ---
 
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import blackhole from "@/assets/blackhole.jpg";
 
-<Image src={blackhole} alt="interstellar blackhole" />
+<Picture src={blackhole} formats={["avif", "webp"]} alt="interstellar blackhole" />
 
 ## A blog? Is this 2012? Why are you making one?
 
