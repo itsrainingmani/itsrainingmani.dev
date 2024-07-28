@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout";
+import ProjectCard from "@/components/ProjectCard";
 import Action from "@/components/Action";
 import Icon from "@/components/Icon";
 
@@ -15,40 +16,99 @@ const projects = (
 
 // Control the size of the implicitly-created grid rows
 // auto-rows-fr -> grid-auto-rows: minmax(0, 1fr);
-
 ---
 
+<script>
+	const cards = document.querySelectorAll(".card");
+	const containers = document.querySelectorAll(".card-container");
+
+	for (const [index, container] of containers.entries()) {
+		const card = cards[index];
+		container?.addEventListener("mousemove", (e) => {
+			const rect = container.getBoundingClientRect();
+			const x = e.clientX - rect.left;
+			const y = e.clientY - rect.top;
+
+			const centerX = rect.width / 2;
+			const centerY = rect.height / 2;
+
+			const rotateX = (y - centerY) / 10;
+			const rotateY = (centerX - x) / 10;
+
+			card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+			card.style.boxShadow = `${(x - centerX) / 5}px ${(y - centerY) / 5}px 20px rgba(0,0,0,0.2)`;
+		});
+
+		// container.addEventListener("mouseleave", () => {
+		// 	card.style.transform = "rotateX(0) rotateY(0)";
+		// 	card.style.boxShadow = "0 0 0 rgba(0,0,0,0)";
+		// });
+	}
+</script>
+
 <BaseLayout pageTitle={pageTitle}>
-	<div class="my-4 flex flex-col md:flex-row">
-		<h1 class="basis-2/3 self-start text-left text-4xl">{pageTitle}</h1>
-		<blockquote class="text-sm basis-1/3 border-l border-l-black px-3 py-1.5 italic text-gray-500 font-sm">
+	<div class='my-4 flex flex-col md:flex-row'>
+		<h1 class='basis-2/3 self-start text-left text-4xl'>{pageTitle}</h1>
+		<blockquote
+			class='font-sm basis-1/3 border-l border-l-black px-3 py-1.5 text-sm italic text-gray-500'
+		>
 			Systems, in one sense, are devices that take input and produce an output. A system can be
 			thought to operate on the input to produce the output.
 		</blockquote>
 	</div>
 	<hr />
-	<div class="grid grid-flow-row auto-rows-fr grid-cols-1 sm:grid-cols-2 gap-1 text-center">
+	<div class='grid grid-flow-row auto-rows-fr grid-cols-1 gap-1 text-center sm:grid-cols-2'>
 		{
 			projects.map((project) => (
-				<div class="project-box flex flex-col justify-around border-solid border-black [border-width:0.1rem] p-6">
-					<div class="basis-2/3 grow-0">
-            <h3 class="title font-semibold">{project.data.title}</h4>
-						<p>{project.data.description}</p>
-					</div>
-					<Action class="basis-1/3 py-2" location={project.data.repo}>
-						<div class="flex flex-row justify-between items-center px-2">
-							<Icon icon="github-logo" />
-							<span class="pl-1 font-mono">repo<span>
+				<div class='card-container'>
+					<div class='card project-box neumorphic flex h-full flex-col justify-around p-6'>
+						<div class='grow-0 basis-2/3'>
+							<h3 class='title font-semibold'>{project.data.title}</h3>
+							<p>{project.data.description}</p>
 						</div>
-					</Action>
+						<Action class='basis-1/3 py-2' location={project.data.repo}>
+							<div class='flex flex-row items-center justify-between px-2'>
+								<Icon icon='github-logo' />
+								<span class='pl-1 font-mono'>
+									repo<span> </span>
+								</span>
+							</div>
+						</Action>
+					</div>
 				</div>
-				))
+			))
 		}
 	</div>
+
+	<style>
+		.project-box {
+			background-color: var(--light-paper);
+			box-shadow: 2px 2px var(--usuzumiiro);
+		}
+
+		.neumorphic {
+			box-shadow:
+				12px 12px 24px 0 rgba(0, 0, 0, 0.2),
+				-12px -12px 24px 0 rgba(255, 255, 255, 0.5);
+			border-radius: 15px;
+			overflow: hidden;
+			padding: 1.3rem;
+		}
+
+		.neumorphic-pressed {
+			box-shadow:
+				inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2),
+				inset -6px -6px 10px 0 rgba(255, 255, 255, 0.5);
+		}
+
+		.card-container {
+			perspective: 1000px;
+		}
+
+		.card {
+			transition:
+				transform 0.1s,
+				box-shadow 0.1s;
+		}
+	</style>
 </BaseLayout>
-<style>
-	.project-box {
-		box-shadow: 2px 2px var(--usuzumiiro);
-		background-color: var(--light-paper);
-	}
-</style>
