@@ -5,6 +5,9 @@ tags: ["Learning in Public", "Clojure", "Open Source", "ClojureFam"]
 publish: true
 ---
 
+import { Picture } from "astro:assets";
+import alwaysyouthree from "@/assets/always-you-three.png";
+
 ### Contents
 
 > ClojureFam - Week 1 - Day 2
@@ -61,9 +64,9 @@ So I tried using Recursion. This was my final solution:
 
 ```clojure
 (defn newnth [coll ind]
-      (if (= 0 ind)
-          (first coll)
-          (newnth (rest coll) (- ind 1))
+    (if (= 0 ind)
+        (first coll)
+        (newnth (rest coll) (- ind 1))
 ```
 
 Pretty classic solution I would say. When I discussed this with my fellow Cohort members, their solutions were eye-opening.
@@ -87,7 +90,7 @@ This one has some interesting constraints. For one, the inputs can be lists, vec
 After that little functional composition revelation I had, I decided to leverage some pretty powerful functions, namely `map` and `reduce`.
 No FP language can be complete without these two.
 
-![Always you three](../../assets/always-you-three.png)
+<Picture src={alwaysyouthree} formats={["avif", "webp"]} alt="always you three" />
 
 My original solution:
 

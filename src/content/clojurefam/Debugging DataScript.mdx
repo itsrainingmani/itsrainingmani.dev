@@ -5,6 +5,10 @@ tags: ["Learning in Public", "Clojure", "Open Source", "ClojureFam"]
 publish: true
 ---
 
+import { Picture } from "astro:assets";
+import datascriptOrder from "@/assets/datascript-order.png";
+import datascriptUnbalance from "@/assets/datascript-unbalance.png";
+
 ### Contents
 
 > ClojureFam - Week 3 - Day 4
@@ -83,14 +87,14 @@ In `daily_notes.cljs` ->
         (when (not-empty @eids)
           (let [notes (pull-many db/dsdb '[*] @eids)]
             [:div#daily-notes (use-style daily-notes-scroll-area-style)
-             (doall
-               (for [{:keys [block/uid]} @notes]
-                 ^{:key uid}
-                 [:<>
+              (doall
+                (for [{:keys [block/uid]} @notes]
+                  ^{:key uid}
+                  [:<>
                   [:div (use-style daily-notes-page-style)
-                   [node-page-component [:block/uid uid]]]]))
-             [:div (use-style daily-notes-notional-page-style)
-              [:h1 "Earlier"]]]))))))
+                    [node-page-component [:block/uid uid]]]]))
+              [:div (use-style daily-notes-notional-page-style)
+                [:h1 "Earlier"]]]))))))
 ```
 
 `note-refs` subscribes to `:daily-notes/items`. Subscribe means that `note-refs` will only receive new data if `:daily-notes/items` changes.
@@ -138,11 +142,11 @@ It seems like there is no order guarantee for DataScript queries as far as I can
 
 Now why does DataScript preserve order for some number of items? My hypothesis is that this is a function of the B+ Tree structure.
 
-![Order](../../assets/datascript-order.png)
+<Picture src={datascriptOrder} formats={["avif", "webp"]} alt="Datascript Ordered" />
 
 After a certain number of elements, (in this case 8), the tree rebalances it's buckets.
 
-![Unbalanced](../../assets/datascript-unbalance.png)
+<Picture src={datascriptUnbalance} formats={["avif", "webp"]} alt="Datascript Unbalanced" />
 
 Solutions -
 
