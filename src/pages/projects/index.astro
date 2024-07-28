@@ -31,13 +31,21 @@ const projects = (
 			isDragging = true;
 			startX = e.clientX - card.offsetLeft;
 			startY = e.clientY - card.offsetTop;
+
+			// Remove from grid
+			card.style.position = "fixed";
+			card.style.zIndex = "1000";
+			card.style.left = `${e.clientX - startX}px`;
+			card.style.top = `${e.clientY - startY}px`;
+			card.style.width = `${card.offsetWidth}px`; // Maintain width
+			// container.style.opacity = "0";
 		});
 
 		document.addEventListener("mousemove", (e) => {
 			if (!isDragging) return;
 			const newX = e.clientX - startX;
 			const newY = e.clientY - startY;
-			card.style.position = "absolute";
+			// card.style.position = "absolute";
 			card.style.left = `${newX}px`;
 			card.style.top = `${newY}px`;
 		});
