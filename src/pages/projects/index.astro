@@ -24,6 +24,28 @@ const projects = (
 
 	for (const [index, container] of containers.entries()) {
 		const card = cards[index];
+		let isDragging = false;
+		let startX, startY;
+
+		card.addEventListener("mousedown", (e) => {
+			isDragging = true;
+			startX = e.clientX - card.offsetLeft;
+			startY = e.clientY - card.offsetTop;
+		});
+
+		document.addEventListener("mousemove", (e) => {
+			if (!isDragging) return;
+			const newX = e.clientX - startX;
+			const newY = e.clientY - startY;
+			card.style.position = "absolute";
+			card.style.left = `${newX}px`;
+			card.style.top = `${newY}px`;
+		});
+
+		document.addEventListener("mouseup", () => {
+			isDragging = false;
+		});
+
 		container?.addEventListener("mousemove", (e) => {
 			const rect = container.getBoundingClientRect();
 			const x = e.clientX - rect.left;
@@ -38,6 +60,10 @@ const projects = (
 			card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 			card.style.boxShadow = `${(x - centerX) / 5}px ${(y - centerY) / 5}px 20px rgba(0,0,0,0.2)`;
 		});
+
+		// container?.addEventListener("drag", (e) => {
+		// 	console.log(e.target);
+		// });
 
 		// container.addEventListener("mouseleave", () => {
 		// 	card.style.transform = "rotateX(0) rotateY(0)";
@@ -109,6 +135,8 @@ const projects = (
 			transition:
 				transform 0.1s,
 				box-shadow 0.1s;
+			cursor: move;
+			user-select: none;
 		}
 	</style>
 </BaseLayout>
