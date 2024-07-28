@@ -1,11 +1,10 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout";
-import ProjectCard from "@/components/ProjectCard";
 import Action from "@/components/Action";
 import Icon from "@/components/Icon";
 
-const pageTitle = "Technical Dispatch";
+const pageTitle = "Technical Archive";
 const projects = (
 	await getCollection("projects", ({ data }) => {
 		return data.variant;
@@ -18,32 +17,28 @@ const projects = (
 // auto-rows-fr -> grid-auto-rows: minmax(0, 1fr);
 ---
 
-<script>
-	const cards = document.querySelectorAll(".card");
-	const containers = document.querySelectorAll(".card-container");
+<script is:inline>
+	document.addEventListener("astro:page-load", () => {
+		const containers = document.querySelectorAll(".card-container");
 
-	for (const [index, container] of containers.entries()) {
-		const card = cards[index];
-		container?.addEventListener("mousemove", (e) => {
-			const rect = container.getBoundingClientRect();
-			const x = e.clientX - rect.left;
-			const y = e.clientY - rect.top;
+		containers.forEach((container) => {
+			const card = container.querySelector(".card");
+			container?.addEventListener("mousemove", (e) => {
+				const rect = container.getBoundingClientRect();
+				const x = e.clientX - rect.left;
+				const y = e.clientY - rect.top;
 
-			const centerX = rect.width / 2;
-			const centerY = rect.height / 2;
+				const centerX = rect.width / 2;
+				const centerY = rect.height / 2;
 
-			const rotateX = (y - centerY) / 10;
-			const rotateY = (centerX - x) / 10;
+				const rotateX = (y - centerY) / 10;
+				const rotateY = (centerX - x) / 10;
 
-			card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-			card.style.boxShadow = `${(x - centerX) / 5}px ${(y - centerY) / 5}px 20px rgba(0,0,0,0.2)`;
+				card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+				card.style.boxShadow = `${(x - centerX) / 5}px ${(y - centerY) / 5}px 20px rgba(0,0,0,0.2)`;
+			});
 		});
-
-		// container.addEventListener("mouseleave", () => {
-		// 	card.style.transform = "rotateX(0) rotateY(0)";
-		// 	card.style.boxShadow = "0 0 0 rgba(0,0,0,0)";
-		// });
-	}
+	});
 </script>
 
 <BaseLayout pageTitle={pageTitle}>
@@ -83,22 +78,16 @@ const projects = (
 	<style>
 		.project-box {
 			background-color: var(--light-paper);
-			box-shadow: 2px 2px var(--usuzumiiro);
+			/* box-shadow: 2px 2px var(--usuzumiiro); */
 		}
 
 		.neumorphic {
 			box-shadow:
-				12px 12px 24px 0 rgba(0, 0, 0, 0.2),
+				12px 12px 24px 0 var(--usuzumiiro),
 				-12px -12px 24px 0 rgba(255, 255, 255, 0.5);
 			border-radius: 15px;
 			overflow: hidden;
 			padding: 1.3rem;
-		}
-
-		.neumorphic-pressed {
-			box-shadow:
-				inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2),
-				inset -6px -6px 10px 0 rgba(255, 255, 255, 0.5);
 		}
 
 		.card-container {

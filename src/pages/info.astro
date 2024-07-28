@@ -5,38 +5,70 @@ import BaseLayout from "@/layouts/BaseLayout";
 const pageTitle = "Information";
 ---
 
-<script>
+<script is:inline>
+	function setCookie(name, value, expiryDate) {
+		document.cookie = `${name}=${value};expires=${expiryDate.toUTCString()};path=/`;
+	}
+
+	function getCookie(name) {
+		const cookies = document.cookie.split(";");
+		for (let cookie of cookies) {
+			const [cookieName, cookieValue] = cookie.trim().split("=");
+			if (cookieName === name) {
+				return cookieValue;
+			}
+		}
+		return null;
+	}
+
+	function getMidnightEST() {
+		const now = new Date();
+		const est = new Date(now.toLocaleString("en-US", { timeZone: "America/New_York" }));
+		est.setHours(24, 0, 0, 0);
+		return est;
+	}
+
 	async function loadStreak() {
 		const res = await fetch("https://itsrainingmani-duostreak.web.val.run");
 		const { streak } = await res.json();
 
 		return streak;
 	}
-	window.addEventListener("load", async () => {
-		const streak = await loadStreak();
-		console.log(streak);
-		const streakSpan = document.querySelector("span#duo-streak");
 
-		if (streakSpan) {
-			streakSpan.textContent = streak;
+	async function setStreak() {
+		const streakSpan = document.querySelector("span#duo-streak");
+		if (!streakSpan) return;
+
+		let streak = getCookie("duo-streak");
+
+		if (!streak) {
+			streak = await loadStreak();
+			setCookie("duo-streak", streak, getMidnightEST());
 		}
-	});
+
+		streakSpan.textContent = streak;
+	}
+
+	document.addEventListener("astro:after-swap", setStreak);
+	document.addEventListener("astro:page-load", setStreak, { once: true });
 </script>
 
 <BaseLayout pageTitle={pageTitle}>
-	<h2 class='text-2xl font-semibold'>Hello.</h2>
+	<h2 class='text-2xl font-semibold'>Hello 👋🏻</h2>
 	<br />
 	<p>
-		My name is Mani and I am a software engineer/aspiring photographer from NYC. I’m interested in
-		learning about languages, <em>programming</em> or otherwise & exploring the streets of NYC with
-		a 📷 in hand
+		My name is Mani and I am a software engineer/aspiring photographer. I’m interested in learning
+		about languages, <em>programming</em> or otherwise & exploring the streets of NYC with a 📷 in
+		hand
 	</p>
 	<br />
+	<p>I currently live in NYC with my wife, Khia and 2 cats</p>
+	<br />
 	<p>
-		In my free time, I enjoy reading books, hacking together <b>non-utilitarian</b> software,
-		building mechanical keyboards and learning Spanish & Japanese (<span
-			class='font-mono'
-			id='duo-streak'></span> 🔥 on
+		In my free time, I enjoy reading, hacking together <b>✨non-utilitarian✨</b> software, building
+		mechanical keyboards and learning Spanish & Japanese (<span class='font-mono' id='duo-streak'
+			><span class='loading-emoji'>↻</span></span
+		> 🔥 on
 		<Link href='https://www.duolingo.com/profile/itsrainingmani'>Duolingo</Link>)!
 	</p>
 	<br />
@@ -72,3 +104,18 @@ const pageTitle = "Information";
 		</ul>
 	</div>
 </BaseLayout>
+
+<style>
+	.loading-emoji {
+		display: inline-block;
+		animation: spin 3s infinite linear;
+	}
+	@keyframes spin {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+</style>
