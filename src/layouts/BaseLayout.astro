@@ -11,6 +11,7 @@ const { pageTitle } = Astro.props;
 <html lang="en">
 	<head>
 		<script
+			is:inline
 			src="https://raw.githack.com/Qwuke/recurse-ring/main/static/ring.js"
 			type="text/javascript"></script>
 		<BaseHead title={pageTitle ?? SITE_TITLE} description={SITE_DESCRIPTION} />
