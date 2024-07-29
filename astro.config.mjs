@@ -7,18 +7,18 @@ import remarkToc from "remark-toc";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://itsrainingmani.dev",
-  image: {
-    service: squooshImageService(),
-  },
-  integrations: [
-    mdx({
-      syntaxHighlight: "shiki",
-      shikiConfig: { theme: "dracula-soft", wrap: true },
-      remarkPlugins: [remarkToc],
-      gfm: true,
-    }),
-    sitemap(),
-    tailwind(),
-  ],
+	site: "https://itsrainingmani.dev",
+	image: {
+		service: squooshImageService(),
+	},
+	integrations: [
+		mdx({
+			syntaxHighlight: "shiki",
+			shikiConfig: { theme: "dracula-soft", wrap: true },
+			remarkPlugins: [remarkToc],
+			gfm: true,
+		}),
+		sitemap(),
+		tailwind(),
+	],
 });

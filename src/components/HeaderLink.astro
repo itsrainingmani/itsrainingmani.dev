@@ -10,9 +10,9 @@ const hrefString = typeof href === "string" ? href : href instanceof URL ? href?
 const isActive = href === pathname || (href !== "/" && pathname.startsWith(hrefString));
 ---
 
-<div class='mb-2'>
+<div class="mb-2">
 	<a
-		class='custom-boxshadow -top-0.5 inline-block h-8 w-full cursor-pointer select-none appearance-none whitespace-nowrap border border-solid border-black pr-2 pt-0.5 text-center align-middle no-underline'
+		class="custom-boxshadow -top-0.5 inline-block h-8 w-full cursor-pointer select-none appearance-none whitespace-nowrap border border-solid border-black pr-2 pt-0.5 text-center align-middle no-underline"
 		href={href}
 		class:list={[className, { active: isActive }]}
 		{...props}

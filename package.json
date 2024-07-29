@@ -1,35 +1,35 @@
 {
-  "name": "itsrainingmani.dev-upgrade",
-  "author": "Mani Sundararajan <mani@hey.com> (https://itsrainingmani.dev)",
-  "description": "The Overthunk Site Overhaul",
-  "homepage": "https://itsrainingmani.dev",
-  "repository": "https://github.com/itsrainingmani/itsrainingmani.dev-upgrade#readme",
-  "license": "MIT",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "sync": "astro sync",
-    "check": "astro check",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-    "format": "prettier . --write --cache"
-  },
-  "dependencies": {
-    "@astrojs/mdx": "3.1.3",
-    "@astrojs/rss": "4.0.7",
-    "@astrojs/sitemap": "3.1.6",
-    "@astrojs/tailwind": "5.1.0",
-    "astro": "4.12.2",
-    "remark-toc": "^9.0.0",
-    "tailwindcss": "^3.0.24"
-  },
-  "devDependencies": {
-    "@tailwindcss/typography": "^0.5.10",
-    "prettier": "^3.0.3",
-    "prettier-plugin-astro": "0.14.1",
-    "prettier-plugin-tailwindcss": "0.6.5"
-  }
+	"name": "itsrainingmani.dev-upgrade",
+	"author": "Mani Sundararajan <mani@hey.com> (https://itsrainingmani.dev)",
+	"description": "The Overthunk Site Overhaul",
+	"homepage": "https://itsrainingmani.dev",
+	"repository": "https://github.com/itsrainingmani/itsrainingmani.dev-upgrade#readme",
+	"license": "MIT",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"sync": "astro sync",
+		"check": "astro check",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"format": "prettier . --write --cache"
+	},
+	"dependencies": {
+		"@astrojs/mdx": "3.1.3",
+		"@astrojs/rss": "4.0.7",
+		"@astrojs/sitemap": "3.1.6",
+		"@astrojs/tailwind": "5.1.0",
+		"astro": "4.12.2",
+		"remark-toc": "^9.0.0",
+		"tailwindcss": "^3.0.24"
+	},
+	"devDependencies": {
+		"@tailwindcss/typography": "^0.5.10",
+		"prettier": "^3.0.3",
+		"prettier-plugin-astro": "0.14.1",
+		"prettier-plugin-tailwindcss": "0.6.5"
+	}
 }

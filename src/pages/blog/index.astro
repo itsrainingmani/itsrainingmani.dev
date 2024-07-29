@@ -24,23 +24,23 @@ const clojureposts = (
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<div class='my-4 flex flex-col md:flex-row'>
+	<div class="my-4 flex flex-col md:flex-row">
 		<!-- <h1 class='basis-2/3 self-start text-left text-4xl'>{pageTitle}</h1> -->
-		<div class='flex basis-2/3 flex-col self-start text-left'>
-			<p class='my-2 font-mono'>I've written about the following topics:&nbsp;</p><p
-				class='my-2 font-mono lowercase'
+		<div class="flex basis-2/3 flex-col self-start text-left">
+			<p class="my-2 font-mono">I've written about the following topics:&nbsp;</p><p
+				class="my-2 font-mono lowercase"
 			>
 				{
 					tags.map((tag) => (
-						<span class='m-1 inline-block rounded-md bg-gray-200 px-2 py-1 text-sm hover:cursor-pointer'>
+						<span class="m-1 inline-block rounded-md bg-gray-200 px-2 py-1 text-sm hover:cursor-pointer">
 							{tag}
 						</span>
 					))
 				}
 			</p>
 		</div>
-		<div class='flex basis-1/3 flex-col border-l border-l-black px-3 py-1.5 text-sm text-gray-500'>
-			<blockquote class='italic'>
+		<div class="flex basis-1/3 flex-col border-l border-l-black px-3 py-1.5 text-sm text-gray-500">
+			<blockquote class="italic">
 				“And by the way, everything in life is writable about if you have the outgoing guts to do
 				it, and the imagination to improvise. The worst enemy to creativity is self-doubt.”
 			</blockquote>
@@ -50,7 +50,7 @@ const clojureposts = (
 	<hr />
 	<BlogTable posts={posts} />
 	<br />
-	<p class='mb-2 mt-1 font-mono'>
+	<p class="mb-2 mt-1 font-mono">
 		For my writing about learning Clojure in Public, look no further:
 	</p>
 	<BlogTable posts={clojureposts} />

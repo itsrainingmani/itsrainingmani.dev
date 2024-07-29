@@ -8,17 +8,17 @@ const { pageTitle } = Astro.props;
 ---
 
 <!doctype html>
-<html lang='en'>
+<html lang="en">
 	<head>
 		<script
-			src='https://raw.githack.com/Qwuke/recurse-ring/main/static/ring.js'
-			type='text/javascript'></script>
+			src="https://raw.githack.com/Qwuke/recurse-ring/main/static/ring.js"
+			type="text/javascript"></script>
 		<BaseHead title={pageTitle ?? SITE_TITLE} description={SITE_DESCRIPTION} />
 		<ViewTransitions />
 	</head>
-	<body class='flex min-h-screen flex-col'>
+	<body class="flex min-h-screen flex-col">
 		<Header />
-		<main class='flex-grow'>
+		<main class="flex-grow">
 			<slot />
 		</main>
 		<Footer />

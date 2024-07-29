@@ -23,68 +23,68 @@ const allPosts = [...posts, ...clojurePosts]
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<div class='flex flex-col justify-between md:flex-row-reverse'>
+	<div class="flex flex-col justify-between md:flex-row-reverse">
 		<h1
-			class='children:block relative mb-0 flex flex-col items-center text-center md:items-end md:text-end'
+			class="children:block relative mb-0 flex flex-col items-center text-center md:items-end md:text-end"
 		>
-			<span class='mb-4 text-4xl font-black'>Mani Sundararajan</span>
-			<span class='-mb-2 inline-block w-fit pb-2 text-left text-3xl font-medium'>
-				<div class='marquee my-[-0.25em] inline-block h-[1.25em] overflow-hidden bg-inherit'>
+			<span class="mb-4 text-4xl font-black">Mani Sundararajan</span>
+			<span class="-mb-2 inline-block w-fit pb-2 text-left text-3xl font-medium">
+				<div class="marquee my-[-0.25em] inline-block h-[1.25em] overflow-hidden bg-inherit">
 					<div
-						class='children:gradient-text flex flex-col gap-4 whitespace-nowrap bg-inherit py-2 text-center md:text-end [&>*]:bg-gradient-to-br [&>*]:bg-clip-text [&>*]:text-transparent'
+						class="children:gradient-text flex flex-col gap-4 whitespace-nowrap bg-inherit py-2 text-center md:text-end [&>*]:bg-gradient-to-br [&>*]:bg-clip-text [&>*]:text-transparent"
 					>
-						<span class='from-blue-500 to-blue-600'>Software Engineer</span>
-						<span class='from-rose-500 to-rose-600'>Keyboard Builder</span>
-						<span class='from-teal-500 to-teal-500'>Photographer</span>
-						<span class='from-blue-500 to-blue-600' aria-hidden='true'>Software Engineer</span>
+						<span class="from-blue-500 to-blue-600">Software Engineer</span>
+						<span class="from-rose-500 to-rose-600">Keyboard Builder</span>
+						<span class="from-teal-500 to-teal-500">Photographer</span>
+						<span class="from-blue-500 to-blue-600" aria-hidden="true">Software Engineer</span>
 					</div>
 				</div>
 			</span>
 		</h1>
-		<table class='datasheet w-full table-auto p-6 text-left [border-width:0.1rem] md:w-1/2'>
-			<thead class='align-middle'>
+		<table class="datasheet w-full table-auto p-6 text-left [border-width:0.1rem] md:w-1/2">
+			<thead class="align-middle">
 				<tr>
-					<th colspan='2' class='text-xl font-semibold [padding-left:0.3rem] [padding-right:0.3rem]'
+					<th colspan="2" class="text-xl font-semibold [padding-left:0.3rem] [padding-right:0.3rem]"
 						>Datasheet</th
 					>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td class='[padding-left:0.3rem] [padding-right:0.3rem]'>
-						<p class='flex flex-row items-center font-semibold'>Current</p>
+					<td class="[padding-left:0.3rem] [padding-right:0.3rem]">
+						<p class="flex flex-row items-center font-semibold">Current</p>
 					</td>
-					<td class='w-1/2'>
-						<ul style='list-style-type: circle;'>
-							<li><Link href='https://recurse.com'>Recurse Center</Link></li>
+					<td class="w-1/2">
+						<ul style="list-style-type: circle;">
+							<li><Link href="https://recurse.com">Recurse Center</Link></li>
 						</ul></td
 					>
 				</tr>
 				<tr>
-					<td class='[padding-left:0.3rem] [padding-right:0.3rem]'>
-						<p class='flex flex-row items-center font-semibold'>Past</p>
+					<td class="[padding-left:0.3rem] [padding-right:0.3rem]">
+						<p class="flex flex-row items-center font-semibold">Past</p>
 					</td>
-					<td class='w-1/2'>
-						<ul style='list-style-type: circle;'>
+					<td class="w-1/2">
+						<ul style="list-style-type: circle;">
 							<li>Mount Sinai</li>
 							<li>Derive Technologies</li>
 						</ul>
 					</td>
 				</tr>
 				<tr>
-					<td colspan='2'>
-						<CustomButton location={SOCIAL_LINKS["github"]} col='#4aa6d1'>
-							<p class='flex flex-row items-center justify-center font-semibold'>
-								GitHub <Icon icon='github-logo' />
+					<td colspan="2">
+						<CustomButton location={SOCIAL_LINKS["github"]} col="#4aa6d1">
+							<p class="flex flex-row items-center justify-center font-semibold">
+								GitHub <Icon icon="github-logo" />
 							</p>
 						</CustomButton>
 					</td>
 				</tr>
 				<tr>
-					<td colspan='2'>
-						<CustomButton location={SOCIAL_LINKS["linkedin"]} col='#4aa6d1'>
-							<p class='flex flex-row items-center justify-center font-semibold'>
-								LinkedIn <Icon icon='linkedin-logo' />
+					<td colspan="2">
+						<CustomButton location={SOCIAL_LINKS["linkedin"]} col="#4aa6d1">
+							<p class="flex flex-row items-center justify-center font-semibold">
+								LinkedIn <Icon icon="linkedin-logo" />
 							</p>
 						</CustomButton>
 					</td>
@@ -92,8 +92,8 @@ const allPosts = [...posts, ...clojurePosts]
 			</tbody>
 		</table>
 	</div>
-	<hr class='my-2' />
-	<p class='font-mono'>Assorted 🎲 writing:&nbsp;</p>
+	<hr class="my-2" />
+	<p class="font-mono">Assorted 🎲 writing:&nbsp;</p>
 	<WritingList posts={allPosts} />
 </BaseLayout>
 <style>

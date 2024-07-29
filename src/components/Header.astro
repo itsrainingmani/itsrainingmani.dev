@@ -4,27 +4,27 @@ import Blocky from "@/assets/blocky.png";
 import { Picture } from "astro:assets";
 ---
 
-<header class='mb-2 border-b border-b-gray-300 pb-2'>
-	<div class='flex items-center justify-between'>
-		<h2 class='mb-2 flex flex-col'>
-			<a class='page-title font-mono text-4xl font-bold sm:text-left' href='/'>overthunk ltd.</a>
-			<small class='font-mono text-sm sm:text-left'>A Solitary Software Production</small>
+<header class="mb-2 border-b border-b-gray-300 pb-2">
+	<div class="flex items-center justify-between">
+		<h2 class="mb-2 flex flex-col">
+			<a class="page-title font-mono text-4xl font-bold sm:text-left" href="/">overthunk ltd.</a>
+			<small class="font-mono text-sm sm:text-left">A Solitary Software Production</small>
 		</h2>
 		<Picture
 			src={Blocky}
-			alt='3D portrait of a weird little guy'
+			alt="3D portrait of a weird little guy"
 			formats={["avif", "webp"]}
-			class='h-24 w-auto'
+			class="h-24 w-auto"
 		/>
 	</div>
 	<nav>
 		<div
-			class='nav-section grid auto-cols-fr grid-flow-row-dense grid-cols-2 gap-2 text-center sm:grid-cols-4'
+			class="nav-section grid auto-cols-fr grid-flow-row-dense grid-cols-2 gap-2 text-center sm:grid-cols-4"
 		>
-			<HeaderLink href='/blog'>Writing</HeaderLink>
-			<HeaderLink href='/projects'>Projects</HeaderLink>
-			<HeaderLink href='/info'>Info</HeaderLink>
-			<HeaderLink href='/photos'>Photos</HeaderLink>
+			<HeaderLink href="/blog">Writing</HeaderLink>
+			<HeaderLink href="/projects">Projects</HeaderLink>
+			<HeaderLink href="/info">Info</HeaderLink>
+			<HeaderLink href="/photos">Photos</HeaderLink>
 		</div>
 	</nav>
 </header>

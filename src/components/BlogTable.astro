@@ -8,12 +8,12 @@ interface Props {
 const { posts } = Astro.props;
 ---
 
-<table class='table-links w-full table-auto text-left'>
-	<thead class='border-solid border-black bg-black align-middle text-white [border-width:0.1rem]'>
+<table class="table-links w-full table-auto text-left">
+	<thead class="border-solid border-black bg-black align-middle text-white [border-width:0.1rem]">
 		<tr>
-			<th class='pb-0 font-semibold [padding-left:0.6rem] [padding-right:0.6rem]'>Title</th>
+			<th class="pb-0 font-semibold [padding-left:0.6rem] [padding-right:0.6rem]">Title</th>
 			<th
-				class='pb-0 text-center font-semibold [padding-left:0.6rem] [padding-right:0.6rem] [padding-top:0.3rem]'
+				class="pb-0 text-center font-semibold [padding-left:0.6rem] [padding-right:0.6rem] [padding-top:0.3rem]"
 				>Published</th
 			>
 		</tr>
@@ -23,16 +23,16 @@ const { posts } = Astro.props;
 			posts.map((post) => (
 				<tr>
 					<td>
-						<div class='flex flex-col justify-center py-2'>
+						<div class="flex flex-col justify-center py-2">
 							<a
-								class='max-w-max text-blue-500 hover:cursor-alias hover:text-blue-700 hover:underline hover:underline-offset-2 hover:[text-decoration-skip-ink:auto]'
+								class="max-w-max text-blue-500 hover:cursor-alias hover:text-blue-700 hover:underline hover:underline-offset-2 hover:[text-decoration-skip-ink:auto]"
 								href={`/blog/${post.slug}/`}
 							>
-								<h4 class='title'>{post.data.title}</h4>
+								<h4 class="title">{post.data.title}</h4>
 							</a>
 						</div>
 					</td>
-					<td class='w-1/6 text-center'>
+					<td class="w-1/6 text-center">
 						<FormattedDate date={post.data.publishDate} />
 					</td>
 				</tr>
