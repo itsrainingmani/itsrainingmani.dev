@@ -18,36 +18,45 @@ const projects = (
 ---
 
 <script is:inline>
+	function randomBorderFx(e) {
+		const card = e.querySelector(".card");
+		card.style.borderBottomRightRadius = `${Math.max(7, Math.floor(20 * Math.random()))}px`;
+		card.style.borderBottomLeftRadius = `${Math.max(7, Math.floor(20 * Math.random()))}px`;
+		card.style.borderTopRightRadius = `${Math.max(7, Math.floor(20 * Math.random()))}px`;
+		card.style.borderTopLeftRadius = `${Math.max(7, Math.floor(20 * Math.random()))}px`;
+		card.style.transform = "scale("
+			.concat(1 - Math.random() / 3, ") translate2D(")
+			.concat(Math.floor(3 - 6 * Math.random()), "px, ")
+			.concat(Math.floor(3 - 6 * Math.random()), "px)");
+
+		let a = Math.random() > 0.8 ? 2 : 0,
+			n = Math.floor(3 - 6 * Math.random()) / (1 + a);
+		card.style.boxShadow = ""
+			.concat(n, "px ")
+			.concat(Math.floor(3 - 6 * Math.random()) / (1 + a), "px 0px ")
+			.concat(a, "px ")
+			.concat(
+				"rgb(" +
+					(Math.floor(128 * Math.random()) + 128) +
+					"," +
+					(Math.floor(128 * Math.random()) + 128) +
+					"," +
+					(Math.floor(128 * Math.random()) + 128) +
+					")",
+				", 0 ",
+			)
+			.concat(2 + Math.floor(4 * Math.random()), "px ")
+			.concat(8 + Math.floor(12 * Math.random()), "px #0006");
+	}
 	document.addEventListener("astro:page-load", () => {
 		const containers = document.querySelectorAll(".card-container");
 		containers.forEach((container) => {
-			const card = container.querySelector(".card");
-			function randomBoxEffects(e) {
-				let a = Math.random() > 0.8 ? 2 : 0,
-					n = Math.floor(3 - 6 * Math.random()) / (1 + a);
-				card.style.borderBottomRightRadius = `${Math.max(7, Math.floor(20 * Math.random()))}px`;
-				card.style.borderBottomLeftRadius = `${Math.max(7, Math.floor(20 * Math.random()))}px`;
-				card.style.borderTopRightRadius = `${Math.max(7, Math.floor(20 * Math.random()))}px`;
-				card.style.borderTopLeftRadius = `${Math.max(7, Math.floor(20 * Math.random()))}px`;
-				card.style.boxShadow = ""
-					.concat(n, "px ")
-					.concat(Math.floor(3 - 6 * Math.random()) / (1 + a), "px 0px ")
-					.concat(a, "px ")
-					.concat(
-						"rgb(" +
-							(Math.floor(128 * Math.random()) + 128) +
-							"," +
-							(Math.floor(128 * Math.random()) + 128) +
-							"," +
-							(Math.floor(128 * Math.random()) + 128) +
-							")",
-						", 0 ",
-					)
-					.concat(2 + Math.floor(4 * Math.random()), "px ")
-					.concat(8 + Math.floor(12 * Math.random()), "px #0006");
-			}
-			container?.addEventListener("mouseenter", randomBoxEffects);
-			setInterval(randomBoxEffects, 2500);
+			container?.addEventListener("mouseenter", (e) => {
+				randomBorderFx(container);
+			});
+			setInterval(() => {
+				randomBorderFx(containers[Math.floor(Math.random() * containers.length)]);
+			}, 880);
 		});
 	});
 </script>
@@ -63,7 +72,7 @@ const projects = (
 		</blockquote>
 	</div>
 	<hr />
-	<div class="project-grid">
+	<div class="project-grid grid grid-flow-row grid-cols-1 gap-2 text-center sm:grid-cols-2">
 		{
 			projects.map((project) => (
 				<div class="card-container">
@@ -87,24 +96,6 @@ const projects = (
 	</div>
 
 	<style>
-		.project-grid {
-			margin-left: calc(-50vw + 50%);
-			width: 100vw;
-			display: grid;
-			grid-auto-flow: row;
-			grid-auto-rows: minmax(0, 1fr);
-			grid-template-columns: repeat(1, minmax(0, 1fr));
-			gap: 0.5rem;
-			text-align: center;
-			padding: 0 5rem;
-		}
-
-		@media (min-width: 640px) {
-			.project-grid {
-				grid-template-columns: repeat(2, minmax(0, 1fr));
-			}
-		}
-
 		.project-box {
 			background-color: var(--light-paper);
 		}
@@ -119,12 +110,18 @@ const projects = (
 
 		.card-container {
 			perspective: 1000px;
-			transition: all cubic-bezier(0.52, -1.15, 0.56, 1.6) 500ms;
+			transition: all cubic-bezier(0.42, 0, 0.58, 1) 400ms;
 		}
 
 		.card {
 			padding: 4rem 2rem;
-			transition: all cubic-bezier(0.52, -1.15, 0.56, 1.6) 500ms;
+			transition: all cubic-bezier(0.42, 0, 0.58, 1) 400ms;
+		}
+
+		.card:hover {
+			box-shadow:
+				inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2),
+				inset -6px -6px 10px 0 rgba(255, 255, 255, 0.5);
 		}
 	</style>
 </BaseLayout>
