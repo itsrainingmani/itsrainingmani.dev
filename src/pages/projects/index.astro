@@ -22,35 +22,32 @@ const projects = (
 		const containers = document.querySelectorAll(".card-container");
 		containers.forEach((container) => {
 			const card = container.querySelector(".card");
-			container?.addEventListener("mouseenter", (e) => {
-				card.style.borderBottomRightRadius = `${Math.max(5, Math.floor(20 * Math.random()))}px`;
-				card.style.borderBottomLeftRadius = `${Math.max(5, Math.floor(20 * Math.random()))}px`;
-				card.style.borderTopRightRadius = `${Math.max(5, Math.floor(20 * Math.random()))}px`;
-				card.style.borderTopLeftRadius = `${Math.max(5, Math.floor(20 * Math.random()))}px`;
-			});
-
-			["mousemove", "click"].forEach((eType) => {
-				card?.addEventListener(eType, (e) => {
-					let a = Math.random() > 0.8 ? 2 : 0,
-						n = Math.floor(3 - 6 * Math.random()) / (1 + a);
-					card.style.boxShadow = ""
-						.concat(n, "px ")
-						.concat(Math.floor(3 - 6 * Math.random()) / (1 + a), "px 0px ")
-						.concat(a, "px ")
-						.concat(
-							"rgb(" +
-								(Math.floor(128 * Math.random()) + 128) +
-								"," +
-								(Math.floor(128 * Math.random()) + 128) +
-								"," +
-								(Math.floor(128 * Math.random()) + 128) +
-								")",
-							", 0 ",
-						)
-						.concat(2 + Math.floor(4 * Math.random()), "px ")
-						.concat(8 + Math.floor(12 * Math.random()), "px #0006");
-				});
-			});
+			function randomBoxEffects(e) {
+				let a = Math.random() > 0.8 ? 2 : 0,
+					n = Math.floor(3 - 6 * Math.random()) / (1 + a);
+				card.style.borderBottomRightRadius = `${Math.max(7, Math.floor(20 * Math.random()))}px`;
+				card.style.borderBottomLeftRadius = `${Math.max(7, Math.floor(20 * Math.random()))}px`;
+				card.style.borderTopRightRadius = `${Math.max(7, Math.floor(20 * Math.random()))}px`;
+				card.style.borderTopLeftRadius = `${Math.max(7, Math.floor(20 * Math.random()))}px`;
+				card.style.boxShadow = ""
+					.concat(n, "px ")
+					.concat(Math.floor(3 - 6 * Math.random()) / (1 + a), "px 0px ")
+					.concat(a, "px ")
+					.concat(
+						"rgb(" +
+							(Math.floor(128 * Math.random()) + 128) +
+							"," +
+							(Math.floor(128 * Math.random()) + 128) +
+							"," +
+							(Math.floor(128 * Math.random()) + 128) +
+							")",
+						", 0 ",
+					)
+					.concat(2 + Math.floor(4 * Math.random()), "px ")
+					.concat(8 + Math.floor(12 * Math.random()), "px #0006");
+			}
+			container?.addEventListener("mouseenter", randomBoxEffects);
+			setInterval(randomBoxEffects, 2500);
 		});
 	});
 </script>
@@ -122,12 +119,12 @@ const projects = (
 
 		.card-container {
 			perspective: 1000px;
-			transition: all cubic-bezier(0.52, -1.15, 0.56, 1.6) 400ms;
+			transition: all cubic-bezier(0.52, -1.15, 0.56, 1.6) 500ms;
 		}
 
 		.card {
 			padding: 4rem 2rem;
-			transition: all cubic-bezier(0.52, -1.15, 0.56, 1.6) 400ms;
+			transition: all cubic-bezier(0.52, -1.15, 0.56, 1.6) 500ms;
 		}
 	</style>
 </BaseLayout>
