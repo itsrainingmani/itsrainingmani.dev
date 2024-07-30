@@ -1,0 +1,50 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout";
+import BlogTable from "@/components/BlogTable";
+import { createSlug } from "@/utils";
+
+const { slug: tag } = Astro.params;
+const pageTitle = `Tag - ${tag}`;
+
+export async function getStaticPaths() {
+	const blogPosts = await getCollection("blog", ({ data }) => {
+		return data.publish === true;
+	});
+
+	const clojurePosts = await getCollection("clojurefam", ({ data }) => {
+		return data.publish === true;
+	});
+	const posts = [...blogPosts, ...clojurePosts];
+	const unwantedTags = new Set(["clojurefam", "2020", "projects", "blogging"]);
+	const tags = [...new Set(posts.flatMap((post) => post.data.tags))]
+		.filter((p) => !unwantedTags.has(p))
+		.sort();
+	return tags.map((tag) => ({
+		params: { slug: createSlug(tag) },
+		props: tag,
+	}));
+}
+
+const blogPosts = await getCollection("blog", ({ data }) => {
+	return data.publish === true;
+});
+const clojurePosts = await getCollection("clojurefam", ({ data }) => {
+	return data.publish === true;
+});
+const posts = [...blogPosts, ...clojurePosts]
+	.filter((post) => {
+		let sluggified_tags = post.data.tags.map((tag) => createSlug(tag));
+		return sluggified_tags.includes(tag);
+	})
+	.sort((a, b) => a.data.publishDate.valueOf() - b.data.publishDate.valueOf());
+---
+
+<BaseLayout pageTitle={pageTitle}>
+	<h1 class="basis-2/3 self-start text-left font-mono text-xl">
+		Tag - <span class="m-1 inline-block rounded-md bg-gray-200 px-2 py-1 text-xl">
+			{tag}
+		</span>
+	</h1>
+	<BlogTable {posts} />
+</BaseLayout>

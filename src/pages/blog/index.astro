@@ -2,10 +2,11 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout";
 import BlogTable from "@/components/BlogTable";
+import { createSlug } from "@/utils";
 
 const pageTitle = "Writing";
 
-const unwantedTags = new Set(["ClojureFam", "2020", "Projects", "Blogging"]);
+const unwantedTags = new Set(["clojurefam", "2020", "projects", "blogging"]);
 const posts = (
 	await getCollection("blog", ({ data }) => {
 		return data.publish === true;
@@ -18,7 +19,7 @@ const tags = [...new Set(posts.flatMap((post) => post.data.tags))]
 
 const clojureposts = (
 	await getCollection("clojurefam", ({ data }) => {
-		return data.publish === true && data.tags.includes("ClojureFam");
+		return data.publish === true && data.tags.includes("clojurefam");
 	})
 ).sort((a, b) => a.data.publishDate.valueOf() - b.data.publishDate.valueOf());
 ---
@@ -28,13 +29,15 @@ const clojureposts = (
 		<!-- <h1 class='basis-2/3 self-start text-left text-4xl'>{pageTitle}</h1> -->
 		<div class="flex basis-2/3 flex-col self-start text-left">
 			<p class="my-2 font-mono">I've written about the following topics:&nbsp;</p><p
-				class="my-2 font-mono lowercase"
+				class="my-2 font-mono"
 			>
 				{
 					tags.map((tag) => (
-						<span class="m-1 inline-block rounded-md bg-gray-200 px-2 py-1 text-sm hover:cursor-pointer">
-							{tag}
-						</span>
+						<a href={`blog/tag/${createSlug(tag)}/`}>
+							<span class="m-1 inline-block rounded-md bg-gray-200 px-2 py-1 text-sm hover:cursor-pointer">
+								{tag}
+							</span>
+						</a>
 					))
 				}
 			</p>
