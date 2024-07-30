@@ -6,44 +6,82 @@
 
 :root {
 	/* Nuevo Tokyo Color Palette */
-	--dobunezumi: #595455; /* sewer dark grey */
-	--ginnezumihai: #797979; /* ash grey */
-	--nezumiiro: #949495; /* Mouse Grey */
-	--sunezumi: #9fa0a0; /* Snake Grey */
-	--ginnezu: #afafb0; /* silver grey */
-	--shironezu: #dcdddd; /* White Grey */
-	--usukumonezu: #d4dcda; /* light grey cloud */
-	--edonezu: #928178; /* edo grey */
-	--chanezumi: #a99e93; /* brownish grey */
-	--kinunezu: #dddcd6; /* silk grey */
-	--hatobanezumi: #9e8b8e; /* doves feather grey */
-	--umenezu: #c099a0; /* plum grey */
-	--tokinezu: #e4d2d8; /* crested ibis grey */
-	--sakuranezu: #e9dfe5; /* sakura grey */
-	--shiraumenezu: #e5e4e6; /* White Plum Grey */
-	--usuumenezu: #dcd6d9; /* light plum grey */
-	--akatsukinezu: #d3cfd9; /* dawn grey */
-	--botannezu: #d3ccd6; /* peony grey */
-	--fujinezu: #a6a5c4; /* wisteria grey */
-	--usunezu: #9790a4; /* light grey */
-	--rikyunezu: #888e7e; /* rikyus grey */
-	--fukagawanezumi: #97a791; /* fukagawa ward grey */
-	--yanagi: #c8d5bb; /* Willow Grey */
-	--seiji: #bed2c3; /* celadon ceramic grey */
-	--chigusa: #bed3ca; /* greenish grey */
-	--minato: #80989b; /* minato village grey */
-	--ainezu: #6c848d; /* indigo grey */
-	--sabinezu: #47585c; /* rust grey */
-	--konnezu: #44617b; /* dark blue grey */
-	--nezuogusa: #4d80e6; /* Indigo Flower Grey */
-	--benikeshi: #524748; /* redish grey */
-	--koinezu: #4f455c; /* dark grey */
-	--budonezu: #705b67; /* grape grey */
-	--murasaki: #71686c; /* purple grey */
-	--genjinezu: #888084; /* hikaru genji grey */
-	--kikiyou: #95949a; /* bellflower grey */
-	--usuzumiiro: #a3a3a2; /* Light Black */
-	--roiro: #2b2b2b; /* charcoal lacquer */
+	--dobunezumi: #595455;
+	/* sewer dark grey */
+	--ginnezumihai: #797979;
+	/* ash grey */
+	--nezumiiro: #949495;
+	/* Mouse Grey */
+	--sunezumi: #9fa0a0;
+	/* Snake Grey */
+	--ginnezu: #afafb0;
+	/* silver grey */
+	--shironezu: #dcdddd;
+	/* White Grey */
+	--usukumonezu: #d4dcda;
+	/* light grey cloud */
+	--edonezu: #928178;
+	/* edo grey */
+	--chanezumi: #a99e93;
+	/* brownish grey */
+	--kinunezu: #dddcd6;
+	/* silk grey */
+	--hatobanezumi: #9e8b8e;
+	/* doves feather grey */
+	--umenezu: #c099a0;
+	/* plum grey */
+	--tokinezu: #e4d2d8;
+	/* crested ibis grey */
+	--sakuranezu: #e9dfe5;
+	/* sakura grey */
+	--shiraumenezu: #e5e4e6;
+	/* White Plum Grey */
+	--usuumenezu: #dcd6d9;
+	/* light plum grey */
+	--akatsukinezu: #d3cfd9;
+	/* dawn grey */
+	--botannezu: #d3ccd6;
+	/* peony grey */
+	--fujinezu: #a6a5c4;
+	/* wisteria grey */
+	--usunezu: #9790a4;
+	/* light grey */
+	--rikyunezu: #888e7e;
+	/* rikyus grey */
+	--fukagawanezumi: #97a791;
+	/* fukagawa ward grey */
+	--yanagi: #c8d5bb;
+	/* Willow Grey */
+	--seiji: #bed2c3;
+	/* celadon ceramic grey */
+	--chigusa: #bed3ca;
+	/* greenish grey */
+	--minato: #80989b;
+	/* minato village grey */
+	--ainezu: #6c848d;
+	/* indigo grey */
+	--sabinezu: #47585c;
+	/* rust grey */
+	--konnezu: #44617b;
+	/* dark blue grey */
+	--nezuogusa: #4d80e6;
+	/* Indigo Flower Grey */
+	--benikeshi: #524748;
+	/* redish grey */
+	--koinezu: #4f455c;
+	/* dark grey */
+	--budonezu: #705b67;
+	/* grape grey */
+	--murasaki: #71686c;
+	/* purple grey */
+	--genjinezu: #888084;
+	/* hikaru genji grey */
+	--kikiyou: #95949a;
+	/* bellflower grey */
+	--usuzumiiro: #a3a3a2;
+	/* Light Black */
+	--roiro: #2b2b2b;
+	/* charcoal lacquer */
 	--light-paper: #f5f5ec;
 	--accent: #2337ff;
 	--accent-dark: #000d8a;
@@ -69,6 +107,7 @@
 	font-style: normal;
 	font-display: swap;
 }
+
 @font-face {
 	font-family: "Atkinson";
 	src: url("/fonts/atkinson-bold.woff") format("woff");
@@ -76,6 +115,7 @@
 	font-style: normal;
 	font-display: swap;
 }
+
 @font-face {
 	font-family: "InterVariable";
 	src: url("/fonts/Inter.var.woff2") format("woff2");
@@ -118,7 +158,7 @@ body {
 	margin: 0 auto;
 	padding: 1rem;
 	background: var(--light-paper);
-	max-width: 56rem;
+	max-width: 60rem;
 	background-size: 100% 600px;
 	color: rgb(var(--roiro));
 	line-height: 1.5;
@@ -228,15 +268,6 @@ hr {
 /* } */
 .expanded {
 	display: unset;
-}
-
-@media (max-width: 720px) {
-	body {
-		font-size: 18px;
-	}
-	main {
-		padding: 1em;
-	}
 }
 
 .sr-only {

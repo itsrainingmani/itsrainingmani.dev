@@ -13,7 +13,7 @@ const { posts } = Astro.props;
 		<tr>
 			<th class="pb-0 font-semibold [padding-left:0.6rem] [padding-right:0.6rem]">Title</th>
 			<th
-				class="pb-0 text-center font-semibold [padding-left:0.6rem] [padding-right:0.6rem] [padding-top:0.3rem]"
+				class="pb-0 text-center font-semibold [padding-left:0.6rem] [padding-right:0.3rem] [padding-top:0.3rem]"
 				>Published</th
 			>
 		</tr>
@@ -32,7 +32,7 @@ const { posts } = Astro.props;
 							</a>
 						</div>
 					</td>
-					<td class="w-1/6 text-center">
+					<td class="w-2/6 text-center sm:w-1/6">
 						<FormattedDate date={post.data.publishDate} />
 					</td>
 				</tr>

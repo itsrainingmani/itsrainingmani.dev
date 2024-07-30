@@ -42,7 +42,9 @@ const posts = [...blogPosts, ...clojurePosts]
 
 <BaseLayout pageTitle={pageTitle}>
 	<h1 class="basis-2/3 self-start text-left font-mono text-xl">
-		Tag - <span class="m-1 inline-block rounded-md bg-gray-200 px-2 py-1 text-xl">
+		Tag - <span
+			class="m-1 inline-block rounded-md bg-gray-200 px-2 py-1 text-sm shadow-sm shadow-black"
+		>
 			{tag}
 		</span>
 	</h1>

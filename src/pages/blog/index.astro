@@ -25,7 +25,7 @@ const clojureposts = (
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<div class="my-4 flex flex-col md:flex-row">
+	<div class="my-2 flex flex-col-reverse sm:my-4 sm:flex-row">
 		<!-- <h1 class='basis-2/3 self-start text-left text-4xl'>{pageTitle}</h1> -->
 		<div class="flex basis-2/3 flex-col self-start text-left">
 			<p class="my-2 font-mono">I've written about the following topics:&nbsp;</p><p
@@ -34,7 +34,7 @@ const clojureposts = (
 				{
 					tags.map((tag) => (
 						<a href={`blog/tag/${createSlug(tag)}/`}>
-							<span class="m-1 inline-block rounded-md bg-gray-200 px-2 py-1 text-sm hover:cursor-pointer">
+							<span class="blog-tag m-1 inline-block rounded-md bg-gray-200 px-2 py-1 text-sm shadow-sm shadow-black hover:cursor-pointer hover:shadow-inner">
 								{tag}
 							</span>
 						</a>
@@ -58,3 +58,9 @@ const clojureposts = (
 	</p>
 	<BlogTable posts={clojureposts} />
 </BaseLayout>
+
+<style>
+	.blog-tag {
+		transition: all cubic-bezier(0.42, 0, 0.58, 1) 400ms;
+	}
+</style>

@@ -5,17 +5,24 @@ import { Picture } from "astro:assets";
 ---
 
 <header class="mb-2 border-b border-b-gray-300 pb-2">
-	<div class="flex items-center justify-between">
-		<h2 class="mb-2 flex flex-col">
-			<a class="page-title font-mono text-4xl font-bold sm:text-left" href="/">overthunk ltd.</a>
-			<small class="font-mono text-sm sm:text-left">A Solitary Software Production</small>
+	<div
+		class="flex flex-row-reverse items-center justify-center sm:flex-row sm:items-center sm:justify-between"
+	>
+		<h2 class="mb-2 ml-2 flex flex-col sm:ml-0">
+			<a class="page-title font-mono text-3xl font-bold sm:text-left sm:text-4xl" href="/"
+				>overthunk ltd.</a
+			>
+			<small class="font-mono text-xs sm:text-left sm:text-sm">A Solitary Software Production</small
+			>
 		</h2>
-		<Picture
-			src={Blocky}
-			alt="3D portrait of a weird little guy"
-			formats={["avif", "webp"]}
-			class="h-24 w-auto"
-		/>
+		<a href="/">
+			<Picture
+				src={Blocky}
+				alt="3D portrait of a weird little guy"
+				formats={["avif", "webp"]}
+				class="h-20 w-auto sm:h-24"
+			/>
+		</a>
 	</div>
 	<nav>
 		<div
