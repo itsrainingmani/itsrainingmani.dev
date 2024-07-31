@@ -29,13 +29,6 @@ const pageTitle = "Information";
 		return est;
 	}
 
-	async function loadStreak() {
-		const res = await fetch("https://itsrainingmani-duostreak.web.val.run");
-		const { streak } = await res.json();
-
-		return streak;
-	}
-
 	async function setStreak() {
 		const streakSpan = document.querySelector("span#duo-streak");
 		if (!streakSpan) return;
@@ -43,11 +36,15 @@ const pageTitle = "Information";
 		let streak = getCookie("duo-streak");
 
 		if (!streak) {
-			streak = await loadStreak();
-			setCookie("duo-streak", streak, getMidnightEST());
+			const res = await fetch("https://itsrainingmani-duostreak.web.val.run");
+			if (res.ok) {
+				console.log("we got a result");
+				const { streak } = await res.json();
+				setCookie("duo-streak", streak, getMidnightEST());
+				streakSpan.textContent = `${streak}  🔥 on` ?? "";
+			}
 		}
-
-		streakSpan.textContent = streak;
+		streakSpan.textContent = streak ?? "";
 	}
 
 	document.addEventListener("astro:after-swap", setStreak);
@@ -70,7 +67,7 @@ const pageTitle = "Information";
 			> software, building mechanical keyboards and learning Spanish & Japanese (<span
 				class="font-mono"
 				id="duo-streak"><span class="loading-emoji">↻</span></span
-			> 🔥 on
+			>
 			<Link href="https://www.duolingo.com/profile/itsrainingmani">Duolingo</Link>)!
 		</p>
 		<p class="pb-2">
