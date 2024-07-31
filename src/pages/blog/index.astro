@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout";
 import BlogTable from "@/components/BlogTable";
+import Link from "@/components/Link";
 import { createSlug } from "@/utils";
 
 const pageTitle = "Writing";
@@ -40,8 +41,8 @@ const tags = [...new Set(allPosts.flatMap((post) => post.data.tags))]
 			>
 				{
 					tags.map((tag) => (
-						<a href={`blog/tag/${createSlug(tag)}/`}>
-							<span class="blog-tag m-1 inline-block rounded-md bg-gray-200 px-2 py-1 text-sm shadow-sm shadow-black hover:cursor-pointer hover:shadow-inner">
+						<a href={`/blog/tag/${createSlug(tag)}/`}>
+							<span class="blog-tag m-1 inline-block rounded-md bg-gray-200 px-2 py-1 text-xs shadow-sm shadow-black hover:cursor-pointer hover:shadow-inner sm:text-sm">
 								{tag}
 							</span>
 						</a>
@@ -60,9 +61,25 @@ const tags = [...new Set(allPosts.flatMap((post) => post.data.tags))]
 	<hr />
 	<BlogTable posts={posts} />
 	<br />
-	<p class="mb-2 mt-1 font-mono">
-		For my writing about learning Clojure in Public, look no further:
+	<p class="mb-1 mt-1 font-mono">
+		For my writing about learning Clojure in Public during <Link
+			href="https://github.com/athensresearch/ClojureFam?tab=readme-ov-file">ClojureFam</Link
+		>, look no further:
 	</p>
+	<details class="text-md mb-1 rounded-md border-2 border-dashed border-gray-300 p-2">
+		<summary class="italic text-gray-700 hover:cursor-pointer">What is ClojureFam?</summary>
+		<p class="p-2 text-justify text-sm text-gray-600">
+			ClojureFam was a cohort-based learning program organized by the folks behind <Link
+				href="https://github.com/athensresearch">Athens Research</Link
+			> that I participated in from June 26th - July 28th, 2020. The purpose of the program was to be
+			a socially accountable way of learning Clojure and DataScript and eventually contribute to the
+			<Link href="https://github.com/athensresearch/athens">Athens Research</Link> codebase.
+			<br />
+			Learn more <Link href="https://github.com/athensresearch/ClojureFam?tab=readme-ov-file"
+				>here</Link
+			>
+		</p>
+	</details>
 	<BlogTable posts={clojureposts} />
 </BaseLayout>
 

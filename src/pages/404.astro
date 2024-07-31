@@ -3,14 +3,14 @@ import { Picture } from "astro:assets";
 import sadbag from "@/assets/sadbag.png";
 ---
 
-<body class="flex min-h-screen">
+<body class="flex min-h-screen bg-[#F5F5EC]">
 	<div class="m-auto flex flex-col items-center">
-		<h1 class="text-2xl font-bold">uh oh! you made a fuckie-wuckie >:(</h1>
+		<h1 class="text-2xl font-bold">uh oh! you made a fuckie-wuckie &gt:(</h1>
 		<a
 			class="cursor-pointer select-none appearance-none whitespace-nowrap px-4 py-2 text-center align-middle text-lg underline decoration-wavy underline-offset-4 hover:decoration-cyan-800"
 			href="/">go home</a
 		>
-		<Picture src={sadbag} alt="the 404 sad bag" formats={["avif", "webp"]} />
+		<Picture class="m-auto" src={sadbag} alt="the 404 sad bag" formats={["avif", "webp"]} />
 		<small class="text-xs italic text-gray-400"
 			>Illustration by <a
 				class="underline decoration-dotted"
