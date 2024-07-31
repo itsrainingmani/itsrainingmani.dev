@@ -47,8 +47,8 @@ const pageTitle = "Information";
 		streakSpan.textContent = streak ?? "";
 	}
 
-	document.addEventListener("astro:after-swap", setStreak);
-	document.addEventListener("astro:page-load", setStreak, { once: true });
+	// document.addEventListener("astro:after-swap", setStreak);
+	// document.addEventListener("astro:page-load", setStreak, { once: true });
 </script>
 
 <BaseLayout pageTitle={pageTitle}>
@@ -66,8 +66,10 @@ const pageTitle = "Information";
 				>✨non-utilitarian✨</b
 			> software, building mechanical keyboards and learning Spanish & Japanese (<span
 				class="font-mono"
-				id="duo-streak"><span class="loading-emoji">↻</span></span
+				id="duo-streak"
 			>
+				<!-- <span class="loading-emoji">↻</span> -->
+			</span>
 			<Link href="https://www.duolingo.com/profile/itsrainingmani">Duolingo</Link>)!
 		</p>
 		<p class="pb-2">
