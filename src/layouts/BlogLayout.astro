@@ -1,12 +1,35 @@
 ---
-import type { CollectionEntry } from "astro:content";
+import { type CollectionEntry, getCollection } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout";
 import { createSlug } from "@/utils";
 import Tag from "@/components/Tag";
+import Link from "@/components/Link";
 
-type Props = CollectionEntry<"blog">["data"];
+type Props = {
+	data: (CollectionEntry<"blog"> | CollectionEntry<"clojurefam">)["data"];
+	collection: (CollectionEntry<"blog"> | CollectionEntry<"clojurefam">)["collection"];
+};
+const {
+	data: { title, description, publishDate, tags },
+	collection,
+} = Astro.props;
 
-const { title, description, publishDate, tags } = Astro.props;
+let posts = await getCollection(collection);
+posts = posts
+	.filter((p) => p.data.publish)
+	.sort((a, b) => a.data.publishDate.valueOf() - b.data.publishDate.valueOf());
+const postIndex = posts.findIndex((p) => {
+	return p.data.title === title;
+});
+let prevPost: (CollectionEntry<"blog"> | CollectionEntry<"clojurefam">) | undefined,
+	nextPost: (CollectionEntry<"blog"> | CollectionEntry<"clojurefam">) | undefined;
+if (postIndex - 1 >= 0) {
+	prevPost = posts[postIndex - 1];
+}
+
+if (postIndex + 1 < posts.length) {
+	nextPost = posts[postIndex + 1];
+}
 ---
 
 <BaseLayout pageTitle={title}>
@@ -29,5 +52,59 @@ const { title, description, publishDate, tags } = Astro.props;
 		</div>
 		<hr class="not-prose my-2" />
 		<slot />
+		<div class="flex flex-row justify-evenly">
+			<div
+				class={`grow-0 basis-1/2 m-1 custom-boxshadow ${prevPost && "border border-black px-2 py-1"}`}
+			>
+				{
+					prevPost && (
+						<a
+							href={`/blog/${prevPost.slug}`}
+							class="select-none appearance-none whitespace-nowrap no-underline"
+						>
+							<div class="flex flex-col justify-start">
+								<span>Prev</span>
+								<p class="underline">{prevPost.data.title}</p>
+							</div>
+						</a>
+					)
+				}
+			</div>
+			<div
+				class={`grow-0 basis-1/2 m-1 custom-boxshadow ${nextPost && "border border-black px-2 py-1"}`}
+			>
+				{
+					nextPost && (
+						<a
+							href={`/blog/${nextPost.slug}`}
+							class="select-none appearance-none whitespace-nowrap no-underline"
+						>
+							<div class="flex flex-col justify-start">
+								<span>Next</span>
+								<p class="underline">{nextPost.data.title}</p>
+							</div>
+						</a>
+					)
+				}
+			</div>
+		</div>
 	</article>
 </BaseLayout>
+
+<style>
+	.custom-boxshadow {
+		position: relative;
+		transition:
+			box-shadow ease 0.3s,
+			transform ease 0.3s;
+		box-shadow: 2px 2px var(--usuzumiiro);
+	}
+
+	.custom-boxshadow:hover {
+		box-shadow: 3px -3px var(--roiro);
+		cursor: pointer;
+	}
+	.custom-boxshadow:hover::after {
+		opacity: 0.8;
+	}
+</style>
