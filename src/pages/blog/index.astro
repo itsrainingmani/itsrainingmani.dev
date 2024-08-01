@@ -41,7 +41,9 @@ const tags = [...new Set(allPosts.flatMap((post) => post.data.tags))].filter(
 				{tags.sort().map((tag) => <Tag href={`/blog/tag/${createSlug(tag)}/`} content={tag} />)}
 			</p>
 		</div>
-		<div class="flex basis-1/3 flex-col border-l border-l-black px-3 py-1.5 text-sm text-gray-500">
+		<div
+			class="flex basis-1/3 flex-col justify-center border-l border-l-black px-3 py-1.5 text-sm text-gray-500"
+		>
 			<blockquote class="italic">
 				“And by the way, everything in life is writable about if you have the outgoing guts to do
 				it, and the imagination to improvise. The worst enemy to creativity is self-doubt.”

@@ -79,8 +79,8 @@ const pageTitle = "Information";
 		</p>
 	</div>
 	<hr />
-	<div class="rounded-md border-2 border-dashed border-gray-300 p-4">
-		<h3 class="my-2 text-lg font-semibold sm:text-xl">Colophon</h3>
+	<details class="rounded-md border-2 border-dashed border-gray-300 p-4">
+		<summary class="text-md my-1 font-semibold hover:cursor-pointer sm:text-lg">Colophon</summary>
 		<p>
 			This website has several inspirations. I love the open nature of the web, precisely for how
 			easy it is to view source and understand how something cool works!
@@ -111,14 +111,14 @@ const pageTitle = "Information";
 				Tailwind
 			</Link> and hosted on <Link href="https://vercel.com">Vercel</Link>.
 		</p>
-		<p class="mt-1">
+		<p class="mt-1 w-fit">
 			<a
 				href="https://github.com/itsrainingmani/itsrainingmani.dev"
-				class="flex flex-row items-center justify-start"
+				class="flex flex-row items-center justify-start text-left text-blue-500 hover:cursor-alias hover:text-blue-700 hover:underline hover:underline-offset-2 hover:[text-decoration-skip-ink:auto]"
 				>Source Code <Icon icon="github-logo" />
 			</a>
 		</p>
-	</div>
+	</details>
 </BaseLayout>
 
 <style>
