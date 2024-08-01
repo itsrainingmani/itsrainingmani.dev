@@ -2,6 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout";
 import { createSlug } from "@/utils";
+import Tag from "@/components/Tag";
 
 type Props = CollectionEntry<"blog">["data"];
 
@@ -13,15 +14,7 @@ const { title, description, publishDate, tags } = Astro.props;
 		<div class="not-prose blog-title">
 			<h1 class="pb-0 text-2xl sm:text-3xl">{title}</h1>
 			{description && <h3 class="pb-1 text-gray-500">{description}</h3>}
-			{
-				tags.sort().map((tag) => (
-					<a href={`/blog/tag/${createSlug(tag)}/`}>
-						<span class="blog-tag m-1 inline-block rounded-md bg-gray-200 px-2 py-1 font-mono text-xs shadow-sm shadow-black hover:cursor-pointer hover:shadow-inner sm:text-sm">
-							{tag}
-						</span>
-					</a>
-				))
-			}
+			{tags.sort().map((tag) => <Tag href={`/blog/tag/${createSlug(tag)}/`} content={tag} />)}
 			<div class="date">
 				<h4 class="sm:text-md font-mono text-sm font-light">
 					{

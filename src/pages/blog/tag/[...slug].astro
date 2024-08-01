@@ -16,10 +16,8 @@ export async function getStaticPaths() {
 		return data.publish === true;
 	});
 	const posts = [...blogPosts, ...clojurePosts];
-	const unwantedTags = new Set(["clojurefam", "2020", "projects", "blogging"]);
-	const tags = [...new Set(posts.flatMap((post) => post.data.tags))]
-		.filter((p) => !unwantedTags.has(p))
-		.sort();
+	// const unwantedTags = new Set(["clojurefam", "2020", "projects", "blogging"]);
+	const tags = [...new Set(posts.flatMap((post) => post.data.tags))].sort();
 	return tags.map((tag) => ({
 		params: { slug: createSlug(tag) },
 		props: tag,

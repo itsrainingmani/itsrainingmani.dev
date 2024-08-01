@@ -1,0 +1,11 @@
+---
+const { href, content } = Astro.props;
+---
+
+<a href={href}>
+	<span
+		class="blog-tag m-1 inline-block rounded-md bg-gray-200 px-2 py-1 font-mono text-xs shadow-sm shadow-black hover:cursor-pointer hover:shadow-inner sm:text-sm"
+	>
+		{content}
+	</span>
+</a>
