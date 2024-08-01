@@ -1,0 +1,41 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+type Props = {
+	to: CollectionEntry<"blog"> | CollectionEntry<"clojurefam">;
+	title: string;
+};
+const { to, title } = Astro.props;
+---
+
+<div class="custom-boxshadow grow-0 basis-1/2 border border-black px-2 py-2">
+	<a href={`/blog/${to.slug}`} class="select-none appearance-none no-underline">
+		<div class="flex flex-col justify-start">
+			<span class="font-mono font-medium">{title}</span>
+			<p class="inline-block overflow-hidden text-ellipsis whitespace-nowrap underline">
+				{to.data.title}
+			</p>
+		</div>
+	</a>
+</div>
+
+<style>
+	.custom-boxshadow {
+		margin: 0.25rem;
+		position: relative;
+		transition:
+			box-shadow ease 0.3s,
+			transform ease 0.3s;
+		box-shadow: 2px 2px var(--usuzumiiro);
+		background-color: var(--light-paper);
+		width: 50%;
+	}
+
+	.custom-boxshadow:hover {
+		box-shadow: 3px -3px var(--roiro);
+		cursor: pointer;
+	}
+	.custom-boxshadow:hover::after {
+		opacity: 0.8;
+	}
+</style>
