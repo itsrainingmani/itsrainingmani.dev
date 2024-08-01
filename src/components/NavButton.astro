@@ -8,7 +8,7 @@ type Props = {
 const { to, title } = Astro.props;
 ---
 
-<div class="custom-boxshadow grow-0 basis-1/2 border border-black px-2 py-2">
+<div class="custom-boxshadow w-1/2 grow-0 basis-1/2 border border-black px-2 py-2">
 	<a href={`/blog/${to.slug}`} class="select-none appearance-none no-underline">
 		<div class="flex flex-col justify-start">
 			<span class="font-mono font-medium">{title}</span>
@@ -28,7 +28,6 @@ const { to, title } = Astro.props;
 			transform ease 0.3s;
 		box-shadow: 2px 2px var(--usuzumiiro);
 		background-color: var(--light-paper);
-		width: 50%;
 	}
 
 	.custom-boxshadow:hover {

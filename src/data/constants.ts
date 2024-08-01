@@ -5,6 +5,12 @@ import type { iconPaths } from "@/data/IconPaths";
 export const SITE_TITLE = "Overthunk";
 export const SITE_DESCRIPTION = "Mani's personal website";
 
+export const HEADER_LINKS = [
+	{ label: "Writing", href: "/blog" },
+	{ label: "Projects", href: "/projects" },
+	{ label: "About", href: "/about" },
+	{ label: "Photos", href: "/photos" },
+];
 export const SOCIAL_LINKS = {
 	github: "https://github.com/itsrainingmani/",
 	twitter: "https://twitter.com/itsrainingmani",

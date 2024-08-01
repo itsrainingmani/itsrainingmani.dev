@@ -2,6 +2,7 @@
 import HeaderLink from "@/components/HeaderLink";
 import Blocky from "@/assets/blocky.png";
 import { Picture } from "astro:assets";
+import { HEADER_LINKS } from "@/data/constants";
 ---
 
 <header class="mb-2 border-b border-b-gray-300 pb-2">
@@ -28,10 +29,7 @@ import { Picture } from "astro:assets";
 		<div
 			class="nav-section grid auto-cols-fr grid-flow-row-dense grid-cols-2 gap-2 text-center sm:grid-cols-4"
 		>
-			<HeaderLink href="/blog">Writing</HeaderLink>
-			<HeaderLink href="/projects">Projects</HeaderLink>
-			<HeaderLink href="/info">Info</HeaderLink>
-			<HeaderLink href="/photos">Photos</HeaderLink>
+			{HEADER_LINKS.map((header) => <HeaderLink href={header.href}>{header.label}</HeaderLink>)}
 		</div>
 	</nav>
 </header>
