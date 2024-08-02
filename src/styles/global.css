@@ -116,20 +116,19 @@
 	font-display: swap;
 }
 
-@font-face {
+/* @font-face {
 	font-family: "InterVariable";
 	src: url("/fonts/Inter.var.woff2") format("woff2");
-}
+} */
 
 @font-face {
 	font-family: "BerkeleyMonoVariable";
 	src:
-		url("/fonts/BerkeleyMonoVariable-Regular.woff") format("woff"),
 		url("/fonts/BerkeleyMonoVariable-Regular.woff2") format("woff2");
+	font-display: swap;
 }
 
 html {
-	/* background-color: var(--shironezu); */
 	/*
 	this reserves space on the element for the scrollbar (~10px)
 	gets rid of the adjustment when rendering a page that has a scrollbar
@@ -162,7 +161,7 @@ body {
 	background-size: 100% 600px;
 	color: rgb(var(--roiro));
 	line-height: 1.5;
-	font-family: "Atkinson";
+	font-family: "Atkinson", sans-serif;
 }
 
 h1 {
