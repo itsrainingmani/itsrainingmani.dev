@@ -65,13 +65,9 @@ const allPosts = [...posts, ...clojurePosts]
 		class="children:block relative mb-0 flex flex-col items-center text-center md:items-end md:text-end"
 	>
 		<table class="datasheet w-full table-auto p-6 text-left [border-width:0.1rem] md:w-7/12">
-			<thead class="bg-black align-middle text-white">
-				<tr>
-					<th colspan="2" class="text-xl font-semibold [padding-left:0.3rem] [padding-right:0.3rem]"
-						>Datasheet</th
-					>
-				</tr>
-			</thead>
+			<caption class="bg-black p-3 text-left align-middle text-xl font-semibold text-white"
+				>Datasheet</caption
+			>
 			<tbody>
 				<tr>
 					<td class="[padding-left:0.3rem] [padding-right:0.3rem]">
@@ -123,9 +119,6 @@ const allPosts = [...posts, ...clojurePosts]
 			</tbody>
 		</table>
 	</div>
-	<!-- <div class="flex flex-col justify-between md:flex-row-reverse">
-
-	</div> -->
 	<hr class="my-4" />
 	<p class="font-mono">Assorted 🎲 writing:&nbsp;</p>
 	<WritingList posts={allPosts} />
@@ -137,6 +130,10 @@ const allPosts = [...posts, ...clojurePosts]
 	}
 	.datasheet {
 		background-color: var(--light-paper);
+		box-shadow: 2px 2px var(--usuzumiiro);
+	}
+
+	.datasheet caption {
 		box-shadow: 2px 2px var(--usuzumiiro);
 	}
 
