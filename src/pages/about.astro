@@ -11,28 +11,73 @@ const pageTitle = "Information";
 	<br />
 	<div class="flex flex-col justify-between">
 		<p class="pb-2">
-			My name is <strong>Mani</strong> and I am a software engineer/aspiring photographer. I’m interested
-			in learning about languages, <em>programming</em> or otherwise & exploring the streets of NYC with
-			a 📷 in hand.
-		</p>
-		<p class="pb-2">I currently live in NYC with my wife, Khia and 2 cats.</p>
-		<p class="pb-2">
-			In my free time, I enjoy reading, hacking together <b class="whitespace-nowrap"
-				>✨non-utilitarian✨</b
-			> software, building mechanical keyboards and learning Spanish & Japanese!
+			My name is <strong>Mani</strong> and I am a software engineer/amateur photographer. I currently
+			live in NYC with my wife, Khia and our 2 cats, Josie and <Link
+				href="https://en.wikipedia.org/wiki/Jean-François_Champollion"
+				>Jean-François Champollion</Link
+			>.
 		</p>
 		<p class="pb-2">
-			I was most recently part of the Winter 2 - 2024 batch at the <Link href="https://recurse.com">
-				Recurse Center
-			</Link>
+			I've been writing code and building things since I was a young lad and got my hands on a <Link
+				href="https://en.wikipedia.org/wiki/Lego_Mindstorms">Lego Mindstorms</Link
+			>. That sparked my love for hacking together fun and silly things and I pursue that passion
+			every day.
+		</p>
+		<p class="pb-2">
+			I enjoy designing user experiences, building <em>lightweight</em> & effective tools that solve
+			problems, real or contrived and contributing to open-source projects
+		</p>
+		<p class="pb-2">
+			During my batch at the <Link href="https://recurse.com"> Recurse Center </Link><span
+				class="font-mono text-base">(W2'24)</span
+			>, I focused on -
+			<ul class="list-inside list-disc">
+				<li>Building CLI tools in Rust</li>
+				<li>
+					Learning the fundamentals of Microservices & Neural Networks via self-organized study
+					groups
+				</li>
+				<li>Becoming a better Programmer by engaging my curiosity & building continuously</li>
+				<li>
+					Programming Language Theory via Stanford CS242 & <Link
+						href="https://craftinginterpreters.com">Crafting Interpreters</Link
+					>
+				</li>
+			</ul>
 		</p>
 	</div>
 	<hr />
-	<details class="rounded-md border-2 border-dashed border-gray-300 p-4">
+	<h3 class="pt-2 text-left text-xl font-semibold md:text-2xl">Hire me!</h3>
+	<p class="pb-2">
+		I also build websites for people for fun & profit. My most recent commission building <Link
+			href="https://vramesh.com">vramesh.com</Link
+		>. If you'd like to hire me to build you a website or for a full-time SWE Role, please reach out
+		to me!
+		<div class="flex flex-row">
+			<p class="flex flex-row items-center pr-2">
+				Email <Icon icon="email" />{": "}
+			</p>
+			<Link href="mailto:contact@itsrainingmani.dev">contact@itsrainingmani.dev</Link>
+		</div>
+		<div class="flex flex-row">
+			<p class="flex flex-row items-center pr-2">
+				LinkedIn <Icon icon="linkedin-logo" />
+			</p>
+			<Link href="https://linkedin.com/in/itsrainingmani">itsrainingmani</Link>
+		</div>
+		<div class="flex flex-row">
+			<p class="flex flex-row items-center pr-2">
+				Twitter <Icon icon="twitter-logo" />
+			</p>
+			<Link href="https://x.com/itsrainingmani">@itsrainingmani</Link>
+		</div>
+	</p>
+	<hr />
+	<details open class="m-auto rounded-md border-2 border-dashed border-gray-300 p-4">
 		<summary class="text-md my-1 font-semibold hover:cursor-pointer sm:text-lg">Colophon</summary>
 		<p>
 			This website has several inspirations. I love the open nature of the web, precisely for how
-			easy it is to view source and understand how something cool works!
+			easy it is to view-source and understand how something cool works!
 		</p>
 		<p class="mt-1">
 			Shoutout to
@@ -68,19 +113,18 @@ const pageTitle = "Information";
 			</a>
 		</p>
 	</details>
+	<style>
+		.loading-emoji {
+			display: inline-block;
+			animation: spin 3s infinite linear;
+		}
+		@keyframes spin {
+			0% {
+				transform: rotate(0deg);
+			}
+			100% {
+				transform: rotate(360deg);
+			}
+		}
+	</style>
 </BaseLayout>
-
-<style>
-	.loading-emoji {
-		display: inline-block;
-		animation: spin 3s infinite linear;
-	}
-	@keyframes spin {
-		0% {
-			transform: rotate(0deg);
-		}
-		100% {
-			transform: rotate(360deg);
-		}
-	}
-</style>

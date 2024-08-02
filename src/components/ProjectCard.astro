@@ -10,17 +10,31 @@ const { project } = Astro.props;
 		class="card project-box neumorphic flex h-full flex-col justify-around overflow-hidden rounded-3xl px-8 py-12 text-left md:rounded-2xl md:py-16"
 	>
 		<div class="grow-0 basis-2/3 py-4">
-			<h3 class="title font-semibold">{project.data.title}</h3>
+			<h3 class="title font-mono font-medium">{project.data.title}</h3>
 			<p>{project.data.description}</p>
 		</div>
-		<Action class="basis-1/3 py-2" location={project.data.repo}>
-			<div class="flex flex-row items-center justify-between px-2">
-				<Icon icon="github-logo" />
-				<span class="pl-1 font-mono">
-					repo<span> </span>
-				</span>
-			</div>
-		</Action>
+		<div class="flex flex-row">
+			<Action class="hover:bg-[#6cc644]" location={project.data.repo}>
+				<div class="flex flex-row items-center justify-between px-2">
+					<Icon icon="github-logo" />
+					<span class="pl-1 font-mono">
+						repo<span> </span>
+					</span>
+				</div>
+			</Action>
+			{
+				project.data.link && (
+					<Action class="hover:bg-blue-300" location={project.data.link}>
+						<div class="flex flex-row items-center justify-between px-2">
+							<Icon icon="link" />
+							<span class="pl-1 font-mono">
+								link<span> </span>
+							</span>
+						</div>
+					</Action>
+				)
+			}
+		</div>
 	</div>
 </div>
 

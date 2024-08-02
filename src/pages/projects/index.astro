@@ -6,7 +6,7 @@ import Link from "@/components/Link";
 
 const pageTitle = "Technical Archive";
 const allProjects = await getCollection("projects");
-allProjects.sort((a, b) => b.data.createdYear - a.data.createdYear);
+allProjects.sort((a, b) => b.data.createdDate.valueOf() - a.data.createdDate.valueOf());
 
 const projects = allProjects.filter((p) => p.data.variant === "project");
 const experiments = allProjects.filter((p) => p.data.variant === "experiment");
@@ -73,6 +73,7 @@ const learning = allProjects.filter((p) => p.data.variant === "learning");
 		</blockquote>
 	</div>
 	<hr />
+	<h3 class="pt-2 text-left text-xl md:text-2xl">Projects</h3>
 	<div class="grid grid-flow-row grid-cols-1 gap-2 text-center md:grid-cols-2 lg:grid-cols-3">
 		{projects.map((project) => <ProjectCard {project} />)}
 	</div>
@@ -95,7 +96,7 @@ const learning = allProjects.filter((p) => p.data.variant === "learning");
 					</a>
 				</div>
 				<div>
-					<p class="font-mono font-normal text-base">{project.data.createdYear}</p>
+					<p class="font-mono font-normal text-base">{project.data.createdDate.getFullYear()}</p>
 				</div>
 			</div>
 			<p class="self-center text-lg italic">{project.data.description}</p>
