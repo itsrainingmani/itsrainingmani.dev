@@ -7,8 +7,7 @@ const pageTitle = "Information";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<h2 class="text-xl font-semibold sm:text-2xl">Hello 👋🏻</h2>
-	<br />
+	<h2 class="pb-2 text-xl font-semibold sm:text-2xl">Hello 👋🏻</h2>
 	<div class="flex flex-col justify-between">
 		<p class="pb-2">
 			My name is <strong>Mani</strong> and I am a software engineer/amateur photographer. I currently
@@ -25,12 +24,25 @@ const pageTitle = "Information";
 		</p>
 		<p class="pb-2">
 			I enjoy designing user experiences, building <em>lightweight</em> & effective tools that solve
-			problems, real or contrived and contributing to open-source projects
+			problems, real or contrived and contributing to open-source projects. I'm working on deepening
+			my understanding of <span class="font-mono text-base"
+				>PL Theory, Compilers, Distributed Systems & Mechanistic Interpretability of ML models</span
+			>
 		</p>
-		<p class="pb-2">
-			During my batch at the <Link href="https://recurse.com"> Recurse Center </Link><span
-				class="font-mono text-base">(W2'24)</span
-			>, I focused on -
+	</div>
+	<hr />
+	<div class="flex flex-col justify-between">
+		<h3 class="pt-2 text-left text-xl font-semibold md:text-2xl">Recurse Center</h3>
+		<div class="pb-2">
+			<p>
+				I quit my job at Mount Sinai on January 2<sup>nd</sup>, 2024 to attend the <Link
+					href="https://recurse.com"
+				>
+					Recurse Center
+				</Link>. I wanted to spend time re-orienting myself and understand what I enjoyed about
+				programming (and find a community of like-minded engineers/artists in NYC).
+			</p>
+			During my batch <span class="font-mono text-base">(W2'24)</span>, I focused on -
 			<ul class="list-inside list-disc">
 				<li>Building CLI tools in Rust</li>
 				<li>
@@ -44,15 +56,17 @@ const pageTitle = "Information";
 					>
 				</li>
 			</ul>
-		</p>
+		</div>
 	</div>
 	<hr />
 	<h3 class="pt-2 text-left text-xl font-semibold md:text-2xl">Hire me!</h3>
-	<p class="pb-2">
-		I also build websites for people for fun & profit. My most recent commission building <Link
-			href="https://vramesh.com">vramesh.com</Link
-		>. If you'd like to hire me to build you a website or for a full-time SWE Role, please reach out
-		to me!
+	<div class="pb-2">
+		<p>
+			I also build websites for people for fun & profit. My most recent commission was building <Link
+				href="https://vramesh.com">vramesh.com</Link
+			>. If you'd like to hire me to build you a website or for a full-time SWE Role, please reach
+			out to me!
+		</p>
 		<div class="flex flex-row">
 			<p class="flex flex-row items-center pr-2">
 				Email <Icon icon="email" />{": "}
@@ -71,9 +85,8 @@ const pageTitle = "Information";
 			</p>
 			<Link href="https://x.com/itsrainingmani">@itsrainingmani</Link>
 		</div>
-	</p>
-	<hr />
-	<details open class="m-auto rounded-md border-2 border-dashed border-gray-300 p-4">
+	</div>
+	<details class="m-auto rounded-md border-2 border-dashed border-gray-300 p-4">
 		<summary class="text-md my-1 font-semibold hover:cursor-pointer sm:text-lg">Colophon</summary>
 		<p>
 			This website has several inspirations. I love the open nature of the web, precisely for how
@@ -128,3 +141,9 @@ const pageTitle = "Information";
 		}
 	</style>
 </BaseLayout>
+
+<style>
+	hr {
+		border: 1px solid var(--usuzumiiro);
+	}
+</style>
