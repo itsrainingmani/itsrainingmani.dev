@@ -60,113 +60,111 @@ const allPosts = [...posts, ...clojurePosts]
 				Recurse Center
 			</Link>
 		</p>
-		<div
-			class="children:block relative mb-0 flex flex-col items-center text-center md:items-end md:text-end"
-		>
-			<table class="datasheet w-full table-auto p-6 text-left [border-width:0.1rem] md:w-7/12">
-				<thead class="bg-black align-middle text-white">
-					<tr>
-						<th
-							colspan="2"
-							class="text-xl font-semibold [padding-left:0.3rem] [padding-right:0.3rem]"
-							>Datasheet</th
-						>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td class="[padding-left:0.3rem] [padding-right:0.3rem]">
-							<p class="flex flex-row items-center justify-self-start font-mono font-medium">
-								<span class="pr-1">Location</span><Icon icon="location" />
+	</div>
+	<div
+		class="children:block relative mb-0 flex flex-col items-center text-center md:items-end md:text-end"
+	>
+		<table class="datasheet w-full table-auto p-6 text-left [border-width:0.1rem] md:w-7/12">
+			<thead class="bg-black align-middle text-white">
+				<tr>
+					<th colspan="2" class="text-xl font-semibold [padding-left:0.3rem] [padding-right:0.3rem]"
+						>Datasheet</th
+					>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="[padding-left:0.3rem] [padding-right:0.3rem]">
+						<p class="flex flex-row items-center justify-self-start font-mono font-medium">
+							<span class="pr-1">Location</span><Icon icon="location" />
+						</p>
+					</td>
+					<td class="w-2/3"> New York City</td>
+				</tr>
+				<tr>
+					<td class="[padding-left:0.3rem] [padding-right:0.3rem]">
+						<p class="flex flex-row items-center font-mono font-medium">Current</p>
+					</td>
+					<td class="w-2/3">
+						<Link href="https://recurse.com">Recurse Center </Link><span
+							class="font-mono font-light">W2'24</span
+						></td
+					>
+				</tr>
+				<tr>
+					<td class="[padding-left:0.3rem] [padding-right:0.3rem]">
+						<p class="flex flex-row items-center font-mono font-medium">Past</p>
+					</td>
+					<td class="w-2/3">
+						<ul style="list-style-type: circle;">
+							<li>Mount Sinai <span class="font-mono font-light">'20-'23</span></li>
+							<li>Derive Technologies <span class="font-mono font-light">'17-'20</span></li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<CustomButton location={SOCIAL_LINKS["github"]} col="#2dba4e">
+							<p class="flex flex-row items-center justify-center font-semibold">
+								GitHub <Icon icon="github-logo" />
 							</p>
-						</td>
-						<td class="w-2/3"> New York City</td>
-					</tr>
-					<tr>
-						<td class="[padding-left:0.3rem] [padding-right:0.3rem]">
-							<p class="flex flex-row items-center font-mono font-medium">Current</p>
-						</td>
-						<td class="w-2/3">
-							<Link href="https://recurse.com">Recurse Center </Link><span
-								class="font-mono font-light">W2'24</span
-							></td
-						>
-					</tr>
-					<tr>
-						<td class="[padding-left:0.3rem] [padding-right:0.3rem]">
-							<p class="flex flex-row items-center font-mono font-medium">Past</p>
-						</td>
-						<td class="w-2/3">
-							<ul style="list-style-type: circle;">
-								<li>Mount Sinai <span class="font-mono font-light">'20-'23</span></li>
-								<li>Derive Technologies <span class="font-mono font-light">'17-'20</span></li>
-							</ul>
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2">
-							<CustomButton location={SOCIAL_LINKS["github"]} col="#2dba4e">
-								<p class="flex flex-row items-center justify-center font-semibold">
-									GitHub <Icon icon="github-logo" />
-								</p>
-							</CustomButton>
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2">
-							<CustomButton location={SOCIAL_LINKS["linkedin"]} col="#0077b5">
-								<p class="flex flex-row items-center justify-center font-semibold">
-									LinkedIn <Icon icon="linkedin-logo" />
-								</p>
-							</CustomButton>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-		<!-- <div class="flex flex-col justify-between md:flex-row-reverse">
+						</CustomButton>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<CustomButton location={SOCIAL_LINKS["linkedin"]} col="#0077b5">
+							<p class="flex flex-row items-center justify-center font-semibold">
+								LinkedIn <Icon icon="linkedin-logo" />
+							</p>
+						</CustomButton>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<!-- <div class="flex flex-col justify-between md:flex-row-reverse">
 
 	</div> -->
-		<hr class="my-4" />
-		<p class="font-mono">Assorted 🎲 writing:&nbsp;</p>
-		<WritingList posts={allPosts} />
-	</div>
-	<style>
-		.marquee > div {
-			animation: vertical-marquee 8s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
-			--offset: -5px;
-		}
-		.datasheet {
-			background-color: var(--light-paper);
-			box-shadow: 2px 2px var(--usuzumiiro);
-		}
-
-		.datasheet tr {
-			border: 0.1rem solid var(--roiro);
-		}
-
-		.datasheet td,
-		th {
-			padding: 0.75rem;
-		}
-
-		@keyframes vertical-marquee {
-			0%,
-			11.11% {
-				transform: translateY(calc((0% / 4) + var(--offset)));
-			}
-			22.22%,
-			44.44% {
-				transform: translateY(calc((-100% / 4) + var(--offset)));
-			}
-			55.55%,
-			77.77% {
-				transform: translateY(calc((-200% / 4) + var(--offset)));
-			}
-			89.89%,
-			100% {
-				transform: translateY(calc((-300% / 4) + var(--offset)));
-			}
-		}
-	</style>
+	<hr class="my-4" />
+	<p class="font-mono">Assorted 🎲 writing:&nbsp;</p>
+	<WritingList posts={allPosts} />
 </BaseLayout>
+<style>
+	.marquee > div {
+		animation: vertical-marquee 8s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+		--offset: -5px;
+	}
+	.datasheet {
+		background-color: var(--light-paper);
+		box-shadow: 2px 2px var(--usuzumiiro);
+	}
+
+	.datasheet tr {
+		border: 0.1rem solid var(--roiro);
+	}
+
+	.datasheet td,
+	th {
+		padding: 0.75rem;
+	}
+
+	@keyframes vertical-marquee {
+		0%,
+		11.11% {
+			transform: translateY(calc((0% / 4) + var(--offset)));
+		}
+		22.22%,
+		44.44% {
+			transform: translateY(calc((-100% / 4) + var(--offset)));
+		}
+		55.55%,
+		77.77% {
+			transform: translateY(calc((-200% / 4) + var(--offset)));
+		}
+		89.89%,
+		100% {
+			transform: translateY(calc((-300% / 4) + var(--offset)));
+		}
+	}
+</style>
