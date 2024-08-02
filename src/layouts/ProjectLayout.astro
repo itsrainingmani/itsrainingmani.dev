@@ -1,0 +1,27 @@
+---
+import { ViewTransitions } from "astro:transitions";
+import BaseHead from "@/components/BaseHead";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { SITE_TITLE, SITE_DESCRIPTION } from "@/data/constants";
+const { pageTitle } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<script
+			is:inline
+			src="https://raw.githack.com/Qwuke/recurse-ring/main/static/ring.js"
+			type="text/javascript"></script>
+		<BaseHead title={pageTitle ?? SITE_TITLE} description={SITE_DESCRIPTION} />
+		<ViewTransitions />
+	</head>
+	<body class="flex min-h-screen flex-col">
+		<Header />
+		<main class="w-full flex-grow">
+			<slot />
+		</main>
+		<Footer />
+	</body>
+</html>

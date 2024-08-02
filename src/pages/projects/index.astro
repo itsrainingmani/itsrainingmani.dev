@@ -1,13 +1,16 @@
 ---
 import { getCollection } from "astro:content";
-import BaseLayout from "@/layouts/BaseLayout";
-import Action from "@/components/Action";
-import Icon from "@/components/Icon";
 import ProjectCard from "@/components/ProjectCard";
+import ProjectLayout from "@/layouts/ProjectLayout";
+import Link from "@/components/Link";
 
 const pageTitle = "Technical Archive";
-const projects = await getCollection("projects");
-projects.sort((a, b) => b.data.createdYear - a.data.createdYear);
+const allProjects = await getCollection("projects");
+allProjects.sort((a, b) => b.data.createdYear - a.data.createdYear);
+
+const projects = allProjects.filter((p) => p.data.variant === "project");
+const experiments = allProjects.filter((p) => p.data.variant === "experiment");
+const learning = allProjects.filter((p) => p.data.variant === "learning");
 
 // grid-cols-2  -> 2 columns that occupy free space (fr)
 
@@ -59,7 +62,7 @@ projects.sort((a, b) => b.data.createdYear - a.data.createdYear);
 	});
 </script>
 
-<BaseLayout pageTitle={pageTitle}>
+<ProjectLayout pageTitle={pageTitle}>
 	<div class="my-4 flex flex-col md:flex-row">
 		<h1 class="basis-2/3 self-start text-left text-3xl md:text-4xl">{pageTitle}</h1>
 		<blockquote
@@ -70,7 +73,32 @@ projects.sort((a, b) => b.data.createdYear - a.data.createdYear);
 		</blockquote>
 	</div>
 	<hr />
-	<div class="project-grid grid grid-flow-row grid-cols-1 gap-2 text-center md:grid-cols-2">
+	<div class="grid grid-flow-row grid-cols-1 gap-2 text-center md:grid-cols-2 lg:grid-cols-3">
 		{projects.map((project) => <ProjectCard {project} />)}
 	</div>
-</BaseLayout>
+	<hr />
+	<h3 class="pt-4 text-left text-xl md:text-2xl">Experiments</h3>
+	<div class="grid grid-flow-row grid-cols-1 gap-2 text-center md:grid-cols-2 lg:grid-cols-3">
+		{experiments.map((project) => <ProjectCard {project} />)}
+	</div>
+	<hr />
+	<h3 class="pt-4 text-left text-xl md:text-2xl">Learning</h3>
+	{
+		learning.map((project) => (
+			<div class="flex flex-row items-center">
+				<div class="pr-2">
+					<a
+						href={project.data.repo}
+						class="font-mono font-medium text-blue-500 hover:cursor-alias hover:text-blue-700 hover:underline hover:underline-offset-2 hover:[text-decoration-skip-ink:auto]"
+					>
+						{project.data.title}
+					</a>
+				</div>
+				<div>
+					<p class="font-mono font-normal text-base">{project.data.createdYear}</p>
+				</div>
+			</div>
+			<p class="self-center text-lg italic">{project.data.description}</p>
+		))
+	}
+</ProjectLayout>

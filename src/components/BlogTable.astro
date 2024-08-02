@@ -28,11 +28,11 @@ const { posts } = Astro.props;
 								class="max-w-max text-blue-500 hover:cursor-alias hover:text-blue-700 hover:underline hover:underline-offset-2 hover:[text-decoration-skip-ink:auto]"
 								href={`/blog/${post.slug}/`}
 							>
-								<h4 class="title">{post.data.title}</h4>
+								<h4 class="title text-base md:text-lg">{post.data.title}</h4>
 							</a>
 						</div>
 					</td>
-					<td class="w-2/6 text-center sm:w-1/6">
+					<td class="w-2/6 text-center text-sm sm:w-1/6 md:text-base">
 						<FormattedDate date={post.data.publishDate} />
 					</td>
 				</tr>
