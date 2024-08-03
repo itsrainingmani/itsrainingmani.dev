@@ -12,15 +12,17 @@ const { posts } = Astro.props;
 	<ul class="m-0 list-none p-0">
 		{
 			posts.map((post) => (
-				<li class="flex flex-row flex-wrap items-center gap-x-2">
-					<span class="text-xl">&#8599;</span>
+				<li class="gap-x-2">
+					<span class="text-base md:text-lg">&#8599;</span>
 					<a
-						class="max-w-max text-left text-blue-500 hover:cursor-alias hover:text-blue-700 hover:underline hover:underline-offset-2 hover:[text-decoration-skip-ink:auto]"
+						class="max-w-max text-left text-base text-blue-500 hover:cursor-alias hover:text-blue-700 hover:underline hover:underline-offset-2 hover:[text-decoration-skip-ink:auto] md:text-lg"
 						href={`/blog/${post.slug}/`}
 					>
 						{post.data.title}
 					</a>
-					<FormattedDate date={post.data.publishDate} />
+					<div class="inline-block text-sm md:text-base">
+						<FormattedDate date={post.data.publishDate} />
+					</div>
 				</li>
 			))
 		}
