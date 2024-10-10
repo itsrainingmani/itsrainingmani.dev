@@ -9,7 +9,7 @@ import CustomButton from "@/components/CustomButton";
 const pageTitle = "Overthunk";
 
 const posts = await getCollection("blog", ({ data }) => {
-	return data.publish === true;
+	return import.meta.env.PROD ? data.publish === true : true;
 });
 
 const clojurePosts = await getCollection("clojurefam", ({ data }) => {

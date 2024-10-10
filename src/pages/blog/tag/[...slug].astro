@@ -9,7 +9,7 @@ const pageTitle = `Tag - ${tag}`;
 
 export async function getStaticPaths() {
 	const blogPosts = await getCollection("blog", ({ data }) => {
-		return data.publish === true;
+		return import.meta.env.PROD ? data.publish === true : true;
 	});
 
 	const clojurePosts = await getCollection("clojurefam", ({ data }) => {
@@ -25,7 +25,7 @@ export async function getStaticPaths() {
 }
 
 const blogPosts = await getCollection("blog", ({ data }) => {
-	return data.publish === true;
+	return import.meta.env.PROD ? data.publish === true : true;
 });
 const clojurePosts = await getCollection("clojurefam", ({ data }) => {
 	return data.publish === true;
