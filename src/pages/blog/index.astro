@@ -18,7 +18,7 @@ const hiddenTags = new Set([
 ]);
 const posts = (
 	await getCollection("blog", ({ data }) => {
-		return data.publish === true;
+		return import.meta.env.PROD ? data.publish === true : true;
 	})
 ).sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
 
