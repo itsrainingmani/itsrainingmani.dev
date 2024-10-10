@@ -1,0 +1,36 @@
+---
+title: "Generating Better Tweet Previews"
+publishDate: "20 Sep 2024"
+description: "Tweet previews on FB Messenger are broken. Can we fix them?"
+tags: ["twitter", "previews", "opengraph", "messenger"]
+publish: false
+---
+
+## the problem
+
+A certain *Someone's* acquisition of a beloved shit-posting platform has been an unmitigated disaster for us all.
+One change that is particularly egregious (at least to me) is that sharing a tweet link on FB Messenger no longer generates a link preview.
+
+<Aside variant="info" title="What are Link Previews?">
+	Link previews summarize the content at the link destination with a title, description, and thumbnail. Previews are generated automatically, and each social network generates them differently.
+</Aside>
+
+A crucial part of the tweeting/shit-posting experience is being able to share your favorite unhinged tweets with friends on your Big Communication Platform™️ of choice.
+
+Reducing the readability and simplicity of this experience is a net -ve experience for everyone involved.
+
+iMessage for example does several things -
+1. Pure Text Tweets are rendered up-to 280 characters. The size of the text container is content-aware.
+2. Tweets with a mix of image and text are handled intelligently. The image now occupies the traditional location and the "text content" is shown below the image along with information about who tweeted. (this is an inversion of how the actual tweet is rendered but is consistent with link previews in general)
+
+These are all good things and that this is unavailable on Messenger is sad for us boomers
+
+## the solution
+
+Generate the Open Graph image & content myself. Should be easy enough!
+
+We need 3 things to make this happen -
+
+1. An OpenGraph image generator with decent customizability - Vercel has us covered
+2. A webhost that lets us generate URLs that mimic the meta tags present on the original tweet - I've been wanting to use Cloudflare Workers for something so might as well.
+3. Easy way to share tweet using the new URL - Since I mostly browse and send tweets on my iPhone, I'm going to reach for iOS Shortcuts here.
