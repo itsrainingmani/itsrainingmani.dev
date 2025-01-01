@@ -13,14 +13,18 @@ export const HEADER_LINKS = [
 ];
 export const SOCIAL_LINKS = {
 	github: "https://github.com/itsrainingmani/",
-	twitter: "https://twitter.com/itsrainingmani",
-	email: "mailto:mani@itsrainingmani.dev",
+	twitter: "https://x.com/itsrainingmani",
+	email: "mailto:contact@itsrainingmani.dev",
 	replit: "https://replit.com/@itsrainingmani",
 	linkedin: "https://linkedin.com/in/itsrainingmani",
 };
 
 /** Icon links to social media — edit these with links to your profiles! */
-export const ICON_LINKS: { label: string; href: string; icon: keyof typeof iconPaths }[] = [
+export const ICON_LINKS: {
+	label: string;
+	href: string;
+	icon: keyof typeof iconPaths;
+}[] = [
 	{ label: "Twitter", href: SOCIAL_LINKS.twitter, icon: "twitter-logo" },
 	{ label: "GitHub", href: SOCIAL_LINKS.github, icon: "github-logo" },
 	{ label: "Email", href: SOCIAL_LINKS.email, icon: "email" },
