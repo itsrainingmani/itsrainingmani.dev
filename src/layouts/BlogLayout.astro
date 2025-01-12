@@ -2,8 +2,8 @@
 import { type CollectionEntry, getCollection } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout";
 import { createSlug } from "@/utils";
-import Tag from "@/components/Tag";
 import NavButton from "@/components/NavButton";
+import Link from "@/components/Link";
 
 type Props = {
 	data: (CollectionEntry<"blog"> | CollectionEntry<"clojurefam">)["data"];
@@ -33,13 +33,12 @@ if (postIndex + 1 < posts.length) {
 ---
 
 <BaseLayout pageTitle={title}>
-	<article class="md:proxe-xl prose max-w-none">
+	<article class="prose max-w-none font-sans md:prose-lg prose-a:no-underline">
 		<div class="not-prose blog-title">
-			<h1 class="pb-0 text-2xl sm:text-3xl">{title}</h1>
-			{description && <h3 class="pb-1 text-gray-500">{description}</h3>}
-			{tags.sort().map((tag) => <Tag href={`/blog/tag/${createSlug(tag)}/`} content={tag} />)}
-			<div class="date">
-				<h4 class="sm:text-md font-mono text-sm font-light">
+			<h1 class="pb-0 font-mono text-2xl sm:text-3xl">{title}</h1>
+			{description && <h3 class="text-md pb-1 text-zinc-500">{description}</h3>}
+			<div class="date flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
+				<h4 class="text-md font-mono font-light sm:text-lg">
 					{
 						publishDate.toLocaleDateString("en-US", {
 							year: "numeric",
@@ -48,6 +47,9 @@ if (postIndex + 1 < posts.length) {
 						})
 					}
 				</h4>
+				<div class="sm:before:content-['|']">
+					{tags.sort().map((tag) => <Link href={`/blog/tag/${createSlug(tag)}/`}>#{tag}</Link>)}
+				</div>
 			</div>
 		</div>
 		<hr class="not-prose my-2" />

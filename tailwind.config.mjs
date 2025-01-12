@@ -16,7 +16,7 @@ export default {
 		extend: {
 			fontFamily: {
 				mono: ["BerkeleyMonoVariable", ...defaultTheme.fontFamily.mono],
-				// sans: ["InterVariable", ...defaultTheme.fontFamily.sans],
+				sans: ["Lexend", ...defaultTheme.fontFamily.sans],
 			},
 		},
 	},

@@ -128,6 +128,15 @@
 	font-display: swap;
 }
 
+@font-face {
+	font-family: "Lexend";
+	src:
+		url("/fonts/Lexend.woff2") format("woff2 supports variations"),
+		url("/fonts/Lexend.woff2") format("woff2-variations");
+	font-weight: 100 800;
+	font-display: swap;
+}
+
 html {
 	/*
 	this reserves space on the element for the scrollbar (~10px)
