@@ -146,6 +146,23 @@ html {
 	scrollbar-gutter: stable both-edges;
 }
 
+.anchor-link {
+	font-size: 1.5rem;
+	margin-right: .25em;
+	height: 1em;
+	width: 1em;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	opacity: .25;
+	transition: opacity .2s ease-in-out
+}
+
+.anchor-link:hover,
+.anchor-link:focus {
+	opacity: 1
+}
+
 body::before {
 	content: "";
 	position: fixed;
