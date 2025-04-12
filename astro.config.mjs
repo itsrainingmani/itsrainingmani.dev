@@ -1,4 +1,4 @@
-import { defineConfig, squooshImageService } from "astro/config";
+import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 
@@ -10,15 +10,21 @@ import rehypeSlug from "rehype-slug";
 // https://astro.build/config
 export default defineConfig({
 	site: "https://itsrainingmani.dev",
-	image: {
-		service: squooshImageService(),
-	},
 	markdown: {
-		rehypePlugins: [rehypeSlug, [rehypeAutolinkHeadings, {
-			behavior: "prepend", content: { type: 'text', value: '# ' }, headingProperties: { className: ['anchor'] }, properties: {
-				className: ['anchor-link'],
-			},
-		}]],
+		rehypePlugins: [
+			rehypeSlug,
+			[
+				rehypeAutolinkHeadings,
+				{
+					behavior: "prepend",
+					content: { type: "text", value: "# " },
+					headingProperties: { className: ["anchor"] },
+					properties: {
+						className: ["anchor-link"],
+					},
+				},
+			],
+		],
 	},
 	integrations: [
 		mdx({
