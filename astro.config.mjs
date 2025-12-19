@@ -1,6 +1,6 @@
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite";
 
 import mdx from "@astrojs/mdx";
 import remarkToc from "remark-toc";
@@ -26,6 +26,9 @@ export default defineConfig({
 			],
 		],
 	},
+	vite: {
+		plugins: [tailwindcss()],
+	},
 	integrations: [
 		mdx({
 			syntaxHighlight: "shiki",
@@ -34,6 +37,5 @@ export default defineConfig({
 			gfm: true,
 		}),
 		sitemap(),
-		tailwind(),
 	],
 });

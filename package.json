@@ -1,12 +1,13 @@
 {
-	"name": "itsrainingmani.dev-upgrade",
-	"author": "Mani Sundararajan <mani@hey.com> (https://itsrainingmani.dev)",
-	"description": "The Overthunk Site Overhaul",
+	"name": "itsrainingmani.dev",
+	"author": "Mani Sundararajan <mani@itsrainingmani.dev> (https://itsrainingmani.dev)",
+	"description": "Overthunk - Mani's Personal Site",
 	"homepage": "https://itsrainingmani.dev",
-	"repository": "https://github.com/itsrainingmani/itsrainingmani.dev-upgrade#readme",
+	"repository": "https://github.com/itsrainingmani/itsrainingmani.dev",
 	"license": "MIT",
 	"type": "module",
 	"version": "0.0.1",
+	"packageManager": "bun@1.3.5",
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",
@@ -18,20 +19,20 @@
 		"format": "prettier . --write --cache"
 	},
 	"dependencies": {
-		"@astrojs/mdx": "^4.2.3",
-		"@astrojs/rss": "4.0.11",
-		"@astrojs/sitemap": "^3.3.0",
-		"@astrojs/tailwind": "^6.0.2",
-		"astro": "^5.6.1",
+		"@astrojs/mdx": "^4.3.13",
+		"@astrojs/rss": "^4.0.14",
+		"@astrojs/sitemap": "^3.6.0",
+		"@tailwindcss/vite": "^4.1.18",
+		"astro": "^5.16.6",
 		"rehype-autolink-headings": "^7.1.0",
 		"rehype-slug": "^6.0.0",
 		"remark-toc": "^9.0.0",
-		"tailwindcss": "^3.0.24"
+		"tailwindcss": "^4.1.18"
 	},
 	"devDependencies": {
-		"@tailwindcss/typography": "^0.5.10",
+		"@tailwindcss/typography": "^0.5.19",
 		"prettier": "^3.0.3",
 		"prettier-plugin-astro": "0.14.1",
-		"prettier-plugin-tailwindcss": "0.6.5"
+		"prettier-plugin-tailwindcss": "^0.7.2"
 	}
 }
